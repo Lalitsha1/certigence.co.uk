@@ -1,0 +1,168 @@
+.navbar-brand img {
+  height: 40px;        /* Keep logo height consistent */
+  width: auto;
+  margin-right: 10px;  /* Space between logo and text */
+}
+
+.navbar-brand span {
+  font-weight: 600;    /* Slightly less bold */
+  font-size: 1.3rem;
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.navbar-nav .nav-item {
+  margin-left: 15px; /* Add spacing between nav items */
+}
+
+.navbar-nav .nav-link {
+  padding: 8px 10px;
+  font-weight: 500;
+  color: #333;
+  white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #007bff; /* Highlight color */
+}
+
+.bg-primary {
+  background-color: #0066ff !important; /* Bright blue */
+  font-size: 14px;
+}
+
+.bg-primary a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.bg-primary a:hover {
+  text-decoration: underline;
+}
+
+.bg-primary .d-flex > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.btn-primary {
+  white-space: nowrap;
+  padding: 6px 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-primary span {
+  display: inline-block;
+  margin: 0 3px;
+}
+
+.dropdown-toggle::after {
+  margin-left: 4px;
+}
+
+.navbar-nav .dropdown-menu {
+  min-width: 160px;
+}
+.nav-item .bi {
+  font-size: 18px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+
+.footer-section {
+  background-color: #003366;
+  color: #fff;
+  font-size: 14px;
+}
+
+.newsletter-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -50px;
+}
+
+.newsletter-image img {
+  max-height: 200px;
+}
+
+.newsletter-box {
+  background: linear-gradient(90deg, #0066cc, #00aaff);
+  padding: 20px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -50px;
+}
+
+.newsletter-box h4 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.newsletter-form {
+  display: flex;
+  width: 100%;
+  max-width: 350px;
+}
+
+.newsletter-input {
+  border-radius: 25px 0 0 25px;
+}
+
+.newsletter-button {
+  border-radius: 0 25px 25px 0;
+}
+
+.footer-content {
+  padding: 50px 0;
+}
+
+.footer-logo {
+  max-width: 200px;
+  margin-bottom: 15px;
+}
+
+.footer-text {
+  margin-bottom: 20px;
+}
+
+.social-icons i {
+  font-size: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.footer-bottom {
+  background-color: #002244;
+  text-align: center;
+  padding: 10px 0;
+}
+
