@@ -48,11 +48,14 @@ const Footer = () => {
           <Row className="gy-4">
             {/* About */}
             <Col md={4}>
+
               <img
-                src="https://certigence.co.uk/demo/assets/images/logo-light.png"
-                alt="Logo"
-                className="mb-3 img-in "
+                src="/images/img-logo.jpeg" // ✅ from public/images
+                alt="Certigence ISO Consultancy"
+                className="me-2 "
+                style={{ height: "80px" , marginLeft: "36%" ,  }}
               />
+
               <p>
                 Certigence provides expert ISO consultancy and certification
                 services, helping businesses across the UK comply with global
