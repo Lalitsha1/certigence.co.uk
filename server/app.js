@@ -1,5 +1,3 @@
-// server/app.js
-
 import express from "express";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
@@ -7,7 +5,8 @@ import cors from "cors";
 import { connection } from "./database/dbConnection.js";
 import { errorMiddleware } from "./middlewares/error.js";
 import userRouter from "./routes/userRouter.js";
-import {removeUnverifiedAccounts} from "./automation/removeUnverifiedAccounts.js";
+import contactRouter from "./routes/contactRouter.js";
+import { removeUnverifiedAccounts } from "./automation/removeUnverifiedAccounts.js";
 
 // 🌐 Load environment variables
 config({ path: "./config.env" });
@@ -30,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // 🚏 API Routes
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/contact", contactRouter);
 
 removeUnverifiedAccounts();
 

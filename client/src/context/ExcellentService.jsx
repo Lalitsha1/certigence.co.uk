@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Home.css"; // Import CSS
 
-const ExcellentService  = () => {
+const ExcellentService = () => {
   const [activeTab, setActiveTab] = useState("support");
 
   const renderContent = () => {
@@ -11,9 +11,9 @@ const ExcellentService  = () => {
           <>
             <h3>Excellent service :</h3>
             <ul>
-              <li>✔️ Our mission is to empower businesses worldwide.</li>
-              <li>✔️ Deliver quality-driven solutions for every industry.</li>
-              <li>✔️ Ensure long-term trust and relationships.</li>
+              <li>✔️ Deliver credible, accredited, and globally recognised certification services that build trust, ensure compliance, and open doors to international business opportunities.</li>
+              <li>✔️ Maintain impartiality and transparency in every certification we provide.</li>
+              <li>✔️ Uphold excellence as a standard across all our services.</li>
             </ul>
           </>
         );
@@ -22,9 +22,9 @@ const ExcellentService  = () => {
           <>
             <h3>Excellent service :</h3>
             <ul>
-              <li>✔️ Our vision is to be a global leader in technology.</li>
-              <li>✔️ Build sustainable and scalable solutions.</li>
-              <li>✔️ Drive innovation through teamwork.</li>
+              <li>✔️ To be recognised as a leading global certification agency that builds confidence in international trade.</li>
+              <li>✔️ To provide trusted ISO certification services across diverse industries.</li>
+              <li>✔️ To make certification simple, accessible, and respected by businesses and stakeholders worldwide.</li>
             </ul>
           </>
         );
@@ -33,9 +33,9 @@ const ExcellentService  = () => {
           <>
             <h3>Excellent service :</h3>
             <ul>
-              <li>✔️ Cross functional teams enable out of the box.</li>
-              <li>✔️ We need to build it so that it scales ramp up.</li>
-              <li>✔️ Streamline what’s the status on the deliverables.</li>
+              <li>✔️ Trusted Certification Partner – Upholding integrity, impartiality, and transparency while delivering professional, value-driven audits.</li>
+              <li>✔️ Global Recognition – Providing accredited certifications aligned with international standards across industries and regions.</li>
+              <li>✔️ Client-Centered Approach – Empowering businesses with reliable support, credibility, and long-term success throughout their certification journey.</li>
             </ul>
           </>
         );

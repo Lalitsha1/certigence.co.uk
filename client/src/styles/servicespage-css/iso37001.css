@@ -1,0 +1,161 @@
+.iso37001-container {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.iso37001-hero {
+  position: relative;
+  background: linear-gradient(135deg, #002d62, #0056b3);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  animation: fadeDown 1.5s ease;
+}
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  animation: fadeUp 2s ease;
+}
+.hero-bg-effect {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+  animation: moveBg 12s linear infinite;
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Intro Section */
+.iso37001-intro {
+  padding: 60px 20px;
+  background: #f8fbff;
+  text-align: center;
+}
+.iso37001-intro h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Grid Section */
+.iso37001-grid {
+  padding: 60px 20px;
+  background: white;
+}
+.iso37001-grid h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.grid-item {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.5s, box-shadow 0.5s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  perspective: 1000px;
+}
+.grid-item:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.grid-icon {
+  font-size: 2.5rem;
+  color: #0056b3;
+  margin-bottom: 15px;
+  transition: transform 0.5s;
+}
+.grid-item:hover .grid-icon {
+  transform: rotate(360deg) scale(1.2);
+}
+.grid-item h3 {
+  margin: 15px 0 10px;
+  font-size: 1.3rem;
+  color: #002d62;
+}
+
+/* Implementation & Requirements */
+.iso37001-implementation,
+.iso37001-requirements {
+  padding: 60px 20px;
+  background: #eef3ff;
+}
+.iso37001-implementation h2,
+.iso37001-requirements h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.iso37001-implementation ol,
+.iso37001-requirements ul {
+  max-width: 800px;
+  margin: auto;
+  font-size: 1.1rem;
+}
+.iso37001-implementation li,
+.iso37001-requirements li {
+  margin: 12px 0;
+  transition: transform 0.3s;
+}
+.iso37001-implementation li:hover,
+.iso37001-requirements li:hover {
+  transform: translateX(10px);
+  color: #0056b3;
+}
+
+/* Call to Action */
+.iso37001-cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0056b3, #002d62);
+  color: white;
+}
+.iso37001-cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.cta-button {
+  background: #ffc107;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.cta-button:hover {
+  background: #ff9800;
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes moveBg {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}

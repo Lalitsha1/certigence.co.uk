@@ -1,0 +1,125 @@
+.iso13485-container {
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
+  line-height: 1.8;
+}
+
+/* Hero */
+.iso13485-hero {
+  position: relative;
+  background: linear-gradient(135deg, #004e92, #000428);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.hero-bg-effect {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 60%);
+  animation: rotateBg 20s linear infinite;
+}
+@keyframes rotateBg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Sections */
+.iso13485-intro,
+.iso13485-implementation,
+.iso13485-requirements,
+.iso13485-cta {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Grid */
+.iso13485-grid {
+  padding: 60px 20px;
+  background: #f8fbff;
+  text-align: center;
+}
+
+.iso13485-grid h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #004e92;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.grid-item {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+}
+
+.grid-item:hover {
+  transform: translateY(-10px) rotateX(10deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.grid-icon {
+  font-size: 2.5rem;
+  color: #004e92;
+  margin-bottom: 15px;
+  transition: transform 0.5s ease;
+}
+
+.grid-item:hover .grid-icon {
+  transform: rotateY(360deg);
+}
+
+/* CTA */
+.iso13485-cta {
+  text-align: center;
+  background: linear-gradient(135deg, #004e92, #000428);
+  color: white;
+  padding: 80px 20px;
+  border-radius: 15px;
+  margin: 50px auto;
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  background: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #ffaa00;
+  transform: scale(1.1);
+}

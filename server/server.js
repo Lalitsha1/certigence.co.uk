@@ -4,6 +4,7 @@
 import { app } from "./app.js";
 import { config } from "dotenv";
 
+
 // 🌍 Load environment variables from config.env
 config({ path: "./config.env" });
 

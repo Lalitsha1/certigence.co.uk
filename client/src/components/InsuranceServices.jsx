@@ -2,64 +2,59 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/InsuranceServices.css";
+import "../styles/InsuranceServices.css"; // Make sure this file is imported
 
 const services = [
   {
-    title: "Finance Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1011/400/300",
-    icon: "bi bi-umbrella"
+    title: "ISO 9001",
+    description: "Ensures consistent quality in products and services.",
+    image: "/images/img5.jpeg",
+    icon: "bi bi-check2-square"
   },
   {
-    title: "Car Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1015/400/300",
-    icon: "bi bi-truck-front"
+    title: "ISO 14001",
+    description: "Supports environmental management and sustainability.",
+    image: "/images/img1.jpeg",
+    icon: "bi bi-globe"
   },
   {
-    title: "Life Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1016/400/300",
+    title: "ISO 45001",
+    description: "Promotes occupational health and safety standards.",
+    image: "/images/img2.jpeg",
+    icon: "bi bi-shield-plus"
+  },
+  {
+    title: "ISO 27001",
+    description: "Protects sensitive data through information security.",
+    image: "/images/img4.jpeg",
+    icon: "bi bi-lock"
+  },
+  {
+    title: "ISO 22000",
+    description: "Improves food safety and hygiene practices.",
+    image: "/images/img8.jpeg",
+    icon: "bi bi-basket"
+  },
+  {
+    title: "ISO 13485",
+    description: "Quality systems for medical device manufacturers.",
+    image: "/images/img7.jpeg",
     icon: "bi bi-heart-pulse"
   },
   {
-    title: "Health Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1021/400/300",
-    icon: "bi bi-hospital"
+    title: "ISO 50001",
+    description: "Enhances energy efficiency and cost savings.",
+    image: "/images/img3.jpeg",
+    icon: "bi bi-lightning-charge"
   },
   {
-    title: "Property Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1025/400/300",
-    icon: "bi bi-house-door"
-  },
-  {
-    title: "Travel Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1031/400/300",
-    icon: "bi bi-airplane"
-  },
-  {
-    title: "Pet Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1035/400/300",
-    icon: "bi bi-shield-shaded"
-  },
-  {
-    title: "Business Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1041/400/300",
-    icon: "bi bi-briefcase"
-  },
-  {
-    title: "Education Insurance",
-    description: "Life Insurance financial",
-    image: "https://picsum.photos/id/1050/400/300",
-    icon: "bi bi-book"
+    title: "ISO 37001",
+    description: "Prevents bribery and encourages transparency.",
+    image: "/images/img6.jpeg",
+    icon: "bi bi-shield-lock"
   }
 ];
+
 
 const InsuranceSlider = () => {
   const settings = {
@@ -91,11 +86,11 @@ const InsuranceSlider = () => {
   return (
     <section className="insurance-section">
       <div className="section-header">
-        <button className="btn-primary">Our All Service</button>
-        <h2>We Guide to Insurance This Best Services</h2>
+        <button className="btn-primary">Our All Services</button>
+        <h2>Your Trusted ISO Certification Partner</h2>
         <p>
-          Insurance addresses a range of simple applications and passages. Most
-          plans exchange regular payments known as premiums.
+          We simplify ISO certification with expert support and globally
+          recognised standards, helping you build trust and grow confidently.
         </p>
       </div>
       <Slider {...settings} className="insurance-slider">

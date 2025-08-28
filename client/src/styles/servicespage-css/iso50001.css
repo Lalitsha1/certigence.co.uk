@@ -1,0 +1,397 @@
+/* 🌍 Background Gradient Animation */
+.iso50001-container {
+  background: linear-gradient(135deg, #d1f2eb, #e3f2fd, #f3e5f5, #fffde7);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: #333;
+  overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌟 Hero Section */
+.iso50001-hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  color: #0d47a1;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  animation: fadeInDown 1s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
+.hero-bg-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%);
+  z-index: 1;
+}
+
+/* 📝 Content Sections */
+.iso50001-intro,
+.iso50001-implementation,
+.iso50001-requirements,
+.iso50001-cta {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 40px;
+  animation: fadeIn 1s ease;
+}
+
+.iso50001-intro h2,
+.iso50001-grid h2,
+.iso50001-implementation h2,
+.iso50001-requirements h2,
+.iso50001-cta h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 40px 0 30px 0;
+  color: #1565c0;
+  font-weight: bold;
+  position: relative;
+}
+
+.iso50001-intro h2:after,
+.iso50001-grid h2:after,
+.iso50001-implementation h2:after,
+.iso50001-requirements h2:after,
+.iso50001-cta h2:after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #42a5f5, #1565c0);
+  margin: 15px auto 25px;
+  border-radius: 2px;
+}
+
+.iso50001-intro p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 🔲 Grid Layout */
+.iso50001-grid {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px 0;
+}
+
+/* 🎴 Grid Item Style */
+.grid-item {
+  background: #ffffff;
+  padding: 40px 25px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🔮 Grid Item Hover Animation */
+.grid-item:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15), 0 0 25px rgba(33,150,243,0.2);
+}
+
+.grid-item:hover .grid-icon {
+  transform: rotateY(180deg) scale(1.2);
+  color: #1565c0;
+}
+
+.grid-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #42a5f5;
+  transition: all 0.6s ease;
+}
+
+.grid-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #0d47a1;
+}
+
+.grid-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* 📋 Implementation & Requirements Sections */
+.iso50001-implementation,
+.iso50001-requirements {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 40px;
+  margin: 80px auto;
+  max-width: 900px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.iso50001-implementation ol,
+.iso50001-requirements ul {
+  padding-left: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.iso50001-implementation li,
+.iso50001-requirements li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.iso50001-implementation li:before {
+  content: counter(list-item);
+  position: absolute;
+  left: -30px;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  background: #42a5f5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.iso50001-requirements li:before {
+  content: "✓";
+  color: #42a5f5;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* 🚀 CTA Section */
+.iso50001-cta {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.1), rgba(66, 165, 245, 0.1));
+  padding: 60px 40px;
+  border-radius: 20px;
+  margin: 80px auto;
+  max-width: 900px;
+}
+
+.iso50001-cta p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #1565c0, #42a5f5);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.cta-button:hover:before {
+  left: 100%;
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .iso50001-container {
+    padding: 0;
+  }
+  
+  .iso50001-hero {
+    height: 60vh;
+  }
+  
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .iso50001-intro,
+  .iso50001-grid,
+  .iso50001-implementation,
+  .iso50001-requirements,
+  .iso50001-cta {
+    padding: 0 20px;
+    margin: 50px auto;
+  }
+  
+  .iso50001-intro h2,
+  .iso50001-grid h2,
+  .iso50001-implementation h2,
+  .iso50001-requirements h2,
+  .iso50001-cta h2 {
+    font-size: 2rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .iso50001-implementation,
+  .iso50001-requirements {
+    padding: 30px 20px;
+  }
+  
+  .iso50001-implementation li:before {
+    position: static;
+    margin-right: 10px;
+  }
+  
+  .iso50001-implementation ol {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .iso50001-intro h2,
+  .iso50001-grid h2,
+  .iso50001-implementation h2,
+  .iso50001-requirements h2,
+  .iso50001-cta h2 {
+    font-size: 1.8rem;
+  }
+  
+  .grid-item {
+    padding: 30px 20px;
+  }
+  
+  .cta-button {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+  }
+}

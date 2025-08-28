@@ -1,0 +1,161 @@
+/* =========================================================
+   THEME BASE
+   ========================================================= */
+:root {
+  --primary: #0d6efd;
+  --primary-dark: #084298;
+  --accent: #ffc107;
+  --ink: #222;
+  --muted: #666;
+  --bg-1: #f8fbff;
+  --bg-2: #eef3ff;
+  --card: #ffffff;
+  --radius: 12px;
+  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 6px 20px rgba(0, 0, 0, 0.15);
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+.topbar {
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+.topbar .icon {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.topbar a {
+  color: #fff;
+  margin-left: 12px;
+  transition: opacity 0.3s;
+}
+
+.topbar a:hover {
+  opacity: 0.7;
+}
+
+/* =========================================================
+   NAVBAR BASE
+   ========================================================= */
+.main-navbar {
+  background: var(--card);
+  box-shadow: var(--shadow-1);
+  padding: 12px 0;
+}
+
+.navbar-logo {
+  height: 50px;
+  border-radius: 8px;
+}
+
+/* Navbar links */
+.navbar .nav-link {
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 10px;
+  transition: color 0.3s var(--ease);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--primary);
+}
+
+/* Quote button */
+.quote-btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s var(--ease);
+}
+
+.quote-btn:hover {
+  background: var(--primary-dark);
+  box-shadow: var(--shadow-2);
+}
+
+/* Icons */
+.icons svg {
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.icons svg:hover {
+  color: var(--primary);
+}
+
+/* =========================================================
+   CUSTOM DROPDOWN STYLING
+   ========================================================= */
+.dropdown-menu {
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  padding: 8px 0;
+  border: none;
+  animation: fadeSlide 0.3s var(--ease);
+}
+
+.dropdown-item {
+  font-weight: 600;
+  color: var(--ink);
+  padding: 10px 18px;
+  transition: all 0.3s var(--ease);
+}
+
+.dropdown-item:hover {
+  background: var(--primary);
+  color: #fff !important;
+  transform: translateX(6px);
+  box-shadow: var(--shadow-2);
+  border-radius: 8px;
+}
+
+/* Styling for the active dropdown toggle */
+.navbar .nav-item.dropdown.show .nav-link {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* =========================================================
+   DROPDOWN TOGGLE ARROW ANIMATION
+   ========================================================= */
+.navbar .dropdown-toggle::after {
+  margin-left: 6px;
+  vertical-align: middle;
+  border: none;
+  content: "▾"; /* custom arrow */
+  font-size: 0.8rem;
+  transition: transform 0.3s var(--ease);
+}
+
+.navbar .dropdown.show .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -4,168 +4,24 @@ import "../styles/Home.css"; // import css for feedback section
 import InsuranceServices from "../components/InsuranceServices"; // ✅ logo carousel styles
 import ExcellentService from "../context/ExcellentService";
 import ServicesTimeline from "../context/ServicesTimeline";
-
-// Reusable social links
-const socialLinks = [
-  { href: "#", icon: "facebook" },
-  { href: "#", icon: "pinterest" },
-  { href: "#", icon: "twitter" },
-  { href: "#", icon: "instagram" },
-];
-
-// Navbar dropdown items
-const navDropdowns = {
-  Standard: ["ISO 9001", "ISO 14001", "ISO 45001", "ISO 22000", "ISO 27001"],
-  Services: ["Consulting", "Training", "Audit", "Certification Support", "Risk Assessment"],
-  Industries: ["Manufacturing", "Healthcare", "Education", "IT & Software", "Food & Beverages"],
-};
-
-// Dropdown Component
-const Dropdown = ({ title, items }) => (
-  <li className="nav-item dropdown">
-    <a
-      className="nav-link dropdown-toggle"
-      href="#"
-      role="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      {title}
-    </a>
-    <ul className="dropdown-menu">
-      {items.map((item, i) => (
-        <li key={i}>
-          <a className="dropdown-item" href="#">{item}</a>
-        </li>
-      ))}
-    </ul>
-  </li>
-);
-
-// ✅ Logo Carousel Component
-// const LogoCarousel = () => {
-//   const logos = Array(10).fill(
-//     "https://randomuser.me/api/portraits/men/32.jpg"
-//   ); // you can replace with your logo paths
-
-//   return (
-//     <div className="logo-carousel">
-//       <div className="logo-track">
-//         {logos.map((logo, index) => (
-//           <div className="logo" key={index}>
-//             <img src={logo} alt={`logo-${index}`} />
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+import { FaQ } from "react-icons/fa6";
+import FaqSection from "../context/FaqSection";
+import QuoteForm from "../context/QuoteForm";
 
 const Home = () => {
   return (
     <>
-      {/* Top info bar */}
-      <div className="bg-primary text-white d-flex justify-content-between align-items-center px-4 py-2">
-        <div>
-          <i className="bi bi-envelope-fill me-2"></i>
-          <a href="mailto:info@certigence.co.uk" className="text-white text-decoration-none">
-            info@certigence.co.uk
-          </a>
-          <span className="ms-4">
-            <i className="bi bi-geo-alt-fill me-2"></i>
-            8902 London, 8950018 US.
-          </span>
-        </div>
-        <div>
-          {socialLinks.map((s, i) => (
-            <a key={i} href={s.href} className="text-white me-3">
-              <i className={`bi bi-${s.icon}`}></i>
-            </a>
-          ))}
-          {/* Language Dropdown */}
-          <div className="d-inline dropdown">
-            <a
-              href="#"
-              className="text-white text-decoration-none dropdown-toggle"
-              id="languageDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              ENGLISH
-            </a>
-            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-              {["English", "Spanish", "French", "Hindi", "German"].map((lang, i) => (
-                <li key={i}>
-                  <a className="dropdown-item" href="#">{lang}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+    
+
+      {/* Poster Slider Section */}
+      <div className="poster-slider">
+        <div className="slides">
+          <img src="/images/poster1.jpeg" alt="Poster 1" />
+          <img src="/images/poster2.jpeg" alt="Poster 2" />
+          <img src="/images/poster3.png" alt="Poster 3" />
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div className="container">
-          <a className="navbar-brand d-flex align-items-center" href="#">
-            <img
-              src="/images/img-logo.jpeg" // ✅ from public/images
-              alt="Certigence ISO Consultancy"
-              className="me-2"
-              style={{ height: "60px" }}
-            />
-          </a>
-
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="mainNavbar">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-              <li className="nav-item"><a className="nav-link active" href="#">Home</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">About Us</a></li>
-
-              {/* Dropdowns */}
-              {Object.entries(navDropdowns).map(([title, items]) => (
-                <Dropdown key={title} title={title} items={items} />
-              ))}
-
-              <li className="nav-item"><a className="nav-link" href="#">Blog</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">FAQ</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Contact</a></li>
-
-              {/* Search + User */}
-              <li className="nav-item d-flex align-items-center ms-3">
-                <a href="#" className="nav-link px-2"><i className="bi bi-search fs-5"></i></a>
-                <a href="http://localhost:5173/auth" className="nav-link px-2"><i className="bi bi-person fs-5"></i></a>
-              </li>
-
-              {/* Get a Quote */}
-              <li className="nav-item ms-3">
-                <a
-                  href="#"
-                  className="btn btn-primary rounded-pill px-4 d-flex align-items-center"
-                  style={{ height: "40px" }}
-                >
-                  <span>Get a</span>
-                  <br />
-                  <strong style={{ lineHeight: "1" }}>Quote</strong>
-                  <i className="bi bi-arrow-right ms-2"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
 
       {/* Feedback Section */}
       <div className="container mt-5 main-container">
@@ -241,10 +97,11 @@ const Home = () => {
             <span className="highlight">2010</span>
           </h2>
           <p>
-            At Certigence, we specialize in helping organizations achieve global
-            compliance through internationally recognized ISO standards. With years
-            of expertise, we ensure a seamless certification process tailored to
-            your business needs.
+            At Certigence, we are more than just a certification body – we are your global partner in building trust, credibility, and compliance. As a multi-accreditation certification agency, we provide internationally recognised certifications that empower businesses to compete confidently in today’s market.
+
+            With expertise across ISO standards, sector-specific certifications, and compliance solutions, we work with organisations of all sizes – from startups to multinational corporations – ensuring they meet international quality, safety, and sustainability benchmarks.
+
+            Our approach is built on integrity, impartiality, and innovation, making Certigence the trusted choice for companies worldwide.
           </p>
 
           <div className="services">
@@ -286,7 +143,7 @@ const Home = () => {
       </div>
       {/* ================================ */}
 
-      
+
       {/* Blog Section */}
       <div className="container mt-5">
         <ExcellentService />
@@ -298,7 +155,23 @@ const Home = () => {
       <div className="container mt-5">
         <ServicesTimeline />
       </div>
-      
+
+
+      {/* ================================================================ */}
+      {/* =========================================================== */}
+
+      <div className="container mt-5">
+        <QuoteForm />
+      </div>
+
+
+      {/* ================================================================ */}
+      {/* =========================================================== */}
+
+      <div className="container mt-5">
+        <FaqSection />
+      </div>
+
 
       {/* ================================================================ */}
 

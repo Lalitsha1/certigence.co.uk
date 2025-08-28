@@ -1,0 +1,256 @@
+/*
+ * File: QualityPolicyObjectives.css
+ * Description: Styles for the Quality Policy & Objectives page,
+ * including a professional color palette, responsive layouts,
+ * and hover effects.
+ */
+
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --light-blue: #e3f2fd;
+  --dark-blue: #0a58ca;
+  --card-bg: #fff;
+  --border-radius: 1rem;
+  --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.quality-policy-section {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--secondary-color);
+  margin-bottom: 3rem;
+}
+
+.quality-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background-color: var(--light-blue);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.quality-icon-main {
+  font-size: 3rem;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+/* --- Quality Cards --- */
+.quality-card {
+  height: 100%;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.quality-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.quality-card.active {
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.quality-card.active .quality-icon,
+.quality-card.active .list-icon {
+  color: #fff;
+  border-color: #fff;
+}
+
+.quality-card-header {
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.quality-card.active .quality-card-header {
+  border-bottom-color: #ffffff33;
+}
+
+.quality-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+}
+
+.quality-card h4 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.quality-card-body {
+  padding: 2rem;
+}
+
+.quality-card ul {
+  padding-left: 1.5rem;
+}
+
+.quality-card ul li {
+  position: relative;
+  margin-bottom: 1rem;
+  list-style: none;
+}
+
+.list-icon {
+  position: absolute;
+  left: -1.5rem;
+  top: 0.2rem;
+  color: var(--primary-color);
+}
+
+.quality-card.active .list-icon {
+  color: #fff;
+}
+
+.policy-statement {
+  background-color: #f1f7fe;
+  padding: 1.5rem;
+  border-left: 5px solid var(--primary-color);
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+}
+
+.quality-card.active .policy-statement {
+  background-color: #1263d4;
+  border-left-color: #fff;
+}
+
+.policy-statement h5 {
+  font-weight: 600;
+  color: var(--dark-blue);
+  margin-bottom: 0.5rem;
+}
+
+.quality-card.active .policy-statement h5,
+.quality-card.active .policy-statement p {
+  color: #fff;
+}
+
+/* --- Objectives Section --- */
+.objective-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.objective-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.quality-card.active .objective-icon {
+  color: #fff;
+}
+
+.objective-content h6 {
+  font-weight: 600;
+  color: #333;
+}
+
+.quality-card.active .objective-content h6,
+.quality-card.active .objective-content p {
+  color: #fff;
+}
+
+.objective-content p {
+  font-size: 0.95rem;
+  color: var(--secondary-color);
+  margin-bottom: 0;
+}
+
+.quality-card.active .objective-content p {
+  color: #e9ecef;
+}
+
+/* --- Benefits Section --- */
+.benefit-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.benefit-card h4 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.benefit-card p {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 991.98px) {
+  .quality-intro {
+    flex-direction: column;
+    text-align: center;
+  }
+  .quality-icon-main {
+    margin: 0 auto 1rem;
+  }
+  .quality-card-header {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+  }
+}

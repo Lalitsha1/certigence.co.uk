@@ -1,0 +1,215 @@
+/* ===== FAQ Section Styling ===== */
+.faq-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 4rem 6rem;
+  background: linear-gradient(135deg, #f7faff, #eef3ff);
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  perspective: 1200px;
+  transition: all 0.5s ease;
+}
+
+/* Left Section */
+.faq-left {
+  transform-style: preserve-3d;
+}
+
+.faq-tag {
+  background: #fff;
+  border: 2px solid #3b82f6;
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-tag:hover {
+  background: #3b82f6;
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0px 6px 15px rgba(59, 130, 246, 0.4);
+}
+
+.faq-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+  color: #1e293b;
+}
+
+.faq-title span {
+  font-size: 1.6rem;
+  color: #3b82f6;
+}
+
+/* FAQ Item */
+.faq-items {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.faq-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.faq-item:hover {
+  transform: rotateY(6deg) rotateX(3deg) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.faq-item.active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.faq-answer {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.faq-bottom-link {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.faq-bottom-link:hover {
+  color: #3b82f6;
+  transform: translateX(5px);
+}
+
+/* Right Section */
+.faq-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px;
+}
+
+.faq-image-box {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.faq-image-box:hover {
+  transform: rotateY(-8deg) rotateX(4deg) scale(1.05);
+}
+
+.faq-main-image {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  transition: all 0.5s ease;
+}
+
+.faq-sub-image {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 120px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  transform: rotate(-5deg);
+  transition: all 0.4s ease;
+}
+
+.faq-sub-image img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.faq-image-box:hover .faq-sub-image {
+  transform: rotate(0deg) translate(-10px, -10px);
+}
+
+/* Decorative Elements */
+.faq-decor .faq-icon-circle {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background: #3b82f6;
+  color: #fff;
+  padding: 0.7rem;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+}
+
+.faq-decor .faq-overlay-label {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.faq-image-box:hover .faq-badge {
+  transform: translateY(-10px);
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
