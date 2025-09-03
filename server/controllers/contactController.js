@@ -3,14 +3,14 @@ import nodemailer from "nodemailer";
 
 export const sendMessage = async (req, res) => {
   try {
-    const { name, email, mobile, subject, message } = req.body;
+    const { name, email, mobile, company_name, message } = req.body;
 
-    if (!name || !email || !mobile || !subject || !message) {
+    if (!name || !email || !mobile || !company_name || !message) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
     // ✅ Save to DB
-    const newMessage = await Contact.create({ name, email, mobile, subject, message });
+    const newMessage = await Contact.create({ name, email, mobile, company_name, message });
 
     // ✅ Setup transporter
     const transporter = nodemailer.createTransport({
@@ -28,14 +28,14 @@ export const sendMessage = async (req, res) => {
     const mailOptions = {
       from: `"${name}" <${process.env.SMTP_MAIL}>`,
       to: process.env.SMTP_MAIL,
-      subject: `📩 New Contact Form: ${subject}`,
+      company_name: `📩 New Contact Form: ${company_name}`,
       text: `
         You have a new contact form message:
         -------------------------------------
         Name: ${name}
         Email: ${email}
         Mobile: ${mobile}
-        Subject: ${subject}
+        Company_Name: ${company_name}
         Message: ${message}
       `,
     };

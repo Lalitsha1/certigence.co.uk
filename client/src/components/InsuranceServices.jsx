@@ -1,60 +1,68 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/InsuranceServices.css"; // Make sure this file is imported
+import "../styles/InsuranceServices.css"; 
 
 const services = [
   {
     title: "ISO 9001",
     description: "Ensures consistent quality in products and services.",
     image: "/images/img5.jpeg",
-    icon: "bi bi-check2-square"
+    icon: "bi bi-check2-square",
+    path: "/iso-9001"
   },
   {
     title: "ISO 14001",
     description: "Supports environmental management and sustainability.",
     image: "/images/img1.jpeg",
-    icon: "bi bi-globe"
+    icon: "bi bi-globe",
+    path: "/iso-14001"
   },
   {
     title: "ISO 45001",
     description: "Promotes occupational health and safety standards.",
     image: "/images/img2.jpeg",
-    icon: "bi bi-shield-plus"
+    icon: "bi bi-shield-plus",
+    path: "/iso-45001"
   },
   {
     title: "ISO 27001",
     description: "Protects sensitive data through information security.",
     image: "/images/img4.jpeg",
-    icon: "bi bi-lock"
+    icon: "bi bi-lock",
+    path: "/iso-27001"
   },
   {
     title: "ISO 22000",
     description: "Improves food safety and hygiene practices.",
     image: "/images/img8.jpeg",
-    icon: "bi bi-basket"
+    icon: "bi bi-basket",
+    path: "/iso-22000"
   },
   {
     title: "ISO 13485",
     description: "Quality systems for medical device manufacturers.",
     image: "/images/img7.jpeg",
-    icon: "bi bi-heart-pulse"
+    icon: "bi bi-heart-pulse",
+    path: "/iso-13485"
   },
   {
     title: "ISO 50001",
     description: "Enhances energy efficiency and cost savings.",
     image: "/images/img3.jpeg",
-    icon: "bi bi-lightning-charge"
+    icon: "bi bi-lightning-charge",
+    path: "/iso-50001"
   },
   {
     title: "ISO 37001",
     description: "Prevents bribery and encourages transparency.",
     image: "/images/img6.jpeg",
-    icon: "bi bi-shield-lock"
+    icon: "bi bi-shield-lock",
+    path: "/iso-37001"
   }
 ];
-
 
 const InsuranceSlider = () => {
   const settings = {
@@ -68,17 +76,11 @@ const InsuranceSlider = () => {
     responsive: [
       {
         breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
+        settings: { slidesToShow: 2, slidesToScroll: 2 }
       },
       {
         breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
+        settings: { slidesToShow: 1, slidesToScroll: 1 }
       }
     ]
   };
@@ -107,11 +109,11 @@ const InsuranceSlider = () => {
             <div className="card-image">
               <img src={service.image} alt={service.title} />
             </div>
-            {index === 0 && (
-              <button className="card-button">
-                <i className="bi bi-arrow-right"></i>
-              </button>
-            )}
+
+            {/* ✅ Corrected paths */}
+            <Link to={service.path} className="card-button">
+              <i className="bi bi-arrow-right"></i>
+            </Link>
           </div>
         ))}
       </Slider>

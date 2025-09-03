@@ -23,39 +23,7 @@ const Home = () => {
       </div>
 
 
-      {/* Feedback Section */}
-      <div className="container mt-5 main-container">
-        <div className="feedback-container">
-          {/* Left Image */}
-          <div className="feedback-image">
-            <img
-              src="https://images.pexels.com/photos/6393371/pexels-photo-6393371.jpeg"
-              alt="Happy Family"
-            />
-          </div>
-
-          {/* Right Content */}
-          <div className="feedback-content">
-            {/* Client Avatars + Feedback */}
-            <div className="feedback-row">
-              <div className="avatars">
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client1" className="avatar" />
-                <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Client2" className="avatar" />
-                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client3" className="avatar" />
-              </div>
-              <p className="feedback-link">
-                Client Feedback <span className="arrow">→</span>
-              </p>
-            </div>
-
-            {/* Stats */}
-            <p className="feedback-stats">
-              1,200+ businesses empowered with ISO certifications <br />
-              <span className="explore">Explore Our Services</span>
-            </p>
-          </div>
-        </div>
-      </div>
+      
 
 
 
@@ -91,24 +59,24 @@ const Home = () => {
 
         {/* Right Content */}
         <div className="home-right">
-          <button className="about-btn">About Certigence</button>
+         <a href="/aboutus"><button className="about-btn">About Certigence</button></a>
           <h2>
             Your Trusted ISO Certification Partner Since{" "}
             <span className="highlight">2010</span>
           </h2>
           <p>
-            At Certigence, we are more than just a certification body – we are your global partner in building trust, credibility, and compliance. As a multi-accreditation certification agency, we provide internationally recognised certifications that empower businesses to compete confidently in today’s market.
+            At Certigence, we are more than just a certification body  we are your global partner in building trust, credibility, and compliance. As a multi accreditation certification agency, we provide internationally recognised certifications that empower businesses to compete confidently in today’s market.
 
-            With expertise across ISO standards, sector-specific certifications, and compliance solutions, we work with organisations of all sizes – from startups to multinational corporations – ensuring they meet international quality, safety, and sustainability benchmarks.
+            With expertise across ISO standards, sector-specific certifications, and compliance solutions, we work with organisations of all sizes  from startups to multinational corporations  ensuring they meet international quality, safety, and sustainability benchmarks.
 
             Our approach is built on integrity, impartiality, and innovation, making Certigence the trusted choice for companies worldwide.
           </p>
 
           <div className="services">
-            <div>✔ ISO 9001 Certification</div>
-            <div>✔ ISO 27001 Implementation</div>
-            <div>✔ Internal Audits</div>
-            <div>✔ Compliance Training</div>
+            <div>✔ Expert and qualified Team</div>
+            <div>✔ Fast and Reliable Services</div>
+            <div>✔  Uncompromising integrity and quality</div>
+            <div>✔  Building lasting relationships</div>
           </div>
 
           {/* Founder Info */}

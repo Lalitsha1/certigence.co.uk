@@ -1,38 +1,35 @@
 import React from "react";
 import "../styles/BlogSection.css";
 
-
 const blogData = [
   {
     id: 1,
     title: "Why ISO 9001 Matters for Modern Businesses",
-    description: "Learn how ISO 9001 ensures consistent quality and boosts customer trust across industries.",
+    description:
+      "Learn how ISO 9001 ensures consistent quality and boosts customer trust across industries.",
     date: "12 Aug 2025",
-    image: "https://img.freepik.com/free-vector/flat-design-quality-management-infographic_23-2149133932.jpg",
+    image:
+      "https://thafd.bing.com/th/id/OIG1.ASGiTBlQ0dxWHwzT53cq?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn", // ✅ Better Quality Management Image
   },
   {
     id: 2,
     title: "ISO 45001: Ensuring Workplace Health & Safety",
-    description: "Explore how ISO 45001 creates a safe working environment by reducing occupational risks.",
+    description:
+      "Explore how ISO 45001 creates a safe working environment by reducing occupational risks.",
     date: "08 Aug 2025",
-    image: "https://img.freepik.com/free-vector/infographic-template-health-safety_23-2149136606.jpg",
+    image:
+      "https://thafd.bing.com/th/id/OIG4.dYzap0ZiwbAJbyyqBXvK?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn", // ✅ Workplace Safety Image
   },
   {
     id: 3,
     title: "How ISO Standards Benefit IT & Software Firms",
-    description: "Discover the role of ISO 27001 and other standards in securing information systems.",
+    description:
+      "Discover the role of ISO 27001 and other standards in securing information systems.",
     date: "01 Aug 2025",
-    image: "https://img.freepik.com/free-vector/information-security-abstract-concept_335657-3180.jpg",
+    image:
+      "https://img.freepik.com/free-vector/cyber-security-data-protection-concept_23-2148532225.jpg", // ✅ Cybersecurity / IT Security Image
   },
-  {
-    id: 4,
-    title: "4 Simple Steps to Get ISO Certified",
-    description: "Understand the certification journey—from planning to audit and ongoing compliance.",
-    date: "29 Jul 2025",
-    image: "https://img.freepik.com/free-vector/infographic-elements-business-steps-template_52683-38880.jpg",
-  }
 ];
-
 
 const BlogSection = () => {
   return (

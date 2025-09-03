@@ -1,6 +1,7 @@
-import React from "react";
+// NavbarComponent.jsx
+import React, { useContext, useState } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaEnvelope,
   FaMapMarkerAlt,
@@ -10,70 +11,80 @@ import {
   FaInstagram,
   FaSearch,
   FaUser,
+  FaSignOutAlt,
 } from "react-icons/fa";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { Context } from "../main";
+
+// NOTE: import bootstrap CSS ONLY (no bootstrap JS)
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Navbar.css";
 
-// ✅ Import Bootstrap CSS & JS globally
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
 const NavbarComponent = () => {
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await axios.get("http://localhost:8822/api/v1/user/logout", {
+        withCredentials: true,
+      });
+      toast.success("Logged out successfully");
+      setIsAuthenticated(false);
+      setUser(null);
+      navigate("/auth");
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Logout failed");
+    }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${searchQuery}`);
+    }
+  };
+
   return (
     <div>
-      {/* 🔹 Topbar Section */}
-      <div className="topbar">
+      {/* Topbar */}
+      <div className="certi-navbar__topbar">
         <Container className="d-flex justify-content-between align-items-center">
-          <div className="topbar-left">
-            <FaEnvelope className="icon" /> info@certigence.co.uk
-            <FaMapMarkerAlt className="icon ms-3" /> 8902 London, 8950018 US.
+          <div className="certi-navbar__topbar-left">
+            <FaEnvelope className="certi-navbar__icon" /> info@certigence.co.uk
+            <FaMapMarkerAlt className="certi-navbar__icon ms-3" /> 8902 London, 8950018 US.
           </div>
-          <div className="topbar-right">
+          <div className="certi-navbar__topbar-right">
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaPinterest /></a>
             <a href="#"><FaTwitter /></a>
             <a href="#"><FaInstagram /></a>
-
-            {/* 🔽 Language Dropdown */}
-            <NavDropdown title="ENGLISH" id="language-dropdown">
-              <NavDropdown.Item>English</NavDropdown.Item>
-              <NavDropdown.Item>French</NavDropdown.Item>
-              <NavDropdown.Item>German</NavDropdown.Item>
-            </NavDropdown>
           </div>
         </Container>
       </div>
 
-      {/* 🔹 Main Navbar Section */}
-      <Navbar expand="lg" className="main-navbar">
+      {/* Main Navbar */}
+      <Navbar expand="lg" className="certi-navbar__main">
         <Container>
-          {/* Logo */}
           <Navbar.Brand as={Link} to="/">
-            <img
-              src="images/img-logo.jpeg"
-              alt="Certigence Logo"
-              className="navbar-logo"
-            />
+            <img src="images/img-logo.png" alt="Certigence Logo" className="certi-navbar__logo" />
           </Navbar.Brand>
 
-          {/* Toggle for mobile */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-          {/* Navbar Links */}
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
-              
-              {/* ✅ Corrected "About Us" Dropdown */}
+
               <NavDropdown title="About Us" id="about-us-dropdown">
                 <NavDropdown.Item as={Link} to="/aboutus">About Us</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to="/vision-mission">Vision And Mission</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/vision-mission">Vision & Mission</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/impartiality-policy">Impartiality Policy</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/quality-policy">Quality Policy & Objectives</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/management-process">Management System Process</NavDropdown.Item>
               </NavDropdown>
-              
-              {/* 🔽 Services Dropdown (Your existing dropdown) */}
+
               <NavDropdown title="Services" id="services-dropdown">
                 <NavDropdown.Item as={Link} to="/iso-9001">ISO 9001</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/iso-14001">ISO 14001</NavDropdown.Item>
@@ -85,22 +96,36 @@ const NavbarComponent = () => {
                 <NavDropdown.Item as={Link} to="/iso-22000">ISO 22000</NavDropdown.Item>
               </NavDropdown>
 
-              <Nav.Link as={Link} to="/industries">Industries</Nav.Link>
+              <Nav.Link as={Link} to="/accreditation">Accreditation</Nav.Link>
               <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
               <Nav.Link as={Link} to="/faq">FAQ</Nav.Link>
               <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
             </Nav>
 
-            {/* 🔎 Search & User Icons */}
-            <div className="icons">
-              <FaSearch className="me-3" />
-              <Link to="/auth">
-                <FaUser className="me-3" />
-              </Link>
+            <form className="certi-navbar__search d-flex" onSubmit={handleSearch}>
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button type="submit"><FaSearch /></button>
+            </form>
+
+            <div className="certi-navbar__auth">
+              {isAuthenticated ? (
+                <span onClick={handleLogout}><FaSignOutAlt className="me-2" /> Logout</span>
+              ) : (
+                <span onClick={() => navigate("/auth")}><FaUser className="me-2" /> Login</span>
+              )}
             </div>
 
-            {/* CTA Button */}
-            <button className="quote-btn">Get a Quote →</button>
+            <button
+              className="certi-navbar__quote"
+              onClick={() => navigate("/contact")}
+            >
+              Get a Quote →
+            </button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

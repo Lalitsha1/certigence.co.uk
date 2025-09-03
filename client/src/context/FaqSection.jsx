@@ -21,8 +21,7 @@ const faqData = [
   },
   {
     question: "Q4. How much does ISO certification cost?",
-    answer:
-      "A4. Costs vary based on company size and certification type. For small businesses, it may start from ₹40,000, while larger organizations may pay more.",
+    answer: "A4. The cost of ISO certification varies significantly based on several factors, including your company's size, the complexity of your operations, and the specific ISO standard you are pursuing. For a small to medium-sized business, the total cost for initial certification typically ranges from **$3,000 to $10,000**, which includes audit fees and potential consulting costs. Larger organizations with multiple sites and complex systems can expect to pay significantly more. In addition, you must budget for annual surveillance audits to maintain your certification."
   },
 ];
 
@@ -75,13 +74,13 @@ const FaqSection = () => {
         <div className="faq-image-box">
           <img
             className="faq-main-image"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebpxUJYJWqbzhf0jejoWWOqPWMTYQBjjwSA&s"
+            src="https://thafd.bing.com/th/id/OIG3.ruMEKaxr01hLUQVcpIRq?w=270&h=270&c=6&r=0&o=5&pid=ImgGn"
             alt="thinking man"
           />
 
           <div className="faq-sub-image">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebpxUJYJWqbzhf0jejoWWOqPWMTYQBjjwSA&s"
+              src="https://thafd.bing.com/th/id/OIG3.ruMEKaxr01hLUQVcpIRq?w=270&h=270&c=6&r=0&o=5&pid=ImgGn"
               alt="couple"
             />
           </div>

@@ -1,200 +1,222 @@
+/* ==========================
+   Global Container
+========================== */
 .iso14001-container {
-  padding: 40px;
-  background: #f8fbff;
-  font-family: "Segoe UI", sans-serif;
-  color: #222;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #001f3f, #003366, #004080);
+  color: #e6f0ff;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  min-height: 100vh;
 }
 
+/* ==========================
+   Headings
+========================== */
 .iso14001-heading {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 15px;
-  color: #0d6efd;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #00e6ff;
+  text-shadow: 0 0 15px rgba(0, 230, 255, 0.8);
 }
 
 .iso14001-subtext {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  color: #555;
+  font-size: 1.3rem;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 50px;
+  color: #cce6ff;
+  line-height: 1.6;
 }
 
 .section-title {
-  font-size: 2rem;
-  margin: 40px 0 20px;
-  text-align: center;
-  color: #084298;
+  font-size: 2.4rem;
+  margin: 60px 0 30px;
+  color: #00ffcc;
+  text-shadow: 0px 0px 12px rgba(0, 255, 204, 0.7);
 }
 
-/* Grid Layout */
-.iso14001-grid {
+/* ==========================
+   Card Grids
+========================== */
+.iso14001-grid,
+.principles-grid,
+.steps-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
 }
 
-.iso14001-card {
-  background: #fff;
+/* ==========================
+   Cards (Benefits, Principles, Steps)
+========================== */
+.iso14001-card,
+.principle-card,
+.step-card {
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  perspective: 1000px;
 }
 
-.iso14001-card:hover {
-  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.iso14001-card:hover,
+.principle-card:hover,
+.step-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 255, 255, 0.6);
 }
 
+/* Benefit Card */
 .iso14001-img img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-}
-
-.iso14001-content {
-  padding: 20px;
-  text-align: center;
+  border-radius: 15px;
 }
 
 .iso14001-icon {
-  color: #0d6efd;
-  margin-bottom: 10px;
+  color: #00e6ff;
+  margin: 15px 0;
+  font-size: 2rem;
 }
 
 .iso14001-content h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
+  color: #1a0404;
 }
 
 .iso14001-content p {
   font-size: 1rem;
-  color: #666;
+  color: #cce6ff;
 }
 
-/* Principles */
-.principles-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.principle-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.principle-card:hover {
-  transform: scale(1.08);
-  background: #eef6ff;
-}
-
+/* Principle Card */
 .principle-icon {
-  color: #198754;
-  margin-bottom: 10px;
+  color: #ffeb3b;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
 
-/* Steps */
-.steps-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+.principle-card h4 {
+  color: #120101;
+  margin-bottom: 8px;
 }
 
-.step-card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 18px;
-  text-align: center;
-  transition: transform 0.4s ease;
-}
-
-.step-card:hover {
-  transform: translateY(-8px);
-  background: #f0f8ff;
-}
-
+/* Step Card */
 .step-circle {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: #0d6efd;
-  color: #fff;
+  background: linear-gradient(135deg, #00e6ff, #00ff7f);
+  color: #000;
+  font-weight: bold;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 15px;
-  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
 }
 
-/* Industries */
+.principlesText{
+  color: #000;
+}
+/* ==========================
+   Industries
+========================== */
 .industries-list {
   max-width: 800px;
-  margin: auto;
+  margin: 40px auto;
   padding: 20px;
-  background: #fff;
+  background: rgba(255,255,255,0.08);
   border-radius: 20px;
   list-style: none;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 
 .industries-list li {
-  padding: 10px 0;
-  font-size: 1.1rem;
-  border-bottom: 1px solid #ddd;
-  transition: color 0.3s;
+  padding: 12px 0;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: #cce6ff;
+  transition: all 0.3s;
 }
 
 .industries-list li:hover {
-  color: #0d6efd;
+  color: #00e6ff;
+  transform: translateX(10px);
 }
 
-/* FAQs */
+/* ==========================
+   FAQs
+========================== */
 .faq-container {
-  margin-top: 30px;
+  margin-top: 40px;
   display: grid;
-  gap: 20px;
+  gap: 25px;
 }
 
 .faq-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  transition: transform 0.3s ease;
+  background: rgba(255,255,255,0.07);
+  padding: 25px;
+  border-radius: 18px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  text-align: left;
 }
 
 .faq-card:hover {
-  transform: translateX(8px);
-  background: #eef3ff;
+  transform: translateX(10px);
+  background: rgba(0, 230, 255, 0.08);
 }
 
 .faq-card h4 {
-  color: #084298;
-  margin-bottom: 10px;
+  color: #00e6ff;
+  margin-bottom: 12px;
 }
 
-/* Closing */
+/* ==========================
+   Closing Box
+========================== */
 .closing-box {
-  background: linear-gradient(135deg, #0d6efd, #198754);
-  color: #fff;
-  padding: 40px;
-  margin-top: 50px;
+  background: linear-gradient(135deg, #00e6ff, #00ff7f);
+  color: #000;
+  padding: 50px;
+  margin-top: 60px;
   text-align: center;
-  border-radius: 24px;
+  border-radius: 30px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.6);
 }
 
 .closing-box h2 {
   margin-bottom: 15px;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: bold;
 }
 
 .closing-box p {
   font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ==========================
+   Responsive
+========================== */
+@media (max-width: 768px) {
+  .iso14001-heading {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .iso14001-subtext {
+    font-size: 1rem;
+  }
 }

@@ -9,7 +9,7 @@ const QuoteForm = () => {
       {/* Left Side Image */}
       <div className="quote-left">
         <img
-          src="https://certigence.co.uk/demo/assets/images/contact/contact-1-1.png" // ✅ working image
+          src="https://thafd.bing.com/th/id/OIG2.CF6stnId_Bu.Q.pDA1F.?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" // ✅ working image
           alt="Business Woman"
           className="quote-image"
         />
@@ -23,7 +23,7 @@ const QuoteForm = () => {
         </div>
 
         <h2 className="quote-heading">
-          Get The Free Ready Begin <br /> your Savings Money
+          Unlock Global Recognition <br /> with ISO Certification 
         </h2>
 
         <form className="quote-form">
@@ -43,20 +43,6 @@ const QuoteForm = () => {
             <option value="31000">ISO 31000 – Risk Management</option>
           </select>
 
-          <div className="slider-box">
-            <label>Limits Of Balance:</label>
-            <div className="slider-row">
-              <input
-                type="range"
-                min="0"
-                max="100000"
-                step="1000"
-                value={balance}
-                onChange={(e) => setBalance(e.target.value)}
-              />
-              <span>${balance}</span>
-            </div>
-          </div>
 
           <button type="submit" className="quote-btn">
             Get a Quote →

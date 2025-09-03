@@ -1,167 +1,164 @@
 import React from "react";
-import { FaBalanceScale, FaCertificate, FaTrademark, FaFileInvoiceDollar, FaLeaf, FaIndustry, FaUtensils, FaPenNib, FaBuilding } from "react-icons/fa";
+import {
+  FaCertificate,
+  FaIndustry,
+  FaLeaf,
+  FaUtensils,
+  FaShieldAlt,
+  FaGlobe,
+  FaCogs,
+  FaHeartbeat,
+  FaRecycle,
+} from "react-icons/fa";
 import CountUp from "react-countup";
 import "../styles/AboutUs.css";
-
-
 
 const features = [
   {
     id: "01",
-    title: "Fast and Reliable Services",
+    title: "Fast & Reliable Services",
     description:
-      "We offer quick and trustworthy services for our customers. As you submit the eligible documents, our people work on the registration processes. The process is 100% online and secure. Your personal data will be secured during the registration process.",
+      "At Certigence, we provide quick, secure, and hassle-free ISO certification services with 100% online support.",
   },
   {
     id: "02",
-    title: "Expert and qualified Team",
+    title: "Experienced ISO Experts",
     description:
-      "We have well qualified CA, CS, and Advocates that will work on your startup to grow and set up your business legally. We have a well-experienced team that can communicate with you to solve your problems and support your business growth.",
+      "Our qualified auditors  bring years of expertise in ISO standards to help your business achieve compliance smoothly.",
   },
   {
     id: "03",
-    title: "Transparent Professional Fees",
+    title: "Transparent Pricing",
     description:
-      "Trust is an important element in business and the customers are our king. We provide digital receipts for transparency, and all charges will be mentioned clearly on the receipt.",
+      "Affordable packages, clear breakdowns, and no hidden charges. Every client receives official ISO certification documents.",
   },
   {
     id: "04",
-    title: "One-Stop Junction",
+    title: "One-Stop ISO Solution",
     description:
-      "All services are handled by us, so you won't need to search for others. Our team covers logo design, web development, and more to help your business grow online.",
+      "We offer all major ISO certifications under one roof – making it simple for you to get certified and grow globally.",
   },
   {
     id: "05",
     title: "Our Mission",
     description:
-      "We operate 100% online with 24×7 support via calls, chats, and WhatsApp. We aim to build strong customer relationships and solve your problems efficiently.",
+      "To simplify ISO certification for businesses, making it accessible, affordable, and stress-free for every entrepreneur.",
   },
   {
     id: "06",
     title: "Our Vision",
     description:
-      "We have a presence in 20+ cities to help startups grow. Our goal is to reach every city in India and assist entrepreneurs with their business journey.",
+      "To become India’s most trusted partner for ISO certification and compliance worldwide.",
   },
 ];
 
 const services = [
   {
-    title: "Legal Services",
-    icon: <FaBalanceScale />,
-    description:
-      "We have a well-qualified team of CA and Advocates that will help you in making your local government documents that will help your registration of the company. And also we give our services after the registration of your company so that we can help you if any problem comes to you.",
-  },
-  {
-    title: "ISO certification",
+    title: "ISO 9001 (Quality Management)",
     icon: <FaCertificate />,
     description:
-      "This certification means that an organization has met all the requirements in the 9001 Quality Management System (QMS). We help customers achieve the ISO certification for their company. As the people trust the ISO certification, so the companies should also have the ISO certifications.",
+      "Ensure consistent quality and customer satisfaction with ISO 9001 certification.",
   },
   {
-    title: "Trademark Registration",
-    icon: <FaTrademark />,
-    description:
-      "Trademark registration helps establish ownership and protect the brand of an entity. It is necessary to register your trademark, and we help people to register trademarks at the lowest and most affordable prices possible.",
-  },
-  {
-    title: "GST Registration",
-    icon: <FaFileInvoiceDollar />,
-    description:
-      "GST registration is an important procedure to run your business legally. It allows you to collect tax from customers and also take loans if you have your GST filing and Income Tax returns in place.",
-  },
-  {
-    title: "Apeda Registration",
+    title: "ISO 14001 (Environmental Management)",
     icon: <FaLeaf />,
     description:
-      "The APEDA registration is established by the Government under the APEDA act to help exporters of agricultural and processed food products. We assist businesses in registering under APEDA to enable exports and business growth.",
+      "Show your commitment to sustainability and environmental responsibility.",
   },
   {
-    title: "MSME Registration",
-    icon: <FaIndustry />,
-    description:
-      "MSME is a vital part of India’s economy. Registering as MSME allows you to get benefits like subsidies, government loans, and easier access to funding. We help customers get MSME certificates quickly and easily.",
-  },
-  {
-    title: "FSSAI Registration",
+    title: "ISO 22000 (Food Safety Management)",
     icon: <FaUtensils />,
     description:
-      "Every food business in India needs FSSAI registration. We help startups or existing businesses to get their FSSAI license quickly so they can operate legally and gain trust from customers.",
+      "Guarantee safe and high-quality food production with ISO 22000 certification.",
   },
   {
-    title: "Logo Design",
-    icon: <FaPenNib />,
+    title: "ISO 27001 (Information Security)",
+    icon: <FaShieldAlt />,
     description:
-      "Our graphics design team can help you create a strong business identity by designing a professional and attractive 3D digital logo that represents your company’s values and vision.",
+      "Protect sensitive business data with globally recognized information security standards.",
   },
   {
-    title: "Company Registration",
-    icon: <FaBuilding />,
+    title: "ISO 45001 (Occupational Health & Safety)",
+    icon: <FaHeartbeat />,
     description:
-      "Company registration is the first step to starting your business officially. We provide complete support to help you register your business name and get your unique brand identity.",
+      "Ensure workplace safety, employee well-being, and legal compliance.",
   },
-
+  {
+    title: "ISO 50001 (Energy Management)",
+    icon: <FaRecycle />,
+    description:
+      "Optimize energy use, reduce costs, and promote environmental sustainability.",
+  },
+  {
+    title: "ISO 13485 (Medical Devices)",
+    icon: <FaIndustry />,
+    description:
+      "Meet international regulatory requirements for medical devices manufacturing.",
+  },
+  {
+    title: "ISO 37001 (Anti-Bribery)",
+    icon: <FaGlobe />,
+    description:
+      "Demonstrate your commitment to ethical business practices and anti-corruption.",
+  },
+  {
+    title: "ISO/IEC 20000 (IT Service Management)",
+    icon: <FaCogs />,
+    description:
+      "Deliver reliable, efficient, and customer-focused IT services with ISO/IEC 20000.",
+  },
 ];
 
-
 const stats = [
-  {
-    end: 10000,
-    suffix: "+",
-    label: "Entrepreneurs Served",
-  },
-  {
-    end: 1000,
-    suffix: "+",
-    label: "Professionals Network",
-  },
-  {
-    end: 5,
-    suffix: "+",
-    label: "Cities Present",
-  },
-  {
-    end: 20,
-    suffix: "+",
-    label: "Team Strength",
-  },
+  { end: 5000, suffix: "+", label: "Clients Served" },
+  { end: 800, suffix: "+", label: "Certified Businesses" },
+  { end: 15, suffix: "+", label: "Cities Presence" },
+  { end: 50, suffix: "+", label: "ISO Experts Team" },
 ];
 
 const AboutUs = () => {
   return (
     <>
-      {/* Full width background section */}
-      <div className="about-div">
+      {/* Hero Background */}
+      <div className="about-div"></div>
 
-      </div>
-
-      {/* Content section */}
+      {/* About Section */}
       <div className="container my-5">
         <section className="about-section container py-5">
           <div className="row align-items-center">
             <div className="col-md-6">
               <h2 className="about-title">
-                About <strong>Raj Startup</strong>
+                <strong> About Certigence</strong>
                 <div className="underline"></div>
               </h2>
               <p className="about-text">
-                <strong>RajStartup</strong> is a genuine and trustworthy place where a company can get all the services such as <strong>BUSINESS REGISTRATION, TRADEMARK, ISO CERTIFICATION, COPYRIGHT, WEBSITE DESIGN, LOGO, SEO</strong>, etc. We provide all the services at the lowest and affordable prices as possible and our charges are also pocket-friendly that any entrepreneur can afford the services.
+                At <strong>Certigence</strong>, we specialize in{" "}
+                <em>ISO certifications and compliance</em>, ensuring businesses
+                meet international standards while focusing on growth. From{" "}
+                <strong>ISO 9001 to ISO 27001</strong>, our solutions save time,
+                reduce cost, and ensure global recognition.
                 <br />
-                We also help people and guide new Startups to give them information about the requirements and procedures to set up their company. We have a good network through which we work faster and give results to our customers in a few days and do the registration processes in less time.
-
-                <strong>RajStartup</strong> is India’s largest online business services platform that commits you to help to grow your business legally online. As you submit your documents to our website, we work on your registration process.
+                <br />
+                With a transparent pricing policy and expert guidance, we make
+                sure every business achieves certification with confidence.
+                <br />
+                <br />
+                Partner with us to ensure your business grows{" "}
+                <strong>legally, ethically, and globally</strong>.
               </p>
             </div>
 
             <div className="col-md-6 text-center">
               <img
-                src="https://www.rajstartup.com/productImage/about-2_2.jpg"
-                alt="About Raj Startup"
+                src="https://img.freepik.com/free-vector/iso-certification-concept-illustration_114360-10112.jpg"
+                alt="About Certigence ISO"
                 className="img-fluid rounded shadow"
               />
             </div>
           </div>
         </section>
 
+        {/* Features */}
         <section className="features-section">
           <div className="features-grid">
             {features.map((feature) => (
@@ -174,14 +171,12 @@ const AboutUs = () => {
           </div>
         </section>
 
+        {/* Services */}
         <section className="services-section">
-          <h2 className="services-title">OUR SERVICES</h2>
+          <h2 className="services-title">Our ISO Services</h2>
           <div className="services-grid">
             {services.map((service, index) => (
-              <div
-                className={`service-card ${service.title === "ISO certification" ? "highlight" : ""}`}
-                key={index}
-              >
+              <div className="service-card" key={index}>
                 <div className="card-icon">{service.icon}</div>
                 <h4 className="card-title">{service.title}</h4>
                 <p className="card-description">{service.description}</p>
@@ -190,6 +185,7 @@ const AboutUs = () => {
           </div>
         </section>
 
+        {/* Stats */}
         <section className="stats-section">
           <div className="stats-container">
             {stats.map((stat, index) => (

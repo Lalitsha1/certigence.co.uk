@@ -4,11 +4,21 @@
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   padding: 4rem 6rem;
-  background: linear-gradient(135deg, #f7faff, #eef3ff);
   border-radius: 20px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
-  perspective: 1200px;
-  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+
+  /* 🔥 Animated Dark Background */
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1a1a2e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Left Section */
@@ -17,7 +27,7 @@
 }
 
 .faq-tag {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.08);
   border: 2px solid #3b82f6;
   padding: 0.6rem 1.4rem;
   border-radius: 30px;
@@ -28,28 +38,31 @@
   gap: 0.4rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  color: #fff;
 }
 
 .faq-tag:hover {
   background: #3b82f6;
   color: #fff;
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0px 6px 15px rgba(59, 130, 246, 0.4);
+  box-shadow: 0px 6px 15px rgba(59, 130, 246, 0.6);
 }
 
 .faq-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   margin: 1.5rem 0;
-  color: #1e293b;
+  color: #fff;
 }
 
 .faq-title span {
   font-size: 1.6rem;
   color: #3b82f6;
+  text-shadow: 0px 0px 12px rgba(59, 130, 246, 0.8);
 }
 
-/* FAQ Item */
+/* FAQ Items */
 .faq-items {
   margin-top: 2rem;
   display: flex;
@@ -58,23 +71,25 @@
 }
 
 .faq-item {
-  background: #fff;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
   padding: 1rem 1.5rem;
   cursor: pointer;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
   transition: all 0.4s ease;
-  transform-style: preserve-3d;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .faq-item:hover {
-  transform: rotateY(6deg) rotateX(3deg) scale(1.03);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  transform: rotateY(6deg) rotateX(3deg) scale(1.05);
+  box-shadow: 0px 15px 40px rgba(59, 130, 246, 0.4);
 }
 
 .faq-item.active {
-  background: #3b82f6;
+  background: rgba(59, 130, 246, 0.8);
   color: #fff;
+  box-shadow: 0px 12px 35px rgba(59, 130, 246, 0.6);
 }
 
 .faq-question {
@@ -92,6 +107,7 @@
   animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Bottom Link */
 .faq-bottom-link {
   margin-top: 2rem;
   display: flex;
@@ -100,11 +116,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  color: #fff;
 }
 
 .faq-bottom-link:hover {
   color: #3b82f6;
   transform: translateX(5px);
+  text-shadow: 0px 0px 12px rgba(59, 130, 246, 0.8);
 }
 
 /* Right Section */
@@ -123,6 +141,8 @@
   overflow: hidden;
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5);
+  animation: float 5s ease-in-out infinite;
 }
 
 .faq-image-box:hover {
@@ -143,7 +163,7 @@
   width: 120px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.25);
   transform: rotate(-5deg);
   transition: all 0.4s ease;
 }
@@ -157,6 +177,13 @@
   transform: rotate(0deg) translate(-10px, -10px);
 }
 
+/* Floating Effect */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
 /* Decorative Elements */
 .faq-decor .faq-icon-circle {
   position: absolute;
@@ -167,32 +194,35 @@
   padding: 0.7rem;
   border-radius: 50%;
   font-size: 1.4rem;
-  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.7);
 }
 
 .faq-decor .faq-overlay-label {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
   padding: 0.4rem 1rem;
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.9rem;
   backdrop-filter: blur(6px);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .faq-badge {
   position: absolute;
   bottom: -20px;
   left: 20px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.9rem;
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+  color: #fff;
   transition: all 0.4s ease;
 }
 
@@ -204,12 +234,6 @@
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

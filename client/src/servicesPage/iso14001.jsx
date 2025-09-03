@@ -163,7 +163,7 @@ const Iso14001 = () => {
           <div key={i} className="principle-card">
             <div className="principle-icon">{p.icon}</div>
             <h4>{p.title}</h4>
-            <p>{p.text}</p>
+            <p className="principlesText">{p.text}</p>
           </div>
         ))}
       </div>

@@ -117,7 +117,7 @@ const ImpartialityPolicy = () => {
                   <Accordion.Body>
                     <p>Certigence has implemented structural safeguards to ensure impartiality:</p>
                     <ul>
-                      <li>Separation of consulting and certification activities</li>
+                      <li>Separation of  certification activities</li>
                       <li>Independent Impartiality Committee with external stakeholders</li>
                       <li>Clear organizational structure with defined responsibilities</li>
                       <li>Financial independence from specific clients or client groups</li>

@@ -2,7 +2,6 @@ import express from "express";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import { connection } from "./database/dbConnection.js";
 import { errorMiddleware } from "./middlewares/error.js";
 import userRouter from "./routes/userRouter.js";
 import contactRouter from "./routes/contactRouter.js";
@@ -31,10 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/contact", contactRouter);
 
+// ⏲️ Automation job
 removeUnverifiedAccounts();
-
-// 🔗 Connect to DB
-connection();
 
 // ⚠️ Global Error Handler
 app.use(errorMiddleware);

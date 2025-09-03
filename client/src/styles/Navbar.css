@@ -1,161 +1,155 @@
-/* =========================================================
-   THEME BASE
-   ========================================================= */
-:root {
-  --primary: #0d6efd;
-  --primary-dark: #084298;
-  --accent: #ffc107;
-  --ink: #222;
-  --muted: #666;
-  --bg-1: #f8fbff;
-  --bg-2: #eef3ff;
-  --card: #ffffff;
-  --radius: 12px;
-  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-2: 0 6px 20px rgba(0, 0, 0, 0.15);
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* =========================================================
-   TOPBAR
-   ========================================================= */
-.topbar {
-  background: var(--primary);
+/* ===========================
+   Topbar
+   =========================== */
+.certi-navbar__topbar {
+  background: linear-gradient(90deg, #0d47a1, #1976d2);
   color: #fff;
-  font-size: 14px;
   padding: 6px 0;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1000; /* keep topbar above content */
 }
 
-.topbar .icon {
-  margin-right: 6px;
-  vertical-align: middle;
-}
+.certi-navbar__icon { margin-right: 6px; color: #ffeb3b; }
+.certi-navbar__topbar-right a { color: #fff; margin-left: 12px; font-size: 15px; transition: transform 0.3s, color 0.3s; }
+.certi-navbar__topbar-right a:hover { color: #ffeb3b; transform: scale(1.2) rotate(8deg); }
 
-.topbar a {
-  color: #fff;
-  margin-left: 12px;
-  transition: opacity 0.3s;
-}
-
-.topbar a:hover {
-  opacity: 0.7;
-}
-
-/* =========================================================
-   NAVBAR BASE
-   ========================================================= */
-.main-navbar {
-  background: var(--card);
-  box-shadow: var(--shadow-1);
+/* ===========================
+   Navbar
+   =========================== */
+.certi-navbar__main {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(6px);
   padding: 12px 0;
+  transition: all 0.4s ease;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 99999;         /* VERY high to beat other stacking contexts */
+  overflow: visible;      /* allow dropdowns to overflow */
+  transform: translateZ(0); /* help with some browser stacking quirks */
 }
 
-.navbar-logo {
-  height: 50px;
-  border-radius: 8px;
-}
+/* Logo */
+.certi-navbar__logo { height: 75px; transition: transform 0.4s ease; }
+.certi-navbar__logo:hover { transform: scale(1.1) rotate(-3deg); }
 
-/* Navbar links */
-.navbar .nav-link {
+/* Nav links */
+.nav-link, .dropdown-toggle {
+  color: #333 !important;
   font-weight: 600;
-  color: var(--ink);
-  margin: 0 10px;
-  transition: color 0.3s var(--ease);
+  margin: 0 12px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.nav-link::after, .dropdown-toggle::after{
+  content: ''; position: absolute; bottom: -6px; left: 0; width: 0%; height: 3px;
+  background: linear-gradient(90deg, #0d47a1, #42a5f5); border-radius: 2px; transition: width 0.3s;
+}
+.nav-link:hover::after, .dropdown-toggle:hover::after { width: 100%; }
+.nav-link:hover, .dropdown-toggle:hover { color: #0d47a1 !important; transform: translateY(-2px); }
+
+/* ===========================
+   Dropdown (FIXED)
+   =========================== */
+
+/* Anchor parent for absolute positioning */
+.certi-navbar__main .dropdown {
+  position: relative; /* anchor the dropdown menu to this */
 }
 
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
-  color: var(--primary);
+/* Strong overrides to force correct dropdown behavior.
+   - absolute positioning relative to parent
+   - stop any previous fixed/full-width rules
+   - force transform none so it can't be clipped by siblings
+   - huge z-index so it sits above hero/slider
+*/
+.certi-navbar__main .dropdown-menu {
+  position: absolute !important;
+  top: calc(100% + 6px) !important; /* slight gap below the item */
+  left: 0 !important;
+  transform: none !important;
+  min-width: 220px !important;
+  width: auto !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  padding: 8px !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.18) !important;
+  z-index: 2147483647 !important; /* max safe z-index to beat any stacking context */
+  will-change: top, left; /* hint to browser for smoother opening */
 }
 
-/* Quote button */
-.quote-btn {
-  background: var(--primary);
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: var(--radius);
-  border: none;
-  font-weight: 600;
-  transition: all 0.3s var(--ease);
+/* Items */
+.certi-navbar__main .dropdown-item {
+  font-weight: 500;
+  transition: all 0.15s;
+  border-radius: 6px;
+  color: #333 !important;
 }
-
-.quote-btn:hover {
-  background: var(--primary-dark);
-  box-shadow: var(--shadow-2);
-}
-
-/* Icons */
-.icons svg {
-  cursor: pointer;
-  color: var(--ink);
-  font-size: 18px;
-  transition: color 0.3s;
-}
-
-.icons svg:hover {
-  color: var(--primary);
-}
-
-/* =========================================================
-   CUSTOM DROPDOWN STYLING
-   ========================================================= */
-.dropdown-menu {
-  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-1);
-  padding: 8px 0;
-  border: none;
-  animation: fadeSlide 0.3s var(--ease);
-}
-
-.dropdown-item {
-  font-weight: 600;
-  color: var(--ink);
-  padding: 10px 18px;
-  transition: all 0.3s var(--ease);
-}
-
-.dropdown-item:hover {
-  background: var(--primary);
+.certi-navbar__main .dropdown-item:hover {
+  background: linear-gradient(90deg, #42a5f5, #0d47a1);
   color: #fff !important;
   transform: translateX(6px);
-  box-shadow: var(--shadow-2);
-  border-radius: 8px;
 }
 
-/* Styling for the active dropdown toggle */
-.navbar .nav-item.dropdown.show .nav-link {
-  background-color: var(--primary);
-  color: #fff;
-  border-radius: var(--radius) var(--radius) 0 0;
+/* animation helper */
+@keyframes dropdownFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===========================
+   Search, Auth & Quote
+   =========================== */
+.certi-navbar__search input {
+  padding: 8px 12px; border: 2px solid #ccc; border-radius: 25px 0 0 25px; outline: none; transition: all 0.3s ease;
+  position: relative; z-index: 101;
+}
+.certi-navbar__search input:focus { border-color: #1976d2; box-shadow: 0 0 8px #1976d2; }
+.certi-navbar__search button { padding: 8px 14px; background: #1976d2; border: none; border-radius: 0 25px 25px 0; color: white; transition: all 0.3s; position: relative; z-index: 102; }
+.certi-navbar__search button:hover { background: #0d47a1; transform: scale(1.05); }
+
+.certi-navbar__auth span { margin-left: 18px; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; transition: all 0.3s; position: relative; z-index: 105; }
+.certi-navbar__auth span:hover { color: #1976d2; transform: scale(1.1); }
+
+.certi-navbar__quote { margin-left: 16px; padding: 8px 18px; background: linear-gradient(90deg, #42a5f5, #0d47a1); border: none; border-radius: 30px; color: white; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: all 0.4s; cursor: pointer; position: relative; z-index: 106; }
+.certi-navbar__quote:hover { background: linear-gradient(90deg, #0d47a1, #42a5f5); transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+/* ===========================
+   HERO / SLIDER & sections (ensure they don't overlap)
+   =========================== */
+/* make hero/slider area lower z-index and keep overflow as needed,
+   but don't let them create stacking contexts above the navbar dropdown */
+.poster-slider,
+.excellent-service,
+.services-section {
+  position: relative;
+  z-index: 0;
 }
 
-/* =========================================================
-   DROPDOWN TOGGLE ARROW ANIMATION
-   ========================================================= */
-.navbar .dropdown-toggle::after {
-  margin-left: 6px;
-  vertical-align: middle;
-  border: none;
-  content: "▾"; /* custom arrow */
-  font-size: 0.8rem;
-  transition: transform 0.3s var(--ease);
-}
+/* If you must keep overflow:hidden on those sections for animation,
+   ensure the navbar has higher z-index (we already set it very high).
+   If dropdown still clipped, try toggling the overflow rule in the affected section. */
 
-.navbar .dropdown.show .dropdown-toggle::after {
-  transform: rotate(180deg);
-}
-
-/* =========================================================
-   ANIMATIONS
-   ========================================================= */
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
+/* ===========================
+   Mobile behaviour (collapsed navbar)
+   =========================== */
+@media (max-width: 991.98px) {
+  .certi-navbar__main .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+    padding: 6px !important;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
+
+/* ===== optional safety helpers for debugging ===== */
+/* Uncomment temporarily to find the element that's clipping the dropdown:
+   * Inspect the overlay color (bright red) to spot the ancestor with overflow:hidden
+*/
+/*
+* { outline: 0px solid transparent; }
+.poster-slider { outline: 3px solid rgba(255, 0, 0, 0.2); }
+.excellent-service { outline: 3px solid rgba(0, 255, 0, 0.15); }
+.certi-navbar__main { outline: 3px solid rgba(0, 0, 255, 0.15); }
+*/

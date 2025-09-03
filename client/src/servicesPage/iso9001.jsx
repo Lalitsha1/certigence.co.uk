@@ -57,11 +57,11 @@ const benefits = [
     text: "Aligns processes and objectives with business strategy for long-term results.",
     img: "https://images.unsplash.com/photo-1473187983305-f615310e7daa",
   },
-  {
+{
     icon: <FileCheck size={40} />,
     title: "Compliance",
     text: "Helps meet regulatory and statutory obligations smoothly.",
-    img: "https://images.unsplash.com/photo-1581091012184-5c2fca48d9f5",
+    img: "images/compliance.jpeg",
   },
   {
     icon: <CheckCircle size={40} />,
