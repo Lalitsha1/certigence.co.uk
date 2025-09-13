@@ -11,7 +11,7 @@ config({ path: "./config.env" });
 connection();
 
 // 🚪 Set PORT
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8822;
 const server = app.listen(PORT, () => {
   console.log(`🚀 Server is running at: http://localhost:${PORT}`);
 });
