@@ -1,205 +1,158 @@
-import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import React from "react";
+import BlogSection from "../components/BlogSection";
+import "../styles/Home.css"; // import css for feedback section
+import InsuranceServices from "../components/InsuranceServices"; // ✅ logo carousel styles
+import ExcellentService from "../context/ExcellentService";
+import ServicesTimeline from "../context/ServicesTimeline";
+import { FaQ } from "react-icons/fa6";
+import FaqSection from "../context/FaqSection";
+import QuoteForm from "../context/QuoteForm";
 
-// ================= Image Slider =================
-const ImageSlider = () => {
-  const images = [
-    "https://via.placeholder.com/1200x400/007bff/ffffff?text=Slide+1",
-    "https://via.placeholder.com/1200x400/6f42c1/ffffff?text=Slide+2",
-    "https://via.placeholder.com/1200x400/fd7e14/ffffff?text=Slide+3"
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [images.length]);
-
-  return (
-    <div style={{ width: "100%", maxWidth: "1200px", height: "400px", margin: "0 auto", overflow: "hidden" }}>
-      <img
-        src={images[currentIndex]}
-        alt="slider"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          borderRadius: "10px",
-          transition: "opacity 0.5s ease-in-out"
-        }}
-      />
-    </div>
-  );
-};
-
-// ================= Footer =================
-const Footer = () => {
-  return (
-    <footer className="bg-dark text-white text-center py-3 mt-5">
-      <div>
-        <p className="mb-1">
-          &copy; {new Date().getFullYear()} MyApp. All rights reserved.
-        </p>
-        <div>
-          <a href="https://facebook.com" className="text-white mx-2">
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a href="https://twitter.com" className="text-white mx-2">
-            <i className="bi bi-twitter"></i>
-          </a>
-          <a href="https://instagram.com" className="text-white mx-2">
-            <i className="bi bi-instagram"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-// ================= Home Page =================
 const Home = () => {
   return (
     <>
-      {/* ===== Top Info Bar ===== */}
-      <div className="bg-primary text-white d-flex justify-content-between align-items-center px-4 py-2">
-        <div>
-          <i className="bi bi-envelope-fill me-2"></i>
-          <a href="mailto:info@certigence.co.uk" className="text-white text-decoration-none">
-            info@certigence.co.uk
-          </a>
-          <span className="ms-4">
-            <i className="bi bi-geo-alt-fill me-2"></i>
-            8902 London, 8950018 US.
-          </span>
-        </div>
-        <div>
-          <a href="#" className="text-white me-3"><i className="bi bi-facebook"></i></a>
-          <a href="#" className="text-white me-3"><i className="bi bi-pinterest"></i></a>
-          <a href="#" className="text-white me-3"><i className="bi bi-twitter"></i></a>
-          <a href="#" className="text-white me-3"><i className="bi bi-instagram"></i></a>
-          <div className="d-inline dropdown">
-            <a
-              href="#"
-              className="text-white text-decoration-none dropdown-toggle"
-              id="languageDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              ENGLISH
-            </a>
-            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-              <li><a className="dropdown-item" href="#">English</a></li>
-              <li><a className="dropdown-item" href="#">Spanish</a></li>
-              <li><a className="dropdown-item" href="#">French</a></li>
-            </ul>
-          </div>
+    
+
+      {/* Poster Slider Section */}
+      <div className="poster-slider">
+        <div className="slides">
+          <img src="/images/poster1.jpeg" alt="Poster 1" />
+          <img src="/images/poster2.jpeg" alt="Poster 2" />
+          <img src="/images/poster3.png" alt="Poster 3" />
         </div>
       </div>
 
-      {/* ===== Main Navbar ===== */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div className="container">
-          <a className="navbar-brand d-flex align-items-center" href="#">
-            <img
-              src="https://certigence.co.uk/demo/assets/images/logo-dark.png"
-              alt="Certigence ISO Consultancy"
-              className="me-2"
-              style={{ height: "40px" }}
-            />
-          </a>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+      
 
-          <div className="collapse navbar-collapse" id="mainNavbar">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-              <li className="nav-item"><a className="nav-link active" href="#">Home</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">About Us</a></li>
 
-              {/* Dropdown 1 */}
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="standardDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Standard
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="standardDropdown">
-                  <li><a className="dropdown-item" href="#">ISO 9001</a></li>
-                  <li><a className="dropdown-item" href="#">ISO 14001</a></li>
-                  <li><a className="dropdown-item" href="#">ISO 45001</a></li>
-                </ul>
-              </li>
 
-              {/* Dropdown 2 */}
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="servicesDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Services
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="servicesDropdown">
-                  <li><a className="dropdown-item" href="#">Consulting</a></li>
-                  <li><a className="dropdown-item" href="#">Training</a></li>
-                  <li><a className="dropdown-item" href="#">Audit</a></li>
-                </ul>
-              </li>
-
-              <li className="nav-item"><a className="nav-link" href="#">Blog</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">FAQ</a></li>
-              <li className="nav-item"><a className="nav-link" href="#">Contact</a></li>
-              <li className="nav-item d-flex align-items-center ms-3">
-                <a href="#" className="nav-link px-2"><i className="bi bi-search fs-5"></i></a>
-                <a href="http://localhost:5173/auth" className="nav-link px-2"><i className="bi bi-person fs-5"></i></a>
-              </li>
-              <li className="nav-item ms-3">
-                <a href="#" className="btn btn-primary rounded-pill px-4 d-flex align-items-center" style={{ height: "40px" }}>
-                  <span>Get a</span>
-                  <br />
-                  <strong style={{ lineHeight: "1" }}>Quote</strong>
-                  <i className="bi bi-arrow-right ms-2"></i>
-                </a>
-              </li>
-            </ul>
+      {/* Home Section */}
+      <section className="home-container">
+        {/* Left Stats */}
+        <div className="home-left">
+          <div className="stat-box">
+            <i className="bi bi-check-circle-fill"></i>
+            <h3>50+</h3>
+            <p>ISO Standards Covered</p>
+          </div>
+          <div className="stat-box">
+            <i className="bi bi-people-fill"></i>
+            <h3>1200+</h3>
+            <p>Satisfied Clients</p>
+          </div>
+          <div className="stat-box">
+            <i className="bi bi-award-fill"></i>
+            <h3>15+</h3>
+            <p>Years of Excellence</p>
           </div>
         </div>
-      </nav>
 
-      {/* ===== Main Content ===== */}
-      <Container className="py-5 text-center">
-        <h1>Welcome to My App</h1>
-        <p className="text-muted">This is your home page. Add your content here.</p>
-        <ImageSlider />
-      </Container>
+        {/* Middle Image */}
+        <div className="home-middle">
+          <img
+            src="https://img.freepik.com/free-photo/happy-family-home_1098-17663.jpg"
+            alt="Happy Family"
+            className="main-img"
+          />
+        </div>
 
-      {/* ===== Footer ===== */}
-      <Footer />
+        {/* Right Content */}
+        <div className="home-right">
+         <a href="/aboutus"><button className="about-btn">About Certigence</button></a>
+          <h2>
+            Your Trusted ISO Certification Partner Since{" "}
+            <span className="highlight">2010</span>
+          </h2>
+          <p>
+            At Certigence, we are more than just a certification body  we are your global partner in building trust, credibility, and compliance. As a multi accreditation certification agency, we provide internationally recognised certifications that empower businesses to compete confidently in today’s market.
+
+            With expertise across ISO standards, sector-specific certifications, and compliance solutions, we work with organisations of all sizes  from startups to multinational corporations  ensuring they meet international quality, safety, and sustainability benchmarks.
+
+            Our approach is built on integrity, impartiality, and innovation, making Certigence the trusted choice for companies worldwide.
+          </p>
+
+          <div className="services">
+            <div>✔ Expert and qualified Team</div>
+            <div>✔ Fast and Reliable Services</div>
+            <div>✔  Uncompromising integrity and quality</div>
+            <div>✔  Building lasting relationships</div>
+          </div>
+
+          {/* Founder Info */}
+          <div className="founder-box">
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="John Matthews"
+              className="founder-img"
+            />
+            <div>
+              <h4>John Matthews</h4>
+              <p>Founder & ISO Lead Auditor</p>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="cta">
+            <a href="#"><button className="learn-btn">Learn More →</button></a>
+            <a href="https://www.youtube.com/watch?v=h9MbznbxlLc">
+              <button className="video-btn">
+                ▶ Watch Our Corporate Video
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== */}
+
+      <div className="container my-5">
+        <InsuranceServices />
+      </div>
+      {/* ================================ */}
+
+
+      {/* Blog Section */}
+      <div className="container mt-5">
+        <ExcellentService />
+      </div>
+
+
+      {/* =========================================================== */}
+
+      <div className="container mt-5">
+        <ServicesTimeline />
+      </div>
+
+
+      {/* ================================================================ */}
+      {/* =========================================================== */}
+
+      <div className="container mt-5">
+        <QuoteForm />
+      </div>
+
+
+      {/* ================================================================ */}
+      {/* =========================================================== */}
+
+      <div className="container mt-5">
+        <FaqSection />
+      </div>
+
+
+      {/* ================================================================ */}
+
+      {/* ==================== */}
+
+      {/* Blog Section */}
+      <div className="container mt-5">
+        <BlogSection />
+      </div>
+
+
+      {/* ==================== */}
+
     </>
   );
 };

@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Context } from "../main";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Login = () => {
   const { setIsAuthenticated, setUser } = useContext(Context);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/"; // redirect to last page or home
 
   const {
     register,
@@ -31,7 +33,7 @@ const Login = () => {
       toast.success(res.data.message);
       setIsAuthenticated(true);
       setUser(res.data.user);
-      navigate("/");
+      navigate(from, { replace: true }); // ✅ back to last page
     } catch (err) {
       toast.error(err.response?.data?.message || "Login failed");
     }

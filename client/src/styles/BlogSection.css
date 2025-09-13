@@ -1,0 +1,117 @@
+.blog-section {
+  padding: 60px 20px;
+  background: url("https://img.freepik.com/free-vector/gradient-network-connection-background_23-2148873964.jpg")
+    no-repeat center center/cover;
+  color: white;
+  text-align: center;
+}
+
+.blog-btn {
+  background: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-top: 95px;
+  transition: all 0.3s ease;
+}
+
+.blog-btn:hover {
+  background: #ff4500;
+  transform: scale(1.05);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 50px;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.blog-card {
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+}
+
+.blog-image {
+  position: relative;
+  width: 100%;
+  height: 220px; /* fixed height */
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* ✅ Full image will fit inside */
+  border-bottom: 3px solid #ff6600;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.blog-date {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #ff6600;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-content h5 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.blog-content p {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.read-more {
+  border: 2px solid #ff6600;
+  background: transparent;
+  color: #ff6600;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.read-more:hover {
+  background: #ff6600;
+  color: #fff;
+}

@@ -1,4 +1,4 @@
-/* Page background with animated gradient */
+/* 🔹 Page background with animated gradient */
 .auth-page {
   display: flex;
   justify-content: center;
@@ -9,140 +9,173 @@
   animation: gradientBG 15s ease infinite;
 }
 
-/* Container with fade-in & scale effect */
+/* 🔹 Container with fade-in & scale effect */
 .auth-container {
   background: rgba(255, 255, 255, 0.95);
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   text-align: center;
   animation: fadeScale 0.8s ease forwards;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Toggle buttons */
+.auth-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* 🔹 Toggle buttons */
 .auth-toggle {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  gap: 10px;
 }
 
 .toggle-btn {
-  width: 50%;
-  padding: 10px 0;
-  font-size: 1rem;
+  flex: 1;
+  padding: 12px 0;
+  font-size: 1.05rem;
   border: none;
+  border-radius: 10px;
   background: #ddd;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .toggle-btn:hover {
   transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(12, 187, 105, 0.3);
 }
 
 .toggle-btn.active {
-  background: #0cbb69;
-  color: white;
-  box-shadow: 0 4px 10px rgba(12, 187, 105, 0.4);
+  background: linear-gradient(135deg, #0cbb69, #4facfe);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(12, 187, 105, 0.5);
 }
 
-/* Form headings */
+/* 🔹 Form heading */
 .auth-form h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   animation: slideDown 0.6s ease;
+  font-size: 28px;
+  color: #333;
 }
 
-/* Inputs */
-.auth-form input {
+/* 🔹 Inputs */
+.auth-form input,
+.auth-form select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 12px 15px;
+  margin-bottom: 18px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: box-shadow 0.3s, border-color 0.3s;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.auth-form input:focus {
+.auth-form input:focus,
+.auth-form select:focus {
   border-color: #0cbb69;
-  box-shadow: 0 0 8px rgba(12, 187, 105, 0.4);
+  box-shadow: 0 0 12px rgba(12, 187, 105, 0.4);
+  outline: none;
 }
 
-.auth-form div {
-  position: relative;
-}
-
-.auth-form div span {
-  position: absolute;
-  width: 50px;
-  height: 37px;
-  top: 0;
-  left: 0;
-  border-right: 1px solid gray;
-  color: gray;
+/* 🔹 Phone input container */
+.auth-form .phone-input {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 10px;
 }
 
-.auth-form div input[type="number"] {
-  padding-left: 55px;
+.phone-input select {
+  flex: 0.35;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-/* Submit button */
+.phone-input select:hover,
+.phone-input select:focus {
+  border-color: #0cbb69;
+  box-shadow: 0 0 8px rgba(12, 187, 105, 0.3);
+}
+
+.phone-input input {
+  flex: 0.65;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: all 0.3s;
+}
+
+.phone-input input:focus {
+  border-color: #0cbb69;
+  box-shadow: 0 0 8px rgba(12, 187, 105, 0.3);
+}
+
+/* 🔹 Submit button */
 .auth-form button {
   width: 100%;
-  padding: 12px;
-  background: #0cbb69;
+  padding: 14px;
+  background: linear-gradient(135deg, #0cbb69, #4facfe);
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
 }
 
 .auth-form button:hover {
-  background: #068047;
   transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(12, 187, 105, 0.4);
+  background: linear-gradient(135deg, #068047, #2c7bd9);
 }
 
-/* Verification method styling */
+/* 🔹 Verification method */
 .verification-method p {
   font-weight: 500;
-  color: gray;
+  color: #555;
   text-align: start;
+  margin-bottom: 10px;
 }
 
 .verification-method .wrapper {
   display: flex;
-  gap: 50px;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 .verification-method label {
   display: flex;
   align-items: center;
-  margin-right: 1rem;
-  cursor: pointer;
   gap: 10px;
-  margin: 20px 0;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-.verification-method label input {
-  margin-bottom: 0;
+.verification-method input[type="radio"] {
+  accent-color: #0cbb69;
+  width: 18px;
+  height: 18px;
 }
 
-/* Forgot password link */
+/* 🔹 Forgot password link */
 .forgot-password {
   text-align: end;
-  margin: 20px 0;
-  font-size: 16px;
-  color: #0cbb69;
+  margin: 10px 0 20px;
+  font-size: 15px;
 }
 
 .forgot-password a {
-  color: gray;
+  color: #0cbb69;
   text-decoration: underline;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -167,4 +200,21 @@
 @keyframes slideDown {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Responsive tweaks */
+@media (max-width: 500px) {
+  .phone-input {
+    flex-direction: column;
+  }
+  .phone-input select,
+  .phone-input input {
+    width: 100%;
+  }
+  .auth-container {
+    padding: 30px 20px;
+  }
+  .verification-method .wrapper {
+    gap: 20px;
+  }
 }

@@ -1,13 +1,13 @@
-import React, { createContext, StrictMode, useState } from "react";
+import React, { StrictMode, useState, createContext } from "react";
 import { createRoot } from "react-dom/client";
+
+// ✅ Bootstrap & Icons
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import App from "./App.jsx";
 
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
-// Create your global context
+// ✅ Context
 export const Context = createContext({
   isAuthenticated: false,
   setIsAuthenticated: () => {},
@@ -20,7 +20,9 @@ const AppWrapper = () => {
   const [user, setUser] = useState(null);
 
   return (
-    <Context.Provider value={{ isAuthenticated, setIsAuthenticated, user, setUser }}>
+    <Context.Provider
+      value={{ isAuthenticated, setIsAuthenticated, user, setUser }}
+    >
       <App />
     </Context.Provider>
   );

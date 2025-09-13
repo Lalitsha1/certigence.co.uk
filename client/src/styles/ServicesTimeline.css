@@ -1,0 +1,162 @@
+/* Section with background image */
+.timeline-section {
+  background: url("https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1600&q=80")
+    no-repeat center center/cover;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+
+.timeline-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 32, 39, 0.85); /* dark overlay for readability */
+  z-index: 0;
+}
+
+.timeline-section * {
+  position: relative;
+  z-index: 1;
+}
+
+.how-btn {
+  background-color: #4a90e2;
+  height: 45px;
+  width: 150px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.timeline-header {
+  margin-bottom: 30px;
+}
+
+.timeline-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #fff;
+}
+
+/* Roadmap wrapper */
+.timeline-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* SVG Line */
+.timeline-line {
+  position: absolute;
+  top: 13%;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: 0;
+}
+
+.timeline-line path {
+  stroke: #4a90e2;
+  stroke-width: 3px;
+  fill: none;
+  stroke-dasharray: 8, 12;
+  stroke-linecap: round;
+  stroke-dashoffset: 2000;
+  animation: drawline 4s linear forwards;
+}
+
+@keyframes drawline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Steps */
+.timeline-container {
+  display: flex;
+  gap: 50px;
+  position: relative;
+  z-index: 2;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 20px;
+}
+
+.timeline-step {
+  flex: 0 0 250px;
+  scroll-snap-align: center;
+}
+
+.timeline-step:nth-child(odd) {
+  margin-top: -50px;
+}
+.timeline-step:nth-child(even) {
+  margin-top: 80px;
+}
+
+/* ✅ Step Number TOP */
+.step-number-top {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4a90e2;
+  margin-bottom: -15px;
+  margin-top: 70px;
+  background: #111;
+  border: 2px solid #4a90e2;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+
+/* Card */
+.timeline-card {
+  background: transparent;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Circular Image with stronger shadow */
+.timeline-img-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-top: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+  transition: transform 0.3s ease;
+}
+
+.timeline-img-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text */
+.timeline-text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.timeline-text h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.timeline-text p {
+  font-size: 0.95rem;
+  color: #ddd;
+}

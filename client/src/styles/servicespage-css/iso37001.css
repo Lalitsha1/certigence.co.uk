@@ -1,0 +1,319 @@
+/* ===================================================
+    ISO 37001 Styles - Advanced & Clean
+    ===================================================
+*/
+
+/* 🎨 Theme Variables */
+:root {
+  --primary-color: #007bff;
+  --primary-light: #e6f2ff;
+  --secondary-color: #6c757d;
+  --accent-color: #28a745;
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-dark: #343a40;
+  --text-light: #6c757d;
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --font-family: "Poppins", sans-serif;
+}
+
+/* 🧱 General Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+.iso37001-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 3rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* 🌟 Hero Section with Background Image */
+.iso37001-hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+  background-image: url("https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.hero-subtitle {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: white;
+  margin: 0;
+}
+
+.hero-bg-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 1, 23, 0.4);
+  z-index: 1;
+}
+
+/* 📝 Introduction Section */
+.iso37001-intro {
+  padding: 40px;
+  margin-top: 40px;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+}
+
+.iso37001-intro p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* 📈 Benefits Grid with 3D Hover Effect */
+.iso37001-grid {
+  padding: 20px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.grid-item:hover {
+  transform: perspective(1000px) rotateX(7deg) rotateY(7deg) scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.grid-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all 0.4s ease;
+  transform: translateZ(20px);
+}
+
+.grid-item:hover .grid-icon {
+  color: #fff;
+  background-color: var(--primary-color);
+  transform: translateZ(40px);
+}
+
+.grid-item h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  transform: translateZ(20px);
+  transition: transform 0.4s ease;
+}
+
+.grid-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  transform: translateZ(10px);
+  transition: transform 0.4s ease;
+}
+
+/* 📋 Implementation & Requirements */
+.iso37001-implementation,
+.iso37001-requirements {
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.iso37001-implementation h2,
+.iso37001-requirements h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.iso37001-implementation ol,
+.iso37001-requirements ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.iso37001-implementation li,
+.iso37001-requirements li {
+  font-size: 1.1rem;
+  line-height: 2;
+  color: var(--text-dark);
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.iso37001-implementation li:last-child,
+.iso37001-requirements li:last-child {
+  border-bottom: none;
+}
+
+.iso37001-implementation li::before {
+  content: "👉";
+  margin-right: 15px;
+  color: var(--primary-color);
+}
+
+.iso37001-requirements li::before {
+  content: "✅";
+  margin-right: 15px;
+  color: var(--accent-color);
+}
+
+.iso37001-implementation li:hover,
+.iso37001-requirements li:hover {
+  transform: translateX(10px);
+  color: var(--primary-color);
+}
+
+/* 🚀 Call to Action */
+.iso37001-cta {
+  text-align: center;
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 60px 40px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: var(--shadow-hover);
+}
+
+.iso37001-cta h2 {
+  color: #ffffff;
+}
+
+.iso37001-cta p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .iso37001-container {
+    padding: 10px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .iso37001-implementation li,
+  .iso37001-requirements li {
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

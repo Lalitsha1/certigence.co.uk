@@ -1,0 +1,356 @@
+/* ===================================================
+    ISO 22000 Styles - Advanced & Clean
+    ===================================================
+*/
+
+/* 🎨 Theme Variables */
+:root {
+  --primary-color: #3cb464; /* A fresh, clean green for food safety */
+  --primary-light: #e8f5ed;
+  --secondary-color: #6c757d;
+  --accent-color: #1a73e8; /* A vibrant blue for CTA */
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-dark: #343a40;
+  --text-light: #6c757d;
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* 🧱 General Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+.iso22000-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 3rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* 🌟 Hero Section with Background Image */
+.iso22000-hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+  background-image: url("https://images.unsplash.com/photo-1542838186-2917711421c6?q=80&w=2070&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.hero-bg-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hero-cta {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 25px;
+}
+
+.hero-cta:hover {
+  background-color: #165ab7;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 📝 Introduction Section */
+.iso22000-intro {
+  padding: 40px;
+  margin-top: 40px;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+}
+
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+/* 📈 Benefits Grid with 3D Hover Effect */
+.iso22000-benefits {
+  padding: 20px 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3x3 Grid */
+  gap: 30px;
+  padding: 20px;
+  perspective: 1000px; /* Establishes the 3D perspective for all grid items */
+}
+
+.benefit-item {
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.benefit-item:hover {
+  transform: rotateX(5deg) rotateY(5deg) scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: all 0.4s ease;
+  transform: translateZ(20px);
+}
+
+.benefit-item:hover .benefit-icon {
+  color: #fff;
+  background-color: var(--primary-color);
+  transform: translateZ(40px);
+}
+
+.benefit-item h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  transform: translateZ(20px);
+  transition: transform 0.4s ease;
+}
+
+.benefit-item p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  transform: translateZ(10px);
+  transition: transform 0.4s ease;
+}
+
+/* 📋 Implementation & Requirements Sections */
+.implementation-process,
+.key-requirements {
+  max-width: 1000px;
+  margin: 40px auto;
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 25px;
+}
+
+.process-step:last-child {
+  border-bottom: none;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.step-content h3 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.step-content p {
+  margin: 5px 0 0;
+  color: var(--text-light);
+}
+
+.requirements-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.requirement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.requirement-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+.requirement-text h3 {
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.requirement-text p {
+  margin: 5px 0 0;
+  color: var(--text-light);
+}
+
+/* 🚀 Call to Action */
+.iso22000-cta {
+  text-align: center;
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 60px 40px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-radius: 15px;
+  box-shadow: var(--shadow-hover);
+}
+
+.iso22000-cta h2 {
+  color: #ffffff;
+}
+
+.iso22000-cta p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #165ab7;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

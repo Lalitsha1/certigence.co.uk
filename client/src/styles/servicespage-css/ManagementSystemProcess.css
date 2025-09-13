@@ -1,0 +1,180 @@
+/* =========================================================
+   MANAGEMENT PROCESS SECTION
+   ========================================================= */
+.management-process-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0d6efd, #6610f2);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating dotted background animation */
+.management-process-section::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 8%, transparent 9%);
+  background-size: 50px 50px;
+  animation: floatBg 25s linear infinite;
+  z-index: 0;
+}
+
+@keyframes floatBg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  margin: 10px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff, #ffcc00);
+  animation: slideIn 1.2s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 120px;
+    opacity: 1;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #e0e0e0;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   INTRO PARAGRAPH
+   ========================================================= */
+.process-intro {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.process-intro p {
+  font-size: 1.1rem;
+  color: #f1f1f1;
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 50px;
+}
+
+/* =========================================================
+   PROCESS CARDS
+   ========================================================= */
+.process-flow {
+  position: relative;
+  z-index: 1;
+}
+
+.process-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.process-card:hover {
+  transform: translateY(-15px) rotateX(8deg) rotateY(8deg);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================================
+   STEP NUMBER FIXED
+   ========================================================= */
+.process-step-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ffc107;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* =========================================================
+   ICONS + PULSE EFFECT
+   ========================================================= */
+.process-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffc107;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+/* =========================================================
+   TEXT INSIDE CARDS
+   ========================================================= */
+.process-card h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.process-card p {
+  font-size: 1rem;
+  color: #ddd;
+  line-height: 1.6;
+}

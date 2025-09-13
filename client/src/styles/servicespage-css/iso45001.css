@@ -1,0 +1,298 @@
+/* ============ ISO 45001 Certification Styles ============ */
+
+.iso45001-container {
+  padding: 4rem 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("https://img.freepik.com/free-photo/engineer-safety-helmet_1150-18320.jpg") no-repeat center center/cover;
+  color: #333;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.iso45001-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 87, 34, 0.08);
+  z-index: -1;
+}
+
+.iso45001-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header */
+.iso45001-header-content {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.iso45001-heading {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #e65100;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.iso45001-heading-underline {
+  width: 80px;
+  height: 5px;
+  background: #ff6f00;
+  margin: 1rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4);
+}
+
+.iso45001-subtext {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+/* Section Titles */
+.iso45001-section-wrapper {
+  margin: 4rem 0;
+}
+
+.iso45001-section-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #bf360c;
+  margin-bottom: 2rem;
+  position: relative;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.iso45001-section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff5722;
+  margin: 0.5rem auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 87, 34, 0.4);
+}
+
+/* Benefit & Principle Cards */
+.iso45001-grid,
+.iso45001-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.iso45001-card,
+.iso45001-principle-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  animation: iso45001-fadeInUp 0.8s ease forwards;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(6px);
+}
+
+.iso45001-container.visible .iso45001-card,
+.iso45001-container.visible .iso45001-principle-card {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.iso45001-card:hover,
+.iso45001-principle-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(255, 87, 34, 0.3);
+}
+
+.iso45001-icon,
+.iso45001-principle-icon {
+  color: #ff5722;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 6px rgba(255, 87, 34, 0.4));
+}
+
+.iso45001-card h3,
+.iso45001-principle-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #d84315;
+  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6);
+}
+
+.iso45001-item-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Certification Steps */
+.iso45001-steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.iso45001-step-card {
+  background: rgba(255, 255, 255, 0.96);
+  width: 280px;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  position: relative;
+  text-align: center;
+  animation: iso45001-fadeInUp 0.8s ease forwards;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(6px);
+}
+
+.iso45001-container.visible .iso45001-step-card {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.iso45001-step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 36px rgba(255, 87, 34, 0.35);
+}
+
+.iso45001-step-circle {
+  width: 55px;
+  height: 55px;
+  background: #ff5722;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 14px rgba(255, 87, 34, 0.4);
+}
+
+.iso45001-step-card h4 {
+  color: #d84315;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.iso45001-step-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Closing Section */
+.iso45001-closing-box {
+  margin-top: 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 112, 67, 0.95), rgba(255, 87, 34, 0.95));
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+
+}
+
+.iso45001-closing-box h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.iso45001-closing-box p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.iso45001-cta-button {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: #e65100;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.4);
+}
+
+.iso45001-cta-button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.iso45001-cta-button:hover {
+  background: #ffe0b2;
+  color: #d84315;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover Effect Overlay */
+.iso45001-card-hover-effect {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 87, 34, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.iso45001-card:hover .iso45001-card-hover-effect,
+.iso45001-principle-card:hover .iso45001-card-hover-effect,
+.iso45001-step-card:hover .iso45001-card-hover-effect {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes iso45001-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .iso45001-heading {
+    font-size: 2.2rem;
+  }
+
+  .iso45001-section-title {
+    font-size: 1.6rem;
+  }
+
+  .iso45001-steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .iso45001-step-card {
+    width: 100%;
+  }
+}

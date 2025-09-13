@@ -1,0 +1,295 @@
+.about-div {
+    width: 100%;
+    /* take full width */
+    height: 250px;
+    /* fixed height */
+    background-image: url("../images/aboutus-img.jpg");
+    /* correct path */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* ensures full cover */
+    display: flex;
+    /* for centering text */
+    align-items: center;
+    /* vertical center */
+    justify-content: center;
+    /* horizontal center */
+    color: white;
+    /* text visible */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* ================================================================= */
+
+
+.about-section {
+    background: linear-gradient(to right, #ffffff, #f9f9f9);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+}
+
+.about-title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    color: #222;
+}
+
+.underline {
+    width: 60px;
+    height: 4px;
+    background-color: #ffc107;
+    margin-top: 0.4rem;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.about-title:hover .underline {
+    width: 80px;
+}
+
+.about-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #444444;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: justify;
+}
+
+.about-text strong {
+    font-weight: 800;
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.03) rotate(0.3deg);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* ===================================================================== */
+.features-section {
+    width: 100%;
+    padding: 5rem 2rem;
+    background: linear-gradient(to right, #1967ccc8, #0e479c);
+    margin-top: 2%;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #e5eaf1;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.feature-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #ececec;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.feature-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+    margin-top: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================================== */
+.services-section {
+    width: 100%;
+    background: linear-gradient(to right, #ffffff, #f9f9f9);
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.services-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    color: #1e1e1e;
+}
+
+/* 🔹 Fixed 3 columns on desktop, responsive on smaller screens */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 🔹 Equal card size */
+.service-card {
+    background: #ffffff;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e0e6ed;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 280px;
+    /* Ensures equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0c0c0c;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* 🔹 Highlight card style */
+.service-card.highlight {
+    border: 2px solid #ffbf00;
+    background-color: #fffdf5;
+    transform: scale(1.02);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #ffbf00;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==================================================================== */
+
+.stats-section {
+    background-color: #7f983b;
+    /* Same blue background */
+    padding: 4rem 2rem;
+    color: rgb(122, 209, 22);
+    margin-top: 15px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.stat-box {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+
+    color: white !important;
+    opacity: 1 !important;
+
+}
+
+.stat-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, #ffc107, #ffcc00);
+    /* yellow underline */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(115, 15, 15);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    color: rgb(109, 9, 9) !important;
+    /* <-- fix: make sure it's visible */
+    color: rgb(135, 14, 14) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+
+    opacity: 1;
+}
+
+/* 🔹 Responsive adjustments */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 cards per row */
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        /* 1 card per row */
+    }
+}
