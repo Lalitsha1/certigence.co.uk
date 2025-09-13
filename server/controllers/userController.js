@@ -17,10 +17,12 @@ export const register = catchAsyncError(async (req, res, next) => {
         return next(new ErrorHandler("Please enter all fields", 400));
     }
 
-    const isPhoneValid = /^(\+91[\-\s]?)?[6-9]\d{9}$/.test(phone);
+    // Validate phone number in E.164 format (+[country code][number])
+    const isPhoneValid = /^\+[1-9]\d{1,14}$/.test(phone);
     if (!isPhoneValid) {
-        return next(new ErrorHandler("Please enter a valid Indian phone number", 400));
+        return next(new ErrorHandler("Please enter a valid phone number in international format (e.g., +14155552671)", 400));
     }
+
 
     const existingUser = await User.findOne({
         $or: [
@@ -275,8 +277,8 @@ export const forgetPassword = catchAsyncError(async (req, res, next) => {
 
 
 export const resetPassword = catchAsyncError(async (req, res, next) => {
-    const {token} = req.params;
-    const  resetPasswordToken = crypto.createHash("sha256").update(token).digest("hex");
+    const { token } = req.params;
+    const resetPasswordToken = crypto.createHash("sha256").update(token).digest("hex");
     const user = await User.findOne({
         resetPasswordToken,
         resetPasswordExpires: { $gt: Date.now() }// gt means greater than
