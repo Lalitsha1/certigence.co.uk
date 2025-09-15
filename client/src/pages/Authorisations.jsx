@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import "../styles/Accreditation.css"; // Import CSS
+import "../styles/Authorisations.css"; // Import page-specific CSS
 
 // Reusable AccreditationCard Component
 function AccreditationCard({ id, logos, text, variant = "light", title, list, ctaLabel, ctaHref, external = false }) {
@@ -15,26 +15,28 @@ function AccreditationCard({ id, logos, text, variant = "light", title, list, ct
       viewport={{ once: true }}
     >
       {/* Logos Section */}
-      <div className="logos">
-        {logos.map((logo, index) => (
-          <motion.figure
-            className="logo-card"
-            key={index}
-            aria-label={logo.alt || title || "Accreditation logo"}
-            whileHover={{ scale: 1.08, rotate: 1.5 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <img
-              className="logo-image"
-              src={logo.src}
-              alt={logo.alt || title || "Accreditation logo"}
-              loading="lazy"
-              decoding="async"
-              draggable="false"
-            />
-          </motion.figure>
-        ))}
-      </div>
+      {logos && logos.length > 0 && (
+        <div className="logos">
+          {logos.map((logo, index) => (
+            <motion.figure
+              className="logo-card"
+              key={index}
+              aria-label={logo.alt || title || "Accreditation logo"}
+              whileHover={{ scale: 1.08, rotate: 1.5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <img
+                className="logo-image"
+                src={logo.src}
+                alt={logo.alt || title || "Accreditation logo"}
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+              />
+            </motion.figure>
+          ))}
+        </div>
+      )}
 
       {/* Title if provided */}
       {title && <h3 className="sub-title">{title}</h3>}
@@ -109,9 +111,20 @@ export default function Accreditation() {
           viewport={{ once: true }}
           className="title"
         >
-          Accreditation
+          Recognised Accreditation Bodies
         </motion.h2>
         <div className="underline"></div>
+
+        {/* Introductory blurb */}
+        <motion.p
+          className="page-intro"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          We work with internationally recognised accreditation bodies to ensure our certifications are impartial, credible, and widely accepted. These authorisations reflect our commitment to quality and give your customers and stakeholders confidence in every certificate we issue.
+        </motion.p>
 
         {/* Accreditation Block 0 - UKAS (About) */}
         <AccreditationCard
@@ -135,6 +148,27 @@ export default function Accreditation() {
           ctaHref="https://www.ukas.com"
           external
         />
+        {/* UKAS Logo usage guidance (content only, no extra logos) */}
+        <AccreditationCard
+          id="ukas-logo-usage"
+          variant="accent"
+          logos={[]}
+          title="Use of Accreditation Marks (UKAS rules)"
+          text="You may use the Certigence certification mark together with the UKAS accreditation symbol only in line with UKAS rules. The marks must never mislead, and their use must clearly relate to the certified management system and its scope."
+          list={[
+            "Do not place the UKAS symbol on products or primary packaging",
+            "Use marks only for sites and activities in the certified scope",
+            "Keep the symbol's proportions and colours; do not edit or crop",
+            "Avoid implying UK government endorsement or product certification",
+            "Reference the relevant ISO standard and certificate number where required",
+            "Remove or suspend use if certification is withdrawn or suspended",
+          ]}
+          ctaLabel="UKAS brand guidance"
+          ctaHref="https://www.ukas.com/resources/brand-guidelines-and-accreditation-symbols/"
+          external
+        />
+
+        {/* Additional explanatory content removed per request */}
 
         {/* Accreditation Block 1 - Zeppy */}
         <AccreditationCard
@@ -144,39 +178,37 @@ export default function Accreditation() {
               src: "https://dashboard.uafaccreditation.org/media/logos/uaf_logo.png",
               alt: "UAF Logo",
             },
-            { src: "/images/img-logo.png", alt: "Zeppy Logo" },
           ]}
-          // title="Zeppy Certification Pvt. Ltd."
-          text="Certigence delivers ISO certifications through a UAF-accredited framework as an authorised franchise partner, ensuring globally recognised and credible certification services."
+          title="United Accreditation Foundation (UAF)"
+          text="Certigence delivers ISO certifications through a UAF-accredited framework as an authorised franchise partner. UAF accreditation adds assurance that our certification processes are competent, impartial, and consistently managed across industries and sites."
           list={[
-            "QMS (ISO 9001:2015)",
-            "EMS (ISO 14001:2015)",
-            "OH&S (ISO 45001:2018)",
-            "FSMS (ISO 22000:2018)",
-            "ABMS (ISO 37001:2016)",
-            "EnMS (ISO 50001:2018)",
+            "Accredits management system certification bodies",
+            "Focus on impartiality, competence, and consistency",
+            "Certificates supported by international recognition",
+            "Applicable across diverse sectors and sizes",
+            "Ongoing surveillance and periodic re-assessment",
           ]}
+          
           ctaLabel="Learn More"
           ctaHref="#ukas"
         />
 
         {/* Accreditation Block 2 - Otabu */}
         <AccreditationCard
-          variant="dark"
+          variant="light"
           logos={[
             { src: "/images/egaclogo.jpeg", alt: "EGAC Logo" },
-            { src: "/images/img-logo.png", alt: "Otabu Logo" },
           ]}
-          // title="Otabu Certification Pvt. Ltd."
-          text="Certigence delivers ISO certifications through a EGAC-accredited framework as an authorised franchise partner, ensuring globally recognised and credible certification services."
+          title="Egyptian Accreditation Council (EGAC)"
+          text="Certigence delivers ISO certifications through an EGAC-accredited framework as an authorised franchise partner. EGAC accreditation provides confidence that our audits and decision-making are impartial and conform to international requirements."
           list={[
-            "QMS (ISO 9001:2015)",
-            "EMS (ISO 14001:2015)",
-            "OH&S (ISO 45001:2018)",
-            "FSMS (ISO 22000:2018)",
-            "MDQMS (ISO 13485:2016)",
-            "ISMS (ISO/IEC 27001:2022)",
+            "National accreditation body of Egypt",
+            "Operates in line with ISO/IEC 17011 requirements",
+            "Oversight of certification body competence and impartiality",
+            "Improves acceptance of issued certificates",
+            "Regular witness assessments and performance reviews",
           ]}
+          
           ctaLabel="Learn More"
           ctaHref="#ukas"
         />
@@ -186,19 +218,43 @@ export default function Accreditation() {
           variant="light"
           logos={[
             { src: "/images/iaslogo.jpeg", alt: "IAS Logo" },
-            { src: "/images/img-logo.png", alt: "Ostia Logo" },
           ]}
-          title="Ostia Certification Pvt. Ltd."
-          text="Certigence delivers ISO certifications through a IAS-accredited framework as an authorised franchise partner, ensuring globally recognised and credible certification services."
+          title="International Accreditation Service (IAS)"
+          text="Certigence delivers ISO certifications through an IAS-accredited framework as an authorised franchise partner. IAS accreditation strengthens credibility, supporting wider recognition of certifications among customers and regulators."
           list={[
-            "QMS (ISO 9001:2015)",
-            "EMS (ISO 14001:2015)",
-            "OHSMS (ISO 45001:2018)",
-            "ISMS (ISO/IEC 27001:2022)",
+            "Accredits management system certification bodies",
+            "Emphasis on technical competence and impartiality",
+            "Witnessed audits and continual oversight",
+            "Broad sector applicability and scalable scopes",
+            "Enhanced market and regulatory confidence",
           ]}
+          
           ctaLabel="Learn More"
           ctaHref="#ukas"
         />
+
+        {/* Accreditation Block 4 - FSSC 22000 */}
+        <AccreditationCard
+          id="fssc22000"
+          variant="fssc"
+          logos={[
+            { src: "/images/fssc22000.png", alt: "FSSC 22000 Logo" },
+          ]}
+          title="FSSC 22000 Certification Scheme"
+          text="FSSC 22000 is a GFSI-recognised food safety certification scheme based on ISO 22000, sector-specific prerequisite programmes (ISO/TS 22002-x), and additional FSSC requirements. It helps organisations build a robust Food Safety Management System that is trusted by retailers and regulators worldwide."
+          list={[
+            "GFSI-recognised scheme built on ISO 22000",
+            "Combines PRPs (ISO/TS 22002-x) with additional requirements",
+            "Applicable to food manufacturing, packaging, storage and transport",
+            "Focus on hazard control, traceability and legal compliance",
+            "Continuous improvement through surveillance and re-certification",
+          ]}
+          ctaLabel="Learn More"
+          ctaHref="https://www.fssc.com/"
+          external
+        />
+
+        {/* Removed gallery per request */}
       </div>
     </div>
   );
