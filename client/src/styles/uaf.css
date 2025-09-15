@@ -1,0 +1,17 @@
+/* UAF page-specific */
+.uaf-page .detail-hero {
+  background: #f8fafc url("https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  position: relative;
+}
+.uaf-page .detail-hero::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,250,252,.94)); }
+.uaf-page .detail-hero-inner { position: relative; }
+
+.uaf-page .card { transition: transform .2s ease, box-shadow .25s ease; }
+.uaf-page .card:hover { transform: translateY(-4px); box-shadow: 0 16px 38px rgba(15,23,42,.12); }
+.uaf-page .logo-tile { transition: transform .2s ease, box-shadow .25s ease; }
+.uaf-page .logo-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,.12); }
+.uaf-page .hero-image { position: relative; overflow: hidden; }
+.uaf-page .hero-image::after { content:""; position:absolute; inset:0; box-shadow: inset 0 -60px 80px rgba(255,255,255,.65); pointer-events:none; }
+.uaf-page .hero-image img { transition: transform .35s ease; }
+.uaf-page .hero-image:hover img { transform: scale(1.03); }
+

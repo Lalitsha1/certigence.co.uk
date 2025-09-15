@@ -145,30 +145,9 @@ export default function Accreditation() {
             "Enhances trust in certificates and audit outcomes",
           ]}
           ctaLabel="Learn More"
-          ctaHref="https://www.ukas.com"
-          external
+          ctaHref="/authorisations/ukas"
         />
-        {/* UKAS Logo usage guidance (content only, no extra logos) */}
-        <AccreditationCard
-          id="ukas-logo-usage"
-          variant="accent"
-          logos={[]}
-          title="Use of Accreditation Marks (UKAS rules)"
-          text="You may use the Certigence certification mark together with the UKAS accreditation symbol only in line with UKAS rules. The marks must never mislead, and their use must clearly relate to the certified management system and its scope."
-          list={[
-            "Do not place the UKAS symbol on products or primary packaging",
-            "Use marks only for sites and activities in the certified scope",
-            "Keep the symbol's proportions and colours; do not edit or crop",
-            "Avoid implying UK government endorsement or product certification",
-            "Reference the relevant ISO standard and certificate number where required",
-            "Remove or suspend use if certification is withdrawn or suspended",
-          ]}
-          ctaLabel="UKAS brand guidance"
-          ctaHref="https://www.ukas.com/resources/brand-guidelines-and-accreditation-symbols/"
-          external
-        />
-
-        {/* Additional explanatory content removed per request */}
+        
 
         {/* Accreditation Block 1 - Zeppy */}
         <AccreditationCard
@@ -190,7 +169,7 @@ export default function Accreditation() {
           ]}
           
           ctaLabel="Learn More"
-          ctaHref="#ukas"
+          ctaHref="/authorisations/uaf"
         />
 
         {/* Accreditation Block 2 - Otabu */}
@@ -210,7 +189,7 @@ export default function Accreditation() {
           ]}
           
           ctaLabel="Learn More"
-          ctaHref="#ukas"
+          ctaHref="/authorisations/egac"
         />
 
         {/* Accreditation Block 3 - Ostia */}
@@ -230,7 +209,7 @@ export default function Accreditation() {
           ]}
           
           ctaLabel="Learn More"
-          ctaHref="#ukas"
+          ctaHref="/authorisations/ias"
         />
 
         {/* Accreditation Block 4 - FSSC 22000 */}
@@ -250,8 +229,7 @@ export default function Accreditation() {
             "Continuous improvement through surveillance and re-certification",
           ]}
           ctaLabel="Learn More"
-          ctaHref="https://www.fssc.com/"
-          external
+          ctaHref="/authorisations/fssc-22000"
         />
 
         {/* Removed gallery per request */}

@@ -1,0 +1,36 @@
+/* UKAS page-specific styles: light, clean, with subtle background image */
+.ukas-page .detail-hero {
+  background: #f8fafc url("https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  position: relative;
+}
+.ukas-page .detail-hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(248,250,252,0.92));
+}
+.ukas-page .detail-hero-inner { position: relative; }
+
+/* Hover polish */
+.ukas-page .card { transition: transform .2s ease, box-shadow .25s ease; }
+.ukas-page .card:hover { transform: translateY(-4px); box-shadow: 0 16px 38px rgba(15,23,42,.12); }
+.ukas-page .logo-tile { transition: transform .2s ease, box-shadow .25s ease; }
+.ukas-page .logo-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,.12); }
+.ukas-page .hero-image { position: relative; overflow: hidden; }
+.ukas-page .hero-image::after { content:""; position:absolute; inset:0; box-shadow: inset 0 -60px 80px rgba(255,255,255,.65); pointer-events:none; }
+.ukas-page .hero-image img { transition: transform .35s ease; }
+.ukas-page .hero-image:hover img { transform: scale(1.03); }
+
+/* Image grid for highlights */
+.ukas-page .image-grid {
+  margin-top: .5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.ukas-page .grid-item { border-radius: 14px; overflow: hidden; border:1px solid rgba(229,231,235,1); box-shadow: 0 10px 24px rgba(15,23,42,.10); }
+.ukas-page .grid-item img { width:100%; height:100%; object-fit: cover; display:block; transition: transform .35s ease; }
+.ukas-page .grid-item:hover img { transform: scale(1.04); }
+
+@media (min-width: 900px) {
+  .ukas-page .image-grid { grid-template-columns: repeat(3, 1fr); }
+}

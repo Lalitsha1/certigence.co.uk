@@ -1,0 +1,17 @@
+/* EGAC page-specific */
+.egac-page .detail-hero {
+  background: #f8fafc url("https://images.unsplash.com/photo-1529336953121-a0bdc9b7f0a5?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  position: relative;
+}
+.egac-page .detail-hero::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(248,250,252,.94)); }
+.egac-page .detail-hero-inner { position: relative; }
+
+.egac-page .card { transition: transform .2s ease, box-shadow .25s ease; }
+.egac-page .card:hover { transform: translateY(-4px); box-shadow: 0 16px 38px rgba(15,23,42,.12); }
+.egac-page .logo-tile { transition: transform .2s ease, box-shadow .25s ease; }
+.egac-page .logo-tile:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,.12); }
+.egac-page .hero-image { position: relative; overflow: hidden; }
+.egac-page .hero-image::after { content:""; position:absolute; inset:0; box-shadow: inset 0 -60px 80px rgba(255,255,255,.65); pointer-events:none; }
+.egac-page .hero-image img { transition: transform .35s ease; }
+.egac-page .hero-image:hover img { transform: scale(1.03); }
+

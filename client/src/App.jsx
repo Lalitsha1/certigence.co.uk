@@ -8,6 +8,11 @@ import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import AboutUs from "./pages/AboutUs";
 import Authorisations from "./pages/Authorisations";
+import UAF from "./pages/UAF";
+import EGAC from "./pages/EGAC";
+import IAS from "./pages/IAS";
+import FSSC22000 from "./pages/FSSC22000";
+import UKAS from "./pages/UKAS";
 import ContactForm from "./pages/ContactForm";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
@@ -48,6 +53,11 @@ const App = () => (
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/contact" element={<ContactForm />} />
       <Route path="/authorisations" element={<Authorisations />} />
+      <Route path="/authorisations/ukas" element={<UKAS />} />
+      <Route path="/authorisations/uaf" element={<UAF />} />
+      <Route path="/authorisations/egac" element={<EGAC />} />
+      <Route path="/authorisations/ias" element={<IAS />} />
+      <Route path="/authorisations/fssc-22000" element={<FSSC22000 />} />
       <Route path="/Blog" element={<Blog />} />
 
       <Route
