@@ -55,6 +55,43 @@ export default function UAF() {
         </div>
 
         <article className="card">
+          <h2 className="section-title">Accreditation lifecycle</h2>
+          <ul className="list">
+            <li>Initial assessment including office review, witnessing of audits and competence evaluation.</li>
+            <li>Certificate of accreditation with a defined scope, locations and any limitations.</li>
+            <li>Ongoing surveillance to verify impartiality, decision controls and the audit programme.</li>
+            <li>Reassessment at planned intervals with scope updates where applicable.</li>
+          </ul>
+        </article>
+
+        <article className="card">
+          <h2 className="section-title">Impartiality & governance</h2>
+          <ul className="list">
+            <li>Independent committee oversight of impartiality risks and mitigation actions.</li>
+            <li>Clear separation of audit, review and certification decision functions.</li>
+            <li>Defined competence criteria and authorisation for auditors and decision makers.</li>
+          </ul>
+        </article>
+
+        <article className="card">
+          <h2 className="section-title">How to verify a certificate</h2>
+          <ul className="list">
+            <li>Check the certification body’s accreditation status and scope.</li>
+            <li>Confirm the certificate number, client name, applicable standard and locations.</li>
+            <li>Ensure the certificate is within validity and not suspended or withdrawn.</li>
+          </ul>
+        </article>
+
+        <article className="card">
+          <h2 className="section-title">FAQs</h2>
+          <ul className="list">
+            <li>What is accreditation? Independent recognition that a body is competent and impartial.</li>
+            <li>What is certification? Confirmation that an organisation meets a specific standard.</li>
+            <li>Why UAF? Wider confidence and acceptance of accredited outcomes.</li>
+          </ul>
+        </article>
+
+        <article className="card">
           <h2 className="section-title">Recognition & scope</h2>
           <p className="lead">UAF accredits management system certification bodies operating against ISO/IEC 17021‑1. Accredited bodies demonstrate robust processes for competence management, impartiality, and decision‑making.</p>
           <h3 className="section-title">Certification process overview</h3>

@@ -18,7 +18,7 @@ export default function FSSC22000() {
           <article className="card">
             <div className="logo-wrap">
               <div className="logo-tile">
-                <img className="logo-img" src="https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=800&auto=format&fit=crop" alt="Food safety concept" />
+                <img className="logo-img" src="https://th.bing.com/th/id/OIG2.Jl09tJJzeNQVpKee89JN?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Food safety concept" />
               </div>
               <div>
                 <h2 className="section-title">What is FSSC 22000?</h2>
@@ -48,7 +48,7 @@ export default function FSSC22000() {
 
           <aside className="card">
             <div className="hero-image">
-              <img src="https://images.unsplash.com/photo-1526401281623-28f5f76a6f27?q=80&w=1400&auto=format&fit=crop" alt="Food production line" />
+              <img src="https://th.bing.com/th/id/OIG3.0gG_66zE0DWvLg3RW7OU?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Food production line" />
             </div>
           </aside>
         </div>
