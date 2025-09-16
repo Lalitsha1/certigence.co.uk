@@ -13,9 +13,9 @@
 }
 
 .custom-toast {
-  background: white;
+  background: #fff;
   border-left: 4px solid #f39c12;
-  border-radius: 4px;
+  border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 12px 20px;
   margin: 5px;
@@ -45,18 +45,6 @@
   font-size: 18px;
 }
 
-.custom-toast.success .toast-icon {
-  color: #27ae60;
-}
-
-.custom-toast.error .toast-icon {
-  color: #e74c3c;
-}
-
-.custom-toast.info .toast-icon {
-  color: #3498db;
-}
-
 .toast-close {
   background: none;
   border: none;
@@ -70,6 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 0.3s;
 }
 
 .toast-close:hover {
@@ -90,13 +79,13 @@
 /* Topbar styling */
 .certi-navbar__topbar {
   background-color: #1a5276;
-  color: white;
+  color: #fff;
   padding: 8px 0;
   font-size: 14px;
 }
 
 .certi-navbar__topbar a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   margin-left: 15px;
   transition: color 0.3s;
@@ -123,10 +112,13 @@
 
 /* Main navbar styling */
 .certi-navbar__main {
-  background-color: white;
+  background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 15px 0;
   transition: all 0.3s;
+  position: sticky;
+  top: 0;
+  z-index: 1200; /* ensure dropdown appears above page content */
 }
 
 .certi-navbar__logo {
@@ -144,33 +136,46 @@
   color: #2e86c1;
 }
 
-.navbar-nav .nav-dropdown .dropdown-menu {
+/* Dropdown menu styling */
+.navbar-nav .dropdown-menu {
   border: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  padding: 10px 0;
+  padding: 8px 0;
   margin-top: 10px;
+  min-width: 250px;
 }
 
-.navbar-nav .nav-dropdown .dropdown-item {
+.navbar-nav .dropdown-item {
   padding: 8px 20px;
   transition: all 0.3s;
+  font-size: 14px;
 }
 
-.navbar-nav .nav-dropdown .dropdown-item:hover {
+.navbar-nav .dropdown-item:hover {
   background-color: #ecf0f1;
   color: #1a5276;
+}
+
+/* Dropdown headings */
+.dropdown-header {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #7f8c8d;
+  padding: 8px 20px;
+  margin-top: 5px;
+}
+
+/* Divider styling */
+.dropdown-divider {
+  margin: 6px 0;
 }
 
 /* Search container styling */
 .certi-navbar__search-container {
   position: relative;
   margin-right: 20px;
-}
-
-/* Search form styling */
-.certi-navbar__search {
-  position: relative;
 }
 
 .certi-navbar__search input {
@@ -196,7 +201,7 @@
   transform: translateY(-50%);
   background: #2e86c1;
   border: none;
-  color: white;
+  color: #fff;
   width: 34px;
   height: 34px;
   border-radius: 50%;
@@ -216,14 +221,17 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: white;
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 1300;
   margin-top: 5px;
   max-height: 300px;
   overflow-y: auto;
 }
+
+/* Boost dropdown menu z-index to sit above hero sections */
+.dropdown-menu { z-index: 1250; }
 
 .suggestion-item {
   padding: 12px 15px;
@@ -254,7 +262,7 @@
 /* Get Quote button */
 .certi-navbar__quote {
   background: #f39c12;
-  color: white;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 50px;
