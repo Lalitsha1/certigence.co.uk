@@ -1,0 +1,273 @@
+/*======================================================================
+  General Styles & Variables
+========================================================================*/
+:root {
+  --primary-color-iso: #005f73;
+  --secondary-color-iso: #0a9396;
+  --accent-color-iso: #94d2bd;
+  --bg-light-iso: #e9f5f5;
+  --text-dark-iso: #2c3e50;
+  --text-light-iso: #ffffff;
+  --card-bg-iso: #ffffff;
+  --card-shadow-iso: 0 6px 18px rgba(0, 0, 0, 0.12);
+  --border-radius-iso: 10px;
+  --transition-speed-iso: 0.3s;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark-iso);
+  background-color: var(--bg-light-iso);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/*======================================================================
+  Page Layout & Structure
+========================================================================*/
+.iso10002-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iso10002-page .detail-hero {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color-iso), var(--secondary-color-iso));
+  color: var(--text-light-iso);
+  padding: 70px 20px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.iso10002-page .detail-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.iso10002-page .detail-hero h1 {
+  font-size: 2.8em;
+  font-weight: 800;
+  margin: 15px 0;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.iso10002-page .detail-hero p {
+  font-size: 1.25em;
+  font-weight: 300;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/*======================================================================
+  Main Content & Grid
+========================================================================*/
+.iso10002-page .detail-main {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.iso10002-page .detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/*======================================================================
+  Card Styles
+========================================================================*/
+.iso10002-page .card {
+  background: var(--card-bg-iso);
+  padding: 35px;
+  border-radius: var(--border-radius-iso);
+  box-shadow: var(--card-shadow-iso);
+  transition: transform var(--transition-speed-iso) ease-in-out, box-shadow var(--transition-speed-iso) ease-in-out;
+}
+
+.iso10002-page .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.iso10002-page .section-title {
+  color: var(--primary-color-iso);
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--accent-color-iso);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+.iso10002-page .section-title.h3 {
+  font-size: 1.5em;
+  color: var(--secondary-color-iso);
+  border-bottom-color: #e0e0e0;
+}
+
+/*======================================================================
+  List Styles with Custom Icons
+========================================================================*/
+.iso10002-page .list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.iso10002-page .list li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  font-size: 1.05em;
+  line-height: 1.8;
+  transition: color var(--transition-speed-iso) ease-in-out;
+}
+
+.iso10002-page .list li:hover {
+  color: var(--secondary-color-iso);
+}
+
+/* Checkmark Icon for lists */
+.iso10002-page .list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent-color-iso);
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 2px solid var(--accent-color-iso);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(148, 210, 189, 0.1);
+  transition: all var(--transition-speed-iso) ease-in-out;
+}
+
+.iso10002-page .list li:hover::before {
+  background-color: var(--accent-color-iso);
+  color: var(--text-light-iso);
+  transform: scale(1.1);
+}
+
+/* Star Icon for principles list */
+.iso10002-page .iso-principles li::before {
+  content: '⭐';
+  color: #f39c12;
+  border-color: #f39c12;
+  background-color: rgba(243, 156, 18, 0.1);
+}
+
+.iso10002-page .iso-principles li:hover::before {
+  background-color: #f39c12;
+  color: var(--text-light-iso);
+}
+
+/*======================================================================
+  Image Handling (Controlled & Responsive)
+========================================================================*/
+.iso-image-container {
+  margin: 30px auto; /* Centers the container */
+  max-width: 100%; /* Ensures it doesn't exceed its parent width */
+  border-radius: var(--border-radius-iso);
+  overflow: hidden;
+  box-shadow: var(--card-shadow-iso);
+  transition: transform var(--transition-speed-iso) ease-in-out, box-shadow var(--transition-speed-iso) ease-in-out;
+  display: flex; /* Flexbox for centering image vertically/horizontally */
+  justify-content: center;
+  align-items: center;
+}
+
+.iso-image-container:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.iso-image-container img {
+  width: auto; /* Allows image to maintain aspect ratio */
+  max-width: 100%; /* Prevents image from overflowing its container */
+  height: auto; /* Ensures aspect ratio is maintained */
+  max-height: 350px; /* Limits the max height to keep layout consistent */
+  object-fit: contain; /* Ensures the entire image is visible without cropping */
+  display: block;
+}
+
+/* Special sizing for the flowchart to make it readable */
+.iso-image-container.flowchart {
+  max-width: 800px;
+}
+.iso-image-container.flowchart img {
+  max-height: none; /* Let the height be determined by aspect ratio */
+  max-width: 100%;
+}
+
+/*======================================================================
+  Responsive Design & Specific Elements
+========================================================================*/
+@media (max-width: 992px) {
+  .iso10002-page .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .iso10002-page .card {
+    padding: 25px;
+  }
+}
+
+.aside-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.aside-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.aside-section .section-title {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+}
+
+/*======================================================================
+  Back to Authorisations Link
+========================================================================*/
+.back-row {
+  margin-top: 50px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, var(--primary-color-iso), var(--secondary-color-iso));
+  color: var(--text-light-iso);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-speed-iso) ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-link:hover {
+  background: linear-gradient(135deg, var(--secondary-color-iso), var(--primary-color-iso));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}

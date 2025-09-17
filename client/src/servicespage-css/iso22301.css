@@ -1,0 +1,273 @@
+/*======================================================================
+  General Styles & Variables
+========================================================================*/
+:root {
+  --primary-color-iso: #005f73; /* Main blue-green, same as ISO 10002 */
+  --secondary-color-iso: #0a9396; /* Lighter accent color */
+  --accent-color-iso: #94d2bd; /* Soft green for highlights */
+  --bg-light-iso: #e9f5f5; /* Light background */
+  --text-dark-iso: #2c3e50; /* Dark text for readability */
+  --text-light-iso: #ffffff;
+  --card-bg-iso: #ffffff;
+  --card-shadow-iso: 0 6px 18px rgba(0, 0, 0, 0.12);
+  --border-radius-iso: 10px;
+  --transition-speed-iso: 0.3s;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark-iso);
+  background-color: var(--bg-light-iso);
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+/*======================================================================
+  Page Layout & Hero Section
+========================================================================*/
+.iso22301-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-hero {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary-color-iso), var(--secondary-color-iso));
+  color: var(--text-light-iso);
+  padding: 70px 20px;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.detail-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.iso-hero-graphic img {
+  width: auto;
+  height: 120px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+  transition: transform var(--transition-speed-iso) ease-in-out;
+}
+
+.iso-hero-graphic img:hover {
+  transform: scale(1.05);
+}
+
+.detail-hero h1 {
+  font-size: 2.8em;
+  font-weight: 800;
+  margin: 15px 0;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  /* Explicitly setting h1 color to dark for cases where it might not be in hero */
+  color: var(--text-dark-iso); 
+}
+
+.detail-hero p {
+  font-size: 1.25em;
+  font-weight: 300;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/*======================================================================
+  Main Content & Grid
+========================================================================*/
+.detail-main {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/*======================================================================
+  Card Styles with Interactive Effects
+========================================================================*/
+.card {
+  background: var(--card-bg-iso);
+  padding: 35px;
+  border-radius: var(--border-radius-iso);
+  box-shadow: var(--card-shadow-iso);
+  transition: transform var(--transition-speed-iso) ease-in-out, box-shadow var(--transition-speed-iso) ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* General rule for all text inside cards to be dark */
+.card h2,
+.card h3,
+.card p,
+.card .list,
+.card .list li,
+.card .list li strong {
+  color: var(--text-dark-iso); 
+}
+
+/* Specific styling for section titles */
+.section-title {
+  color: var(--primary-color-iso); /* Keeps the primary color for the main titles */
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--accent-color-iso);
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+/* Specific styling for h3 titles within section-title */
+.section-title.h3 {
+  font-size: 1.6em;
+  color: var(--secondary-color-iso); /* Uses secondary color as intended */
+  border-bottom-color: #e0e0e0;
+}
+
+/* New class for explicitly black text */
+.dark-text {
+  color: var(--text-dark-iso) !important;
+}
+
+/* List Styles */
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.list li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  font-size: 1.05em;
+  line-height: 1.8;
+  transition: color var(--transition-speed-iso) ease-in-out;
+}
+
+.list li:hover {
+  color: var(--secondary-color-iso);
+}
+
+.list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-color-iso);
+  font-size: 1.2em;
+  font-weight: bold;
+  border: 2px solid var(--accent-color-iso);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(148, 210, 189, 0.1);
+  transition: all var(--transition-speed-iso) ease-in-out;
+}
+
+.list li:hover::before {
+  background-color: var(--accent-color-iso);
+  color: var(--text-light-iso);
+  transform: scale(1.1);
+}
+
+/* Pills */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.pill {
+  background: var(--accent-color-iso);
+  color: var(--primary-color-iso);
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed-iso) ease-in-out, background var(--transition-speed-iso) ease-in-out;
+}
+
+.pill:hover {
+  transform: translateY(-3px);
+  background: var(--secondary-color-iso);
+  color: var(--text-light-iso);
+}
+
+/*======================================================================
+  Image Management
+========================================================================*/
+.image-container {
+  margin: 30px auto;
+  max-width: 100%;
+  border-radius: var(--border-radius-iso);
+  overflow: hidden;
+  box-shadow: var(--card-shadow-iso);
+  transition: transform var(--transition-speed-iso) ease-in-out, box-shadow var(--transition-speed-iso) ease-in-out;
+}
+
+.image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*======================================================================
+  Responsive & Back Link
+========================================================================*/
+@media (max-width: 992px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.back-row {
+  margin-top: 50px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 15px 30px;
+  background: linear-gradient(135deg, var(--primary-color-iso), var(--secondary-color-iso));
+  color: var(--text-light-iso);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all var(--transition-speed-iso) ease-in-out;
+}
+
+.back-link:hover {
+  background: linear-gradient(135deg, var(--secondary-color-iso), var(--primary-color-iso));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
