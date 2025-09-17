@@ -25,8 +25,10 @@ function AccreditationCard({ id, logos, text, variant = "light", title, list, ct
               whileHover={{ scale: 1.08, rotate: 1.5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
+              {/* Inline style allows per-logo size overrides (UKAS/EGAC/IAS) */}
               <img
                 className="logo-image"
+                style={logo.style}
                 src={logo.src}
                 alt={logo.alt || title || "Accreditation logo"}
                 loading="lazy"
@@ -136,6 +138,8 @@ export default function Accreditation() {
             {
               src: "images/ukas-logo.jpg",
               alt: "UKAS Logo",
+              // Increased UKAS logo size: height 120px, max-width 420px
+              style: { height: "180px", maxWidth: "420px", width: "200px" },
             },
           ]}
           title="United Kingdom Accreditation Service (UKAS)"
@@ -158,6 +162,7 @@ export default function Accreditation() {
             {
               src: "https://dashboard.uafaccreditation.org/media/logos/uaf_logo.png",
               alt: "UAF Logo",
+              style: {height : "180px"}
             },
           ]}
           title="United Accreditation Foundation (UAF)"
@@ -178,7 +183,12 @@ export default function Accreditation() {
         <AccreditationCard
           variant="light"
           logos={[
-            { src: "/images/egaclogo.jpeg", alt: "EGAC Logo" },
+            {
+              src: "/images/egaclogo.jpeg",
+              alt: "EGAC Logo",
+              // Increased EGAC logo size: height 120px, max-width 420px
+              style: { height: "180px", maxWidth: "420px", width: "200px" },
+            },
           ]}
           title="Egyptian Accreditation Council (EGAC)"
           text="Certigence delivers ISO certifications through an EGAC-accredited framework as an authorised franchise partner. EGAC accreditation provides confidence that our audits and decision-making are impartial and conform to international requirements."
@@ -198,7 +208,12 @@ export default function Accreditation() {
         <AccreditationCard
           variant="light"
           logos={[
-            { src: "/images/iaslogo.jpeg", alt: "IAS Logo" },
+            {
+              src: "/images/iaslogo.png",
+              alt: "IAS Logo",
+              // Increased IAS logo size: height 120px, max-width 420px
+              style: { height: "180px", maxWidth: "420px", width: "220px" },
+            },
           ]}
           title="International Accreditation Service (IAS)"
           text="Certigence delivers ISO certifications through an IAS-accredited framework as an authorised franchise partner. IAS accreditation strengthens credibility, supporting wider recognition of certifications among customers and regulators."
@@ -219,7 +234,10 @@ export default function Accreditation() {
           id="fssc22000"
           variant="fssc"
           logos={[
-            { src: "/images/fssc22000.png", alt: "FSSC 22000 Logo" },
+            { 
+              src: "/images/fssc22000.png", alt: "FSSC 22000 Logo" ,
+              style: {height:"180px"}
+            },
           ]}
           title="FSSC 22000 Certification Scheme"
           text="FSSC 22000 is a GFSI-recognised food safety certification scheme based on ISO 22000, sector-specific prerequisite programmes (ISO/TS 22002-x), and additional FSSC requirements. It helps organisations build a robust Food Safety Management System that is trusted by retailers and regulators worldwide."
