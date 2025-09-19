@@ -1,0 +1,102 @@
+/*======================================================================
+  ISO/IEC 27018 Page (PII in Public Cloud) - Advanced Scoped Styles
+========================================================================*/
+.iso27018 {
+  --p18-primary: #0ea5e9;
+  --p18-secondary: #06b6d4;
+  --p18-accent: #a7f3d0;
+  --p18-ink: #0b172a;
+  --p18-muted: #475569;
+  --p18-glass: rgba(255,255,255,0.66);
+  --p18-shadow: 0 12px 32px rgba(2,6,23,.12);
+  --p18-radius: 14px;
+  --p18-speed: .28s;
+}
+
+/* Hero with background image + overlay + inset shadow */
+.iso27018 .pii-hero {
+  position: relative;
+  min-height: 340px;
+  padding: 90px 16px 70px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.35) 40%, rgba(2,6,23,.25)),
+    url('https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+  box-shadow: inset 0 -90px 140px rgba(2, 6, 23, .35);
+}
+.iso27018 .pii-hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(60% 40% at 50% 0%, rgba(14,165,233,.22), rgba(14,165,233,0));
+}
+.iso27018 .hero-inner{ max-width:1100px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.iso27018 .pii-hero h1{ font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; margin:0 0 8px; letter-spacing:.2px; }
+.iso27018 .pii-hero p{ margin:0 auto; max-width:75ch; opacity:.96; }
+
+/* Cards & glass */
+.iso27018 .service-card{ border:1px solid #e5e7eb; border-radius: var(--p18-radius); background:#fff; box-shadow: var(--p18-shadow); }
+.iso27018 .service-card.glass{ background: var(--p18-glass); backdrop-filter: blur(8px); }
+
+/* Two columns */
+.iso27018 .two-col{ display:grid; grid-template-columns: 1fr 1fr; gap:18px; }
+@media (max-width: 900px){ .iso27018 .two-col{ grid-template-columns: 1fr; } }
+
+/* Lists */
+.iso27018 .service-list{ margin:.25rem 0 0; padding-left:1.1rem; }
+.iso27018 .list-check{ list-style:none; padding-left:0; }
+.iso27018 .list-check li{ position:relative; padding-left:28px; }
+.iso27018 .list-check li::before{ content:'✓'; position:absolute; left:0; top:0; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; background:#ecfeff; color:#0e7490; font-weight:900; border:1px solid #bae6fd; }
+
+/* Image containers with elevated (above) shadow */
+.iso27018 .image-container{ margin:18px 0; border-radius: var(--p18-radius); overflow:hidden; box-shadow: var(--p18-shadow); }
+.iso27018 .image-container img{ width:100%; height:100%; object-fit:cover; display:block; }
+.iso27018 .img-elevated{ filter: drop-shadow(0 -12px 22px rgba(2,6,23,.18)); }
+.iso27018 .ratio-16x9{ aspect-ratio: 16/9; }
+
+/* Feature grid */
+.iso27018 .feature-grid{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:16px; }
+@media (max-width: 1000px){ .iso27018 .feature-grid{ grid-template-columns: repeat(2,1fr);} }
+@media (max-width: 640px){ .iso27018 .feature-grid{ grid-template-columns: 1fr;} }
+.iso27018 .feature-card{ border-radius: var(--p18-radius); overflow:hidden; border:1px solid #e5e7eb; background:#fff; box-shadow: var(--p18-shadow); transition: transform var(--p18-speed) ease, box-shadow var(--p18-speed) ease; position:relative; }
+.iso27018 .feature-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(2,6,23,.16); }
+.iso27018 .feature-card img{ width:100%; height:160px; object-fit:cover; display:block; }
+.iso27018 .feature-body{ padding:14px 16px; }
+.iso27018 .feature-body h4{ margin:0 0 6px; color: var(--p18-primary); }
+.iso27018 .feature-body p{ margin:0; color: var(--p18-muted); }
+
+/* Shine effect */
+.iso27018 .shine::after{ content:""; position:absolute; inset:-120%; background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%); transform: translateX(-100%); transition: transform .7s ease; }
+.iso27018 .shine:hover::after{ transform: translateX(100%); }
+
+/* Steps */
+.iso27018 .steps{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+@media (max-width: 900px){ .iso27018 .steps{ grid-template-columns: 1fr; } }
+.iso27018 .step{ display:grid; grid-template-columns: auto 1fr; gap: 12px; align-items: flex-start; border: 1px solid #e5e7eb; border-radius: var(--p18-radius); background: #fff; padding: 14px; box-shadow: var(--p18-shadow); }
+.iso27018 .step-index{ width: 38px; height: 38px; border-radius: 50%; background: var(--p18-accent); color: #065f46; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+.iso27018 .step-body h4{ margin: 0 0 4px; color: var(--p18-primary); }
+.iso27018 .step-body p{ margin: 0; color: var(--p18-muted); }
+
+/* Meta pills */
+.iso27018 .meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+.iso27018 .pill{ background:#f8fafc; color:#0b1220; border:1px solid #e5e7eb; padding:8px 12px; border-radius:999px; font-weight:700; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+
+/* Gallery tweaks */
+.iso27018 .gallery-advanced{ grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+.iso27018 .service-img.wide{ grid-column: span 2; }
+@media (max-width: 700px){ .iso27018 .service-img.wide{ grid-column: auto; } }
+
+/* FAQs */
+.iso27018 .faq-list details{ border:1px solid #e5e7eb; border-radius: var(--p18-radius); padding:12px 14px; margin:10px 0; background:#fff; box-shadow: var(--p18-shadow); }
+.iso27018 .faq-list summary{ cursor:pointer; list-style:none; font-weight:800; color: var(--p18-ink); position:relative; }
+.iso27018 .faq-list summary::-webkit-details-marker{ display:none; }
+.iso27018 .faq-list summary::after{ content:'▸'; position:absolute; right:0; transition: transform var(--p18-speed) ease; }
+.iso27018 .faq-list details[open] summary::after{ transform: rotate(90deg); }
+
+/* Back links */
+.iso27018 .back-link.alt{ margin-left:10px; background: transparent; color: #0b172a; border:2px solid #0b172a; }
+.iso27018 .back-link.alt:hover{ background: rgba(2,6,23,.06); }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .iso27018 .shine::after, .iso27018 .feature-card, .iso27018 .steps { transition: none !important; }
+}
+
