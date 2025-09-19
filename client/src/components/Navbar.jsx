@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+﻿import React, { useContext, useState, useEffect } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -29,7 +29,7 @@ const NavbarComponent = () => {
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const navigate = useNavigate();
 
-  // ✅ Complete ISO standards list for search
+  // âœ… Complete ISO standards list for search
   const isoStandards = [
     // Quality / Operations
     { id: "iso-9001", title: "ISO 9001", description: "Quality Management System" },
@@ -204,7 +204,7 @@ const NavbarComponent = () => {
             <Nav className="mx-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
 
-              <NavDropdown title="About Us" id="about-us-dropdown">
+              <NavDropdown title="About Us" id="about-us-dropdown" className="nav-dropdown" drop="down">
                 <NavDropdown.Item as={Link} to="/aboutus">About Us</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/vision-mission">Vision & Mission</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/impartiality-policy">Impartiality Policy</NavDropdown.Item>
@@ -212,8 +212,8 @@ const NavbarComponent = () => {
                 <NavDropdown.Item as={Link} to="/management-process">Management System Process</NavDropdown.Item>
               </NavDropdown>
 
-              {/* ✅ Full Services Dropdown */}
-              <NavDropdown title="Services" id="services-dropdown">
+              {/* âœ… Full Services Dropdown */}
+              <NavDropdown title="Services" id="services-dropdown" className="nav-dropdown" drop="down">
                 <NavDropdown.Header>Quality / Operations</NavDropdown.Header>
                 <NavDropdown.Item as={Link} to="/iso-9001">ISO 9001</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/iso-10002">ISO 10002</NavDropdown.Item>
@@ -313,7 +313,7 @@ const NavbarComponent = () => {
             </div>
 
             <button className="certi-navbar__quote" onClick={() => navigate("/contact")}>
-              Get a Quote →
+              Get a Quote â†’
             </button>
           </Navbar.Collapse>
         </Container>
@@ -323,3 +323,4 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
+

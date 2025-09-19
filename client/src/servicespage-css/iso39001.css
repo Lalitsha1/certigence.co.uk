@@ -1,0 +1,82 @@
+﻿/*======================================================================
+  ISO 39001 Page (Road Traffic Safety) - Distinct Style & Pattern
+========================================================================*/
+.iso39001 {
+  --rts-primary: #0ea5e9;  /* cyan */
+  --rts-secondary: #10b981;/* emerald */
+  --rts-ink: #0b1b2a;
+  --rts-muted: #456175;
+  --rts-shadow: 0 12px 32px rgba(11,27,42,.14);
+  --rts-radius: 14px;
+  --rts-speed: .28s;
+
+  position: relative;
+}
+
+/* Background pattern using conic gradients to evoke road markings */
+.iso39001::before{
+  content:""; position: fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    repeating-conic-gradient(from 0deg, rgba(16,185,129,.06) 0 15deg, transparent 15deg 30deg) 50% 50%/ 120px 120px,
+    linear-gradient(180deg, rgba(14,165,233,.08), rgba(14,165,233,.02));
+}
+
+.iso39001 .road-hero{
+  position:relative; color:#fff; min-height:320px; padding:84px 16px 64px;
+  background:
+    linear-gradient(180deg, rgba(14,165,233,.6), rgba(14,165,233,.35) 40%, rgba(14,165,233,.18)),
+    url('https://images.unsplash.com/photo-1473976345543-9ffc928e648d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+  box-shadow: inset 0 -80px 120px rgba(11,27,42,.35);
+}
+.iso39001 .road-hero::after{ content:""; position:absolute; inset:0; pointer-events:none; background: repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 8px, transparent 8px 28px); mix-blend-mode: overlay; }
+.iso39001 .hero-inner{ max-width:1100px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.iso39001 .road-hero h1{ font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; margin:0 0 8px; }
+.iso39001 .road-hero p{ margin:0 auto; max-width:75ch; opacity:.96; }
+
+.iso39001 .service-card{ border:1px solid #e5e7eb; border-radius: var(--rts-radius); background:#fff; box-shadow: var(--rts-shadow); position:relative; overflow:hidden; }
+.iso39001 .service-card.glass{ background: rgba(255,255,255,.66); backdrop-filter: blur(8px); }
+
+/* Corner chevron accent */
+.iso39001 .service-card::before{ content:""; position:absolute; right:-40px; top:-40px; width:160px; height:160px; background: conic-gradient(from 45deg, rgba(14,165,233,.14), rgba(16,185,129,.12)); transform: rotate(18deg); border-radius: 50%; }
+
+.iso39001 .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media (max-width: 900px){ .iso39001 .two-col{ grid-template-columns:1fr; } }
+
+.iso39001 .service-list{ margin:.25rem 0 0; padding-left:1.1rem; }
+.iso39001 .list-check{ list-style:none; padding-left:0; }
+.iso39001 .list-check li{ position:relative; padding-left:28px; }
+.iso39001 .list-check li::before{ content:'✓'; position:absolute; left:0; top:0; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; background:#ecfeff; color:#0e7490; font-weight:900; border:1px solid #bae6fd; }
+
+.iso39001 .image-container{ margin:18px 0; border-radius: var(--rts-radius); overflow:hidden; box-shadow: var(--rts-shadow); }
+.iso39001 .image-container img{ width:100%; height:100%; object-fit:cover; display:block; }
+.iso39001 .ratio-16x9{ aspect-ratio: 16/9; }
+.iso39001 .img-elevated{ filter: drop-shadow(0 -12px 22px rgba(11,27,42,.18)); }
+
+.iso39001 .feature-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:16px; }
+.iso39001 .feature-card{ border-radius: var(--rts-radius); overflow:hidden; border:1px solid #e5e7eb; background:#fff; box-shadow: var(--rts-shadow); transition: transform var(--rts-speed) ease, box-shadow var(--rts-speed) ease; position:relative; }
+.iso39001 .feature-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(11,27,42,.16); }
+.iso39001 .feature-card img{ width:100%; height:160px; object-fit:cover; display:block; }
+.iso39001 .feature-body{ padding:14px 16px; }
+.iso39001 .feature-body h4{ margin:0 0 6px; color: var(--rts-primary); }
+.iso39001 .feature-body p{ margin:0; color: var(--rts-muted); }
+.iso39001 .shine::after{ content:""; position:absolute; inset:-120%; background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%); transform: translateX(-100%); transition: transform .7s ease; }
+.iso39001 .shine:hover::after{ transform: translateX(100%); }
+
+.iso39001 .steps{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+@media (max-width: 900px){ .iso39001 .steps{ grid-template-columns: 1fr; } }
+.iso39001 .step{ display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:flex-start; border:1px solid #e5e7eb; border-radius: var(--rts-radius); background:#fff; padding:14px; box-shadow: var(--rts-shadow); }
+.iso39001 .step-index{ width:38px; height:38px; border-radius:50%; background: var(--rts-primary); color:#fff; font-weight:900; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.18); }
+.iso39001 .step-body h4{ margin:0 0 4px; color: var(--rts-primary); }
+.iso39001 .step-body p{ margin:0; color: var(--rts-muted); }
+
+.iso39001 .meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+.iso39001 .pill{ background:#f1f5f9; color:#0b172a; border:1px solid #e2e8f0; padding:8px 12px; border-radius:999px; font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+
+.iso39001 .gallery-advanced{ grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+
+.iso39001 .back-link.alt{ margin-left:10px; background: transparent; color: var(--rts-primary); border:2px solid var(--rts-primary); }
+.iso39001 .back-link.alt:hover{ background: var(--rts-primary); color:#fff; }
+
+@media (prefers-reduced-motion: reduce){ .iso39001 .shine::after, .iso39001 .feature-card, .iso39001 .steps { transition: none !important; } }
+
+

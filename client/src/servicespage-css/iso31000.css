@@ -1,0 +1,85 @@
+/*======================================================================
+  ISO 31000 Page (Risk Management) - Elegant Patterned Theme
+========================================================================*/
+.iso31000 {
+  --rm-primary: #0891b2;  /* teal */
+  --rm-secondary: #6366f1;/* indigo */
+  --rm-ink: #0b1320;
+  --rm-muted: #4b5b6b;
+  --rm-shadow: 0 12px 32px rgba(11,19,32,.14);
+  --rm-radius: 14px;
+  --rm-speed: .28s;
+
+  position: relative;
+}
+
+/* Subtle triangular pattern (risk facets) */
+.iso31000::before{
+  content:""; position: fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    linear-gradient(135deg, rgba(99,102,241,.06) 25%, transparent 25%) 0 0/28px 28px,
+    linear-gradient(225deg, rgba(8,145,178,.06) 25%, transparent 25%) 0 0/28px 28px,
+    linear-gradient(315deg, rgba(99,102,241,.06) 25%, transparent 25%) 0 0/28px 28px,
+    linear-gradient(45deg,  rgba(8,145,178,.06) 25%, transparent 25%) 0 0/28px 28px;
+  filter: saturate(105%);
+}
+
+.iso31000 .risk-hero{
+  position:relative; color:#fff; min-height:320px; padding:84px 16px 64px;
+  background:
+    radial-gradient(1100px 260px at 50% -40px, rgba(8,145,178,.55), transparent 60%),
+    linear-gradient(180deg, rgba(8,145,178,.6), rgba(8,145,178,.35) 40%, rgba(8,145,178,.18)),
+    url('https://images.unsplash.com/photo-1518186233392-c232efbf2373?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+  box-shadow: inset 0 -80px 120px rgba(11,19,32,.35);
+}
+.iso31000 .risk-hero::after{ content:""; position:absolute; inset:0; pointer-events:none; background: repeating-linear-gradient(135deg, rgba(255,255,255,.07) 0 10px, transparent 10px 26px); mix-blend-mode: overlay; }
+.iso31000 .hero-inner{ max-width:1100px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+.iso31000 .risk-hero h1{ font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; margin:0 0 8px; }
+.iso31000 .risk-hero p{ margin:0 auto; max-width:75ch; opacity:.96; }
+
+.iso31000 .service-card{ border:1px solid #e5e7eb; border-radius: var(--rm-radius); background:#fff; box-shadow: var(--rm-shadow); position:relative; overflow:hidden; }
+.iso31000 .service-card.glass{ background: rgba(255,255,255,.66); backdrop-filter: blur(8px); }
+
+.iso31000 .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media (max-width: 900px){ .iso31000 .two-col{ grid-template-columns:1fr; } }
+
+.iso31000 .service-list{ margin:.25rem 0 0; padding-left:1.1rem; }
+.iso31000 .list-check{ list-style:none; padding-left:0; }
+.iso31000 .list-check li{ position:relative; padding-left:28px; }
+.iso31000 .list-check li::before{ content:'✓'; position:absolute; left:0; top:0; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; background:#ecfeff; color:#0e7490; font-weight:900; border:1px solid #bae6fd; }
+
+.iso31000 .image-container{ margin:18px 0; border-radius: var(--rm-radius); overflow:hidden; box-shadow: var(--rm-shadow); }
+.iso31000 .image-container img{ width:100%; height:100%; object-fit:cover; display:block; }
+.iso31000 .ratio-16x9{ aspect-ratio: 16/9; }
+.iso31000 .img-elevated{ filter: drop-shadow(0 -12px 22px rgba(11,19,32,.18)); }
+
+.iso31000 .feature-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+@media (max-width: 860px){ .iso31000 .feature-grid{ grid-template-columns: 1fr; } }
+.iso31000 .feature-card{ border-radius: var(--rm-radius); overflow:hidden; border:1px solid #e5e7eb; background:#fff; box-shadow: var(--rm-shadow); transition: transform var(--rm-speed) ease, box-shadow var(--rm-speed) ease; position:relative; }
+.iso31000 .feature-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(11,19,32,.16); }
+.iso31000 .feature-card img{ width:100%; height:160px; object-fit:cover; display:block; }
+.iso31000 .feature-body{ padding:14px 16px; }
+.iso31000 .feature-body h4{ margin:0 0 6px; color: var(--rm-secondary); }
+.iso31000 .feature-body p{ margin:0; color: var(--rm-muted); }
+.iso31000 .shine::after{ content:""; position:absolute; inset:-120%; background: linear-gradient(120deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%); transform: translateX(-100%); transition: transform .7s ease; }
+.iso31000 .shine:hover::after{ transform: translateX(100%); }
+
+.iso31000 .steps{ display:grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+@media (max-width: 900px){ .iso31000 .steps{ grid-template-columns: 1fr; } }
+.iso31000 .step{ display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:flex-start; border:1px solid #e5e7eb; border-radius: var(--rm-radius); background:#fff; padding:14px; box-shadow: var(--rm-shadow); }
+.iso31000 .step-index{ width:38px; height:38px; border-radius:50%; background: var(--rm-secondary); color:#fff; font-weight:900; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.18); }
+.iso31000 .step-body h4{ margin:0 0 4px; color: var(--rm-primary); }
+.iso31000 .step-body p{ margin:0; color: var(--rm-muted); }
+
+.iso31000 .meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+.iso31000 .pill{ background:#f1f5f9; color:#0b172a; border:1px solid #e2e8f0; padding:8px 12px; border-radius:999px; font-weight:700; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+
+.iso31000 .gallery-advanced{ grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+.iso31000 .service-img{ border-radius: var(--rm-radius); overflow:hidden; border:1px solid #e5e7eb; box-shadow: var(--rm-shadow); }
+.iso31000 .service-img img{ transform: scale(1.005); transition: transform var(--rm-speed) ease; }
+.iso31000 .service-img:hover img{ transform: scale(1.04); }
+
+.iso31000 .back-link.alt{ margin-left:10px; background: transparent; color: var(--rm-primary); border:2px solid var(--rm-primary); }
+.iso31000 .back-link.alt:hover{ background: var(--rm-primary); color:#fff; }
+
+@media (prefers-reduced-motion: reduce){ .iso31000 .shine::after, .iso31000 .feature-card, .iso31000 .steps { transition: none !important; } }
