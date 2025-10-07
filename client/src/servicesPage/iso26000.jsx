@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import "../servicespage-css/serviceBase.css";
 import "../servicespage-css/iso26000.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function iso26000() {
   return (
@@ -182,6 +183,9 @@ export default function iso26000() {
         <div className="back-row">
           <Link className="back-link" to="/services">Back to Services</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 26000"
+      />
       </main>
     </div>
   );

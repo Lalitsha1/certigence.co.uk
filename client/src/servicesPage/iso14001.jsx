@@ -16,6 +16,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import "../styles/servicespage-css/iso14001.css";
+import CountrySelector from "../components/CountrySelector";
 
 const benefits = [
   {
@@ -207,7 +208,12 @@ const Iso14001 = () => {
           Begin your journey towards a greener and more sustainable future today.
         </p>
       </footer>
+      <CountrySelector
+        serviceName="ISO 14001"
+      />
     </div>
+    
+
   );
 };
 

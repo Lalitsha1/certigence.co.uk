@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 
 import "../styles/servicespage-css/iso22000.css";
+import CountrySelector from "../components/CountrySelector";
 
 const Iso22000 = () => {
   return (
@@ -244,7 +245,12 @@ const Iso22000 = () => {
           <button className="cta-button"> <a href="/contact"> Get Started Today</a></button>
         </div>
       </section>
+      <CountrySelector
+        serviceName="ISO 22000"
+      />
     </div>
+    
+
   );
 };
 

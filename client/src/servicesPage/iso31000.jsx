@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../servicespage-css/serviceBase.css";
 import "../servicespage-css/iso31000.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO31000() {
   const handleImgError = (e) => {
@@ -159,7 +160,7 @@ export default function ISO31000() {
           <h2>Image Gallery</h2>
           <div className="service-gallery gallery-advanced">
             <div className="service-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80" alt="City risk context" loading="lazy" onError={handleImgError} /></div>
-            <div className="service-img"><img src="https://images.unsplash.com/photo-1460925895917-8f79b24b1aa1?auto=format&fit=crop&w=1400&q=80" alt="Data and analysis" loading="lazy" onError={handleImgError} /></div>
+            <div className="service-img"><img src="https://th.bing.com/th/id/OIG3.zUd.Bjsys.h9Wt2yc66k?r=0&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Data and analysis" loading="lazy" onError={handleImgError} /></div>
             <div className="service-img"><img src="https://images.unsplash.com/photo-1554774853-b415df9eeb92?auto=format&fit=crop&w=1400&q=80" alt="Decision and governance" loading="lazy" onError={handleImgError} /></div>
           </div>
         </article>
@@ -168,6 +169,9 @@ export default function ISO31000() {
           <Link className="back-link" to="/services">Back to Services</Link>
           <Link className="back-link alt" to="/contact">Talk to an Expert</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 31000"
+      />
       </main>
     </div>
   );

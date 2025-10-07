@@ -1,6 +1,6 @@
 .blog-section {
   padding: 60px 20px;
-  background: url("https://img.freepik.com/free-vector/gradient-network-connection-background_23-2148873964.jpg")
+  background: url("https://t3.ftcdn.net/jpg/05/52/20/98/360_F_552209893_vXBU90Mj9zxsPV6xWHMG1giaKms7odKo.jpg")
     no-repeat center center/cover;
   color: white;
   text-align: center;
@@ -15,7 +15,8 @@
   border-radius: 25px;
   cursor: pointer;
   margin-bottom: 15px;
-  margin-top: 95px;
+  margin-top: 35px;
+  margin-right: 30px;
   transition: all 0.3s ease;
 }
 
@@ -114,4 +115,100 @@
 .read-more:hover {
   background: #ff6600;
   color: #fff;
+}
+
+/* Layout normalization overrides for equal cards */
+.blog-grid {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.blog-image {
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.blog-content h5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 3.2em;
+  margin-bottom: 0;
+}
+
+.blog-content p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: 4.8em;
+  margin-bottom: 0;
+}
+
+.read-more {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* Visibility + no-crop overrides (no hidden overflow) */
+.blog-card {
+  background: #fff !important;
+  color: #1f2937 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  overflow: visible !important; /* ensure nothing is clipped */
+}
+
+.blog-image {
+  overflow: visible !important; /* do not crop image */
+}
+
+.blog-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* keep full image visible */
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.blog-content {
+  background: #fff !important;
+}
+
+.blog-content h5 {
+  color: #111827 !important;
+  display: block !important;          /* cancel -webkit-box */
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  margin-bottom: 12px !important;
+}
+
+.blog-content p {
+  color: #4b5563 !important;
+  display: block !important;          /* cancel -webkit-box */
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
+  margin-bottom: 20px !important;
 }

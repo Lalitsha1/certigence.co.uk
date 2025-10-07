@@ -46,7 +46,7 @@ const QuoteForm = () => {
       {/* Left Side Image */}
       <div className="quote-left">
         <img
-          src="https://thafd.bing.com/th/id/OIG2.CF6stnId_Bu.Q.pDA1F.?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
+          src="https://i0.wp.com/theguestpen.com/wp-content/uploads/2023/10/news2.jpg?resize=1000%2C620&ssl=1"
           alt="Business Woman"
           className="quote-image"
         />

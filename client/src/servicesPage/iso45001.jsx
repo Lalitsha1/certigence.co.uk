@@ -13,6 +13,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import "../styles/servicespage-css/iso45001.css";
+import CountrySelector from "../components/CountrySelector";
 
 // Benefits of ISO 45001
 const benefits = [
@@ -179,7 +180,12 @@ const Iso45001 = () => {
           </button>
         </div>
       </div>
+      <CountrySelector
+        serviceName="ISO 45001"
+      />
     </div>
+    
+
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../servicespage-css/iso22316.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO22316() {
   const handleImgError = (e) => {
@@ -175,6 +176,9 @@ export default function ISO22316() {
           <Link className="back-link" to="/services">Back to Services</Link>
           <Link className="back-link " to="/contact">Talk to an Expert</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 22316"
+      />
       </main>
     </div>
   );

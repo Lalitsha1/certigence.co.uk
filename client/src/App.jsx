@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -53,13 +53,15 @@ import Iso45003 from "./servicesPage/iso45003";
 import Iso39001 from "./servicesPage/iso39001";
 import Iso31000 from "./servicesPage/iso31000";
 import Iso22316 from "./servicesPage/iso22316";
-import Iso17025 from "./servicesPage/iso17025";
-import Iso15189 from "./servicesPage/iso15189";
 import Iso21001 from "./servicesPage/iso21001";
 import Iso21930 from "./servicesPage/iso21930";
-import CarbonNeutral from "./servicesPage/carbonneutral";
+import Iso14046 from "./servicesPage/iso14046";
+import Iso17025 from "./servicesPage/iso17025";
+
 import Haccp from "./servicesPage/haccp";
 import FSSC22000 from "./pages/FSSC22000";
+import FSSC22000Service from "./servicesPage/fssc22000";
+import FAQ from "./pages/FAQ";
 
 
 
@@ -110,12 +112,13 @@ const App = () => (
       <Route path="/iso-39001" element={<Iso39001 />} />
       <Route path="/iso-31000" element={<Iso31000 />} />
       <Route path="/iso-22316" element={<Iso22316 />} />
-      <Route path="/iso-17025" element={<Iso17025 />} />
-      <Route path="/iso-15189" element={<Iso15189 />} />
       <Route path="/iso-21001" element={<Iso21001 />} />
       <Route path="/iso-21930" element={<Iso21930 />} />
-      <Route path="/carbon-neutral" element={<CarbonNeutral />} />
+      <Route path="/iso-14046" element={<Iso14046 />} />
+      <Route path="/iso-17025" element={<Iso17025 />} />
       <Route path="/haccp" element={<Haccp />} />
+      <Route path="/fssc-22000" element={<FSSC22000Service />} />
+      <Route path="/faq" element={<FAQ />} />
       
       <Route path="/vision-mission" element={<VisionMission />} />
       <Route path="/impartiality-policy" element={<ImpartialityPolicy />} />
@@ -130,3 +133,7 @@ const App = () => (
 );
 
 export default App;
+
+
+
+

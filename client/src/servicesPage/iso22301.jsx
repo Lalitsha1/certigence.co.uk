@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../servicespage-css/iso22301.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO22301() {
   return (
@@ -112,6 +113,9 @@ export default function ISO22301() {
         <div className="back-row">
           <Link className="back-link" to="/contact">Connect With Us </Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 22301"
+      />
       </main>
     </div>
   );

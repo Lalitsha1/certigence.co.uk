@@ -12,6 +12,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 import "../styles/servicespage-css/iso14001.css";
+import CountrySelector from "../components/CountrySelector";
 
 const benefits = [
   {
@@ -166,7 +167,10 @@ const Iso27001 = () => (
         Build trust with customers and partners by demonstrating robust information security management.
       </p>
     </footer>
-  </div>
+      <CountrySelector
+        serviceName="ISO 27001"
+      />
+    </div>
 );
 
 export default Iso27001;

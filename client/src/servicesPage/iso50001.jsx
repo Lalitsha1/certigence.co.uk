@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/servicespage-css/iso50001.css";
+import CountrySelector from "../components/CountrySelector";
 
 import {
   FaBolt,
@@ -167,7 +168,12 @@ const Iso50001 = () => {
         </p>
         <button className="cta-button"><a href="/contact ">Start Certification</a> </button>
       </section>
+      <CountrySelector
+        serviceName="ISO 50001"
+      />
     </div>
+    
+
   );
 };
 

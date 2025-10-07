@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../servicespage-css/iso28000.css"; // Make sure to create this CSS file
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO28000() {
   return (
@@ -221,6 +222,9 @@ export default function ISO28000() {
         <div className="back-row">
           <Link className="back-link alt" to="/contact">Talk to an Expert</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 28000"
+      />
       </main>
     </div>
   );

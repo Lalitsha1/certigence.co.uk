@@ -3,26 +3,34 @@ import { sendEmail } from "../utils/sendEmail.js";
 
 export const sendMessage = async (req, res) => {
   try {
-    const { name, email, mobile, company_name, message } = req.body;
+    const { name, email, mobile, company_name, message } = req.body || {};
 
-    if (!name || !email || !mobile || !company_name || !message) {
+    const payload = {
+      name: name?.toString().trim(),
+      email: email?.toString().trim().toLowerCase(),
+      mobile: mobile?.toString().trim(),
+      company_name: company_name?.toString().trim(),
+      message: message?.toString().trim(),
+    };
+
+    if (Object.values(payload).some((value) => !value)) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
     // Save to DB
-    const newMessage = await Contact.create({ name, email, mobile, company_name, message });
+    const newMessage = await Contact.create(payload);
 
     // Email admin with the contact details
     await sendEmail({
       email: process.env.SMTP_MAIL,
-      subject: `New Contact Form: ${company_name}`,
+      subject: `New Contact Form: ${payload.company_name}`,
       message: `
         <h2>New Contact Form Message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mobile:</strong> ${mobile}</p>
-        <p><strong>Company Name:</strong> ${company_name}</p>
-        <p><strong>Message:</strong><br/>${message}</p>
+        <p><strong>Name:</strong> ${payload.name}</p>
+        <p><strong>Email:</strong> ${payload.email}</p>
+        <p><strong>Mobile:</strong> ${payload.mobile}</p>
+        <p><strong>Company Name:</strong> ${payload.company_name}</p>
+        <p><strong>Message:</strong><br/>${payload.message}</p>
       `,
       isHtml: true,
     });
@@ -37,4 +45,3 @@ export const sendMessage = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-

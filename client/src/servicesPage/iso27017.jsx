@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
 import "../servicespage-css/iso27017.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO27017() {
   return (
@@ -100,6 +101,9 @@ export default function ISO27017() {
         <div className="back-row">
           <Link className="back-link" to="/services">Back to Services</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 27017"
+      />
       </main>
     </div>
   );

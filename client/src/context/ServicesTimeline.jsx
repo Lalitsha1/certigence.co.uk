@@ -6,7 +6,7 @@ const steps = [
     id: "01",
     title: "Step 1 – Application & Enquiry",
     text: "The process begins when an organisation submits a certification application. We collect details such as company size, scope of activities, locations, and standards required. Based on this, we provide a customised certification proposal with scope and fees.",
-    img: "images/stage4.jpeg",
+    img: "https://st2.depositphotos.com/3889193/8014/i/450/depositphotos_80147336-stock-photo-business-teamwork.jpg",
   },
   {
     id: "02",
@@ -36,7 +36,7 @@ const steps = [
     id: "06",
     title: "Step 6 – Certification Decision",
     text: "The audit report is reviewed by an independent certification committee. If compliance is demonstrated, Certigence issues an accredited ISO certificate.",
-    img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=600&q=80",
+    img: "https://media.istockphoto.com/id/1440567501/photo/manager-giving-certificate.jpg?s=612x612&w=0&k=20&c=TYc93cpAZOKDSH6ACJINYAXssGzlKiiuppecpaPFwUs=",
   },
   {
     id: "07",

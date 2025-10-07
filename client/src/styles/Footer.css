@@ -53,34 +53,78 @@
   color: #1976d2;
 }
 
+/* Newsletter text contrast */
+.newsletter-box h5 {
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.newsletter-box p {
+  color: rgba(255,255,255,0.95);
+}
+.newsletter-box input::placeholder {
+  color: #6b7280;             /* readable placeholder */
+}
+
 /* 🌐 Footer Columns */
 .footer h5 {
   margin-bottom: 15px;
   font-weight: 700;
   text-transform: uppercase;
   position: relative;
+  color: #eaf2ff;             /* higher contrast for headings */
+  text-align: center;         /* center headings in each column */
 }
 .footer h5::after {
   content: "";
   display: block;
-  width: 40px;
+  width: 48px;                /* slightly wider accent line */
   height: 3px;
-  background: #fff;
-  margin-top: 5px;
+  background: #ffffff;
+  margin: 8px auto 0;         /* center the line under the title */
   border-radius: 2px;
 }
 
+/* Typography */
+.footer p {
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+}
+
+/* List cleanup (in case Bootstrap isn't loaded) */
+.footer ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+ 
 /* Links */
 .footer a {
-  color: #fff;
+  color: #e6f2ff;
   text-decoration: none;
   display: block;
   margin-bottom: 8px;
-  transition: all 0.3s ease;
+  transition: color 0.2s ease;
 }
-.footer a:hover {
+.footer a:hover,
+.footer a:focus {
   color: #ffeb3b;
-  padding-left: 5px;
+  text-decoration: underline;
+}
+.footer a:focus-visible {
+  outline: 2px dashed #ffeb3b;
+  outline-offset: 2px;
+}
+
+/* Keep social icon links clean (no underline) */
+.footer .d-flex a {
+  display: inline-flex;
+  align-items: center;
+}
+.footer .d-flex a:hover,
+.footer .d-flex a:focus {
+  text-decoration: none;
 }
 
 /* Gallery Grid */
@@ -104,6 +148,7 @@
 .footer .bi {
   font-size: 1.4rem;
   transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 50px;
 }
 .footer .bi:hover {
   color: #ffeb3b;
@@ -117,4 +162,9 @@
   font-size: 0.9rem;
   border-top: 1px solid rgba(255,255,255,0.2);
   margin-top: 25px;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
 }

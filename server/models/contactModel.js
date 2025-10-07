@@ -4,8 +4,8 @@ const contactSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
-    mobile: {type: Number },
-    Company_Name: { type: String },
+    mobile: { type: String, required: true, trim: true },
+    company_name: { type: String, required: true, trim: true },
     message: { type: String, required: true },
   },
   { timestamps: true }
@@ -14,3 +14,4 @@ const contactSchema = new mongoose.Schema(
 const Contact = mongoose.model("Contact", contactSchema);
 
 export default Contact;
+

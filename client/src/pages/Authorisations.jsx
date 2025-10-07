@@ -1,259 +1,219 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import "../styles/Authorisations.css"; // Import page-specific CSS
+import { ArrowRight, ShieldCheck, Compass, Users } from "lucide-react";
+import "../styles/Authorisations.css";
 
-// Reusable AccreditationCard Component
-function AccreditationCard({ id, logos, text, variant = "light", title, list, ctaLabel, ctaHref, external = false }) {
+const accreditationData = [
+  {
+    id: "ukas",
+    variant: "primary",
+    logos: [
+      {
+        src: "images/ukas-logo.jpg",
+        alt: "UKAS Logo",
+        style: { height: "140px", maxWidth: "340px" },
+      },
+    ],
+    title: "United Kingdom Accreditation Service (UKAS)",
+    description:
+      "UKAS is the UK\'s national accreditation body, confirming that certification, testing, inspection, and calibration providers operate with impartial governance and technical competence.",
+    bullets: [
+      "Government-recognised national authority",
+      "Supports ISO 9001, 14001, 45001, 27001, 22000 and more",
+      "Witnessed audits and ongoing surveillance protect certificate integrity",
+    ],
+    ctaLabel: "Learn More",
+    ctaHref: "/authorisations/ukas",
+  },
+  {
+    id: "uaf",
+    variant: "light",
+    logos: [
+      {
+        src: "https://dashboard.uafaccreditation.org/media/logos/uaf_logo.png",
+        alt: "UAF Logo",
+        style: { height: "140px" },
+      },
+    ],
+    title: "United Accreditation Foundation (UAF)",
+    description:
+      "UAF accredits management system certification bodies around the world, ensuring impartiality, competence, and consistent audit delivery across industries.",
+    bullets: [
+      "Focus on impartial governance and competence management",
+      "Applicable to organisations of all sizes and sectors",
+      "Annual surveillance and periodic re-assessment",
+    ],
+    ctaLabel: "Learn More",
+    ctaHref: "/authorisations/uaf",
+  },
+  {
+    id: "egac",
+    variant: "light",
+    logos: [
+      {
+        src: "/images/egaclogo.jpeg",
+        alt: "EGAC Logo",
+        style: { height: "140px", maxWidth: "340px" },
+      },
+    ],
+    title: "Egyptian Accreditation Council (EGAC)",
+    description:
+      "EGAC, Egypt\'s national accreditation body, aligns with ISO/IEC 17011 to oversee certification bodies and laboratories, improving confidence in certificates across the region.",
+    bullets: [
+      "Peer-recognised national accreditation programme",
+      "Regular witnessed assessments and performance reviews",
+      "Supports management system, product, and personnel certification",
+    ],
+    ctaLabel: "Learn More",
+    ctaHref: "/authorisations/egac",
+  },
+  {
+    id: "ias",
+    variant: "light",
+    logos: [
+      {
+        src: "/images/iaslogo.png",
+        alt: "IAS Logo",
+        style: { height: "140px", maxWidth: "340px" },
+      },
+    ],
+    title: "International Accreditation Service (IAS)",
+    description:
+      "IAS provides global accreditation for certification bodies, focusing on impartiality, technical competence, and witnessed audit oversight.",
+    bullets: [
+      "Worldwide recognition across multiple sectors",
+      "Structured continual improvement through surveillance",
+      "Enhances credibility with regulators and customers",
+    ],
+    ctaLabel: "Learn More",
+    ctaHref: "/authorisations/ias",
+  },
+  {
+    id: "fssc22000",
+    variant: "accent",
+    logos: [
+      {
+        src: "/images/fssc22000.png",
+        alt: "FSSC 22000 Logo",
+        style: { height: "140px" },
+      },
+    ],
+    title: "FSSC 22000 Certification Scheme",
+    description:
+      "FSSC 22000 combines ISO 22000, sector-specific prerequisite programmes, and additional scheme requirements to deliver a GFSI-recognised food safety management system.",
+    bullets: [
+      "Built on ISO 22000 with ISO/TS 22002-x PRPs",
+      "Trusted by retailers, regulators, and global brands",
+      "Covers food manufacturing, packaging, storage, and transport",
+    ],
+    ctaLabel: "Learn More",
+    ctaHref: "/authorisations/fssc-22000",
+  },
+];
+
+const featureHighlights = [
+  {
+    icon: ShieldCheck,
+    title: "Impartial assurance",
+    text: "Each accreditation body verifies that certification decisions remain independent and free from conflicts of interest.",
+  },
+  {
+    icon: Compass,
+    title: "Competence governance",
+    text: "Witnessed audits, competence matrices, and continual oversight ensure technical expertise is maintained.",
+  },
+  {
+    icon: Users,
+    title: "Market recognition",
+    text: "Accredited certifications enjoy higher acceptance from regulators, procurement teams, and global partners.",
+  },
+];
+
+const Accreditation = () => {
   return (
-    <motion.section
-      id={id}
-      className={`accreditation-box ${variant}`}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      viewport={{ once: true }}
-    >
-      {/* Logos Section */}
-      {logos && logos.length > 0 && (
-        <div className="logos">
-          {logos.map((logo, index) => (
-            <motion.figure
-              className="logo-card"
-              key={index}
-              aria-label={logo.alt || title || "Accreditation logo"}
-              whileHover={{ scale: 1.08, rotate: 1.5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              {/* Inline style allows per-logo size overrides (UKAS/EGAC/IAS) */}
-              <img
-                className="logo-image"
-                style={logo.style}
-                src={logo.src}
-                alt={logo.alt || title || "Accreditation logo"}
-                loading="lazy"
-                decoding="async"
-                draggable="false"
-              />
-            </motion.figure>
-          ))}
-        </div>
-      )}
-
-      {/* Title if provided */}
-      {title && <h3 className="sub-title">{title}</h3>}
-
-      {/* Text */}
-      <motion.p
-        className="accreditation-text"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 1 }}
-        viewport={{ once: true }}
-      >
-        {text}
-      </motion.p>
-
-      {/* Accreditation List if provided */}
-      {list && (
-        <ul className="accreditation-list">
-          {list.map((item, idx) => (
-            <motion.li
-              key={idx}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.15, duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              {item}
-            </motion.li>
-          ))}
-        </ul>
-      )}
-
-      {/* CTA Button (optional) */}
-      {ctaLabel && ctaHref && (
-        <div className="learn-more-button">
-          {external ? (
-            <a href={ctaHref} target="_blank" rel="noopener noreferrer">{ctaLabel}</a>
-          ) : ctaHref.startsWith('#') ? (
-            <a href={ctaHref}>{ctaLabel}</a>
-          ) : (
-            <Link to={ctaHref}>{ctaLabel}</Link>
-          )}
-        </div>
-      )}
-
-    </motion.section>
-  );
-}
-
-// (The rest of your code remains the same)
-
-export default function Accreditation() {
-  return (
-    <div className="accreditation">
-      {/* Hero Section with background and text restored */}
-      <div className="hero">
-        <div className="overlay"></div>
-        <div className="hero-content">
-          <h1>Authorisations</h1>
+    <div className="authorisations-page">
+      <header className="authorisations-hero">
+        <div className="authorisations-hero-overlay" />
+        <div className="authorisations-hero-inner">
+          <h1> Authorisations</h1>
           <p>
-            <Link to="/">Home</Link> <span>//</span> Authorisations
+            Certigence partners with internationally recognised accreditation bodies, giving your certificates trusted
+            value in every market.
           </p>
+          <div className="authorisations-breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <span>Authorisations</span>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Content Section */}
-      <div className="content">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="title"
-        >
-          Recognised Accreditation Bodies
-        </motion.h2>
-        <div className="underline"></div>
+      <main className="authorisations-main">
+        <section className="authorisations-intro">
+          <h2>Why accreditation matters</h2>
+          <p>
+            Accreditation confirms that certifying organisations operate with impartial governance, competent personnel,
+            and consistent audit delivery. Working with accredited partners gives your stakeholders confidence in every
+            certificate we issue.
+          </p>
+          <div className="authorisations-feature-grid">
+            {featureHighlights.map((feature) => (
+              <article key={feature.title} className="authorisations-feature-card">
+                <div className="authorisations-feature-icon">
+                  <feature.icon size={24} strokeWidth={1.6} />
+                </div>
+                <div>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
-        {/* Introductory blurb */}
-        <motion.p
-          className="page-intro"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          We work with internationally recognised accreditation bodies to ensure our certifications are impartial, credible, and widely accepted. These authorisations reflect our commitment to quality and give your customers and stakeholders confidence in every certificate we issue.
-        </motion.p>
+        <section className="authorisations-grid">
+          {accreditationData.map((item) => (
+            <article key={item.id} id={item.id} className={`authorisations-card ${item.variant}`}>
+              {item.logos && (
+                <div className="authorisations-logo-row">
+                  {item.logos.map((logo, index) => (
+                    <figure key={index} className="authorisations-logo-card">
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        style={logo.style}
+                        loading="lazy"
+                        decoding="async"
+                        draggable="false"
+                      />
+                    </figure>
+                  ))}
+                </div>
+              )}
 
-        
+              <h3 className="authorisations-card-title">{item.title}</h3>
+              <p className="authorisations-card-text">{item.description}</p>
 
-        {/* Accreditation Block 0 - UKAS (About) */}
-        <AccreditationCard
-          id="ukas"
-          variant="accent"
-          logos={[
-            {
-              src: "images/ukas-logo.jpg",
-              alt: "UKAS Logo",
-              // Increased UKAS logo size: height 120px, max-width 420px
-              style: { height: "180px", maxWidth: "420px", width: "200px" },
-            },
-          ]}
-          title="United Kingdom Accreditation Service (UKAS)"
-          text="UKAS is the United Kingdom’s National Accreditation Body, responsible for assessing and accrediting organisations that provide certification, testing, inspection, and calibration services. UKAS accreditation demonstrates competence, impartiality, and performance capability, giving confidence that certificates issued by accredited bodies are recognised and respected globally."
-          list={[
-            "Assesses certification bodies for competence and impartiality",
-            "Recognised by the UK government and internationally",
-            "Supports standards such as ISO 9001, 14001, 45001, 27001, 22000",
-            "Enhances trust in certificates and audit outcomes",
-          ]}
-          ctaLabel="Learn More"
-          ctaHref="/authorisations/ukas"
-        />
-        
+              <ul className="authorisations-list">
+                {item.bullets.map((bullet, idx) => (
+                  <li key={idx}>{bullet}</li>
+                ))}
+              </ul>
 
-        {/* Accreditation Block 1 - Zeppy */}
-        <AccreditationCard
-          variant="light"
-          logos={[
-            {
-              src: "https://dashboard.uafaccreditation.org/media/logos/uaf_logo.png",
-              alt: "UAF Logo",
-              style: {height : "180px"}
-            },
-          ]}
-          title="United Accreditation Foundation (UAF)"
-          text="Certigence delivers ISO certifications through a UAF-accredited framework as an authorised franchise partner. UAF accreditation adds assurance that our certification processes are competent, impartial, and consistently managed across industries and sites."
-          list={[
-            "Accredits management system certification bodies",
-            "Focus on impartiality, competence, and consistency",
-            "Certificates supported by international recognition",
-            "Applicable across diverse sectors and sizes",
-            "Ongoing surveillance and periodic re-assessment",
-          ]}
+              <div className="authorisations-card-actions">
+                <Link to={item.ctaHref} className="authorisations-cta">
+                  {item.ctaLabel} <ArrowRight size={16} strokeWidth={2} />
+                </Link>
+              </div>
+            </article>
+          ))}
+        </section>
+        <section className="authorisations-country-selector">
           
-          ctaLabel="Learn More"
-          ctaHref="/authorisations/uaf"
-        />
-
-        {/* Accreditation Block 2 - Otabu */}
-        <AccreditationCard
-          variant="light"
-          logos={[
-            {
-              src: "/images/egaclogo.jpeg",
-              alt: "EGAC Logo",
-              // Increased EGAC logo size: height 120px, max-width 420px
-              style: { height: "180px", maxWidth: "420px", width: "200px" },
-            },
-          ]}
-          title="Egyptian Accreditation Council (EGAC)"
-          text="Certigence delivers ISO certifications through an EGAC-accredited framework as an authorised franchise partner. EGAC accreditation provides confidence that our audits and decision-making are impartial and conform to international requirements."
-          list={[
-            "National accreditation body of Egypt",
-            "Operates in line with ISO/IEC 17011 requirements",
-            "Oversight of certification body competence and impartiality",
-            "Improves acceptance of issued certificates",
-            "Regular witness assessments and performance reviews",
-          ]}
-          
-          ctaLabel="Learn More"
-          ctaHref="/authorisations/egac"
-        />
-
-        {/* Accreditation Block 3 - Ostia */}
-        <AccreditationCard
-          variant="light"
-          logos={[
-            {
-              src: "/images/iaslogo.png",
-              alt: "IAS Logo",
-              // Increased IAS logo size: height 120px, max-width 420px
-              style: { height: "180px", maxWidth: "420px", width: "220px" },
-            },
-          ]}
-          title="International Accreditation Service (IAS)"
-          text="Certigence delivers ISO certifications through an IAS-accredited framework as an authorised franchise partner. IAS accreditation strengthens credibility, supporting wider recognition of certifications among customers and regulators."
-          list={[
-            "Accredits management system certification bodies",
-            "Emphasis on technical competence and impartiality",
-            "Witnessed audits and continual oversight",
-            "Broad sector applicability and scalable scopes",
-            "Enhanced market and regulatory confidence",
-          ]}
-          
-          ctaLabel="Learn More"
-          ctaHref="/authorisations/ias"
-        />
-
-        {/* Accreditation Block 4 - FSSC 22000 */}
-        <AccreditationCard
-          id="fssc22000"
-          variant="fssc"
-          logos={[
-            { 
-              src: "/images/fssc22000.png", alt: "FSSC 22000 Logo" ,
-              style: {height:"180px"}
-            },
-          ]}
-          title="FSSC 22000 Certification Scheme"
-          text="FSSC 22000 is a GFSI-recognised food safety certification scheme based on ISO 22000, sector-specific prerequisite programmes (ISO/TS 22002-x), and additional FSSC requirements. It helps organisations build a robust Food Safety Management System that is trusted by retailers and regulators worldwide."
-          list={[
-            "GFSI-recognised scheme built on ISO 22000",
-            "Combines PRPs (ISO/TS 22002-x) with additional requirements",
-            "Applicable to food manufacturing, packaging, storage and transport",
-            "Focus on hazard control, traceability and legal compliance",
-            "Continuous improvement through surveillance and re-certification",
-          ]}
-          ctaLabel="Learn More"
-          ctaHref="/authorisations/fssc-22000"
-        />
-
-        {/* Removed gallery per request */}
-      </div>
+        </section>
+      </main>
     </div>
   );
-}
+};
+
+export default Accreditation;

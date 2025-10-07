@@ -9,7 +9,7 @@ const blogData = [
       "Learn how ISO 9001 ensures consistent quality and boosts customer trust across industries.",
     date: "12 Aug 2025",
     image:
-      "https://thafd.bing.com/th/id/OIG1.ASGiTBlQ0dxWHwzT53cq?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+      "https://media.istockphoto.com/id/1343097420/photo/business-meeting-in-a-bright-office.jpg?s=612x612&w=0&k=20&c=XSfbrN_M2mPmH0nR8ucbtOECXP2LLPHdK29KV6YfyjM=",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const blogData = [
       "Explore how ISO 45001 creates a safe working environment by reducing occupational risks.",
     date: "08 Aug 2025",
     image:
-      "https://thafd.bing.com/th/id/OIG4.dYzap0ZiwbAJbyyqBXvK?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn",
+      "https://media.licdn.com/dms/image/v2/D4E12AQHG2q5gMX_WOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1700118643787?e=2147483647&v=beta&t=GOim6UI4fD1QT8ntSVVSpQNzpd5poEnWmFHi7l7AZ_E",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const blogData = [
       "Discover the role of ISO 27001 and other standards in securing information systems.",
     date: "01 Aug 2025",
     image:
-      "https://img.freepik.com/free-vector/cyber-security-data-protection-concept_23-2148532225.jpg",
+      "https://media.istockphoto.com/id/616902766/photo/dedicated-to-software-development.jpg?s=612x612&w=0&k=20&c=DbeQZha7EDOxSCK49IOzP6DaVJaBElzFItOVJKQSDek=",
   },
 ];
 

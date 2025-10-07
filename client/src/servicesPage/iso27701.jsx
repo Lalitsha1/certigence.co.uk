@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import "../servicespage-css/iso27701.css";
+import CountrySelector from "../components/CountrySelector";
 
 const Iso27701 = () => {
   const [activeSection, setActiveSection] = useState('overview');
@@ -223,6 +224,9 @@ const Iso27701 = () => {
             </details>
           </div>
         </div>
+      <CountrySelector
+        serviceName="ISO 27701"
+      />
       </main>
 
       <footer className="iso-footer">

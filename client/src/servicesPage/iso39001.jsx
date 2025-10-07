@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import "../servicespage-css/serviceBase.css";
 import "../servicespage-css/iso39001.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO39001() {
   const handleImgError = (e) => {
@@ -166,9 +167,9 @@ export default function ISO39001() {
         <article className="service-card">
           <h2>Image Gallery</h2>
           <div className="service-gallery gallery-advanced">
-            <div className="service-img"><img src="https://images.unsplash.com/photo-1473976345543-9ffc928e648d?auto=format&fit=crop&w=1400&q=80" alt="Highway at night" loading="lazy" onError={handleImgError} /></div>
-            <div className="service-img"><img src="https://images.unsplash.com/photo-1519162584292-56dfc9eb5db5?auto=format&fit=crop&w=1400&q=80" alt="Fleet readiness" loading="lazy" onError={handleImgError} /></div>
-            <div className="service-img"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=80" alt="Safe driving" loading="lazy" onError={handleImgError} /></div>
+            <div className="service-img"><img src="https://th.bing.com/th/id/OIG3.zDXM.Xr6RRRZucHMuAmE?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Highway at night" loading="lazy" onError={handleImgError} /></div>
+            <div className="service-img"><img src="https://th.bing.com/th/id/OIG4.Eh3fb7BgJN9KTT10LOcM?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Fleet readiness" loading="lazy" onError={handleImgError} /></div>
+            <div className="service-img"><img src="https://th.bing.com/th/id/OIG4.92e6lulmLIKBf4HsoVKn?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn" alt="Safe driving" loading="lazy" onError={handleImgError} /></div>
           </div>
         </article>
 
@@ -176,6 +177,9 @@ export default function ISO39001() {
           <Link className="back-link" to="/services">Back to Services</Link>
           <Link className="back-link alt" to="/contact">Talk to an Expert</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 39001"
+      />
       </main>
     </div>
   );

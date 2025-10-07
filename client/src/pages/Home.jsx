@@ -17,17 +17,15 @@ const Home = () => {
       <div className="poster-slider">
         <div className="slides">
           <img src="/images/poster1.jpeg" alt="Poster 1" />
-          <img src="/images/poster2.jpeg" alt="Poster 2" />
-          <img src="/images/poster3.png" alt="Poster 3" />
+          <img src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/blog_service/2019-10-21-make-my-own-website.jpg" alt="Poster 2" />
+          <img src="https://qalliance.org/wp-content/uploads/2021/08/%C2%BFQUE-ES-ISO-CONOCE-EN-QUE-NORMAS-PUEDES-CERTIFICARTE-768x480.png" alt="Poster 3" />
         </div>
       </div>
 
 
-      
-
-
 
       {/* Home Section */}
+
       <section className="home-container">
         {/* Left Stats */}
         <div className="home-left">
@@ -51,7 +49,7 @@ const Home = () => {
         {/* Middle Image */}
         <div className="home-middle">
           <img
-            src="https://img.freepik.com/free-photo/happy-family-home_1098-17663.jpg"
+            src="https://optergo.com/app/uploads/2024/07/image00077-1152x1536.jpeg"
             alt="Happy Family"
             className="main-img"
           />

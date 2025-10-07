@@ -3,7 +3,7 @@
     /* take full width */
     height: 250px;
     /* fixed height */
-    background-image: url("../images/aboutus-img.jpg");
+    background-image: url("/images/aboutus-img.jpg");
     /* correct path */
     background-repeat: no-repeat;
     background-position: center;
@@ -25,6 +25,8 @@
 
 .about-section {
     background: linear-gradient(to right, #ffffff, #f9f9f9);
+     background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCwstFkjjNs3muHYzrvgr5QyFvcTa25HKTUw&s")
+    no-repeat center center/cover;
     border-radius: 12px;
     padding: 3rem 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -36,7 +38,7 @@
     font-size: 2.5rem;
     margin-bottom: 1rem;
     position: relative;
-    color: #222;
+    color: #2332a2;
 }
 
 .underline {
@@ -55,7 +57,7 @@
 .about-text {
     font-size: 1.05rem;
     line-height: 1.9;
-    color: #444444;
+    color: white;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     text-align: justify;
 }
@@ -216,67 +218,82 @@ img:hover {
 /* ==================================================================== */
 
 .stats-section {
-    background-color: #7f983b;
-    /* Same blue background */
-    padding: 4rem 2rem;
-    color: rgb(122, 209, 22);
+    /* Add background image with an overlay for readability */
+    background:
+      linear-gradient(135deg, rgba(13, 71, 161, 0.92), rgba(25, 118, 210, 0.88)),
+      url('/images/bg-vision.jpeg') no-repeat center/cover;
+    padding: 4rem 1rem;
+    color: #eaf2ff;
     margin-top: 15px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden; /* clip image to rounded corners */
 }
 
-.stats-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+.stats-section .stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important; /* force 4 in a row on desktop */
+    gap: 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .stat-box {
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: 2rem 3rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 2rem 1.75rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.2);
     text-align: center;
     position: relative;
-    transition: transform 0.3s ease;
-
-    color: white !important;
-    opacity: 1 !important;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    color: #ffffff;
 }
 
 .stat-box::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(to right, #ffc107, #ffcc00);
-    /* yellow underline */
+    left: 15%;
+    width: 70%;
+    height: 4px;
+    background: linear-gradient(to right, #ffc107, #ff9800);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 .stat-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 36px rgba(2, 6, 23, 0.28);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
 .stat-value {
-    font-size: 2rem;
-    font-weight: bold;
-    color: rgb(115, 15, 15);
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #16a34a; /* fresh green */
+    letter-spacing: 0.5px;
+    display: inline-block;
+    position: relative;
+}
+.stat-value::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    background: #16a34a;
+    border-radius: 6px;
+    margin: 8px auto 0;
 }
 
 .stat-label {
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
-    color: rgb(109, 9, 9) !important;
-    /* <-- fix: make sure it's visible */
-    color: rgb(135, 14, 14) !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-
-    opacity: 1;
+    font-size: 1rem;
+    margin-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 /* 🔹 Responsive adjustments */
@@ -285,11 +302,17 @@ img:hover {
         grid-template-columns: repeat(2, 1fr);
         /* 2 cards per row */
     }
+    .stats-section .stats-container {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 per row on tablets */
+    }
 }
 
 @media (max-width: 600px) {
     .services-grid {
         grid-template-columns: 1fr;
         /* 1 card per row */
+    }
+    .stats-section .stats-container {
+        grid-template-columns: 1fr !important; /* 1 per row on mobile */
     }
 }

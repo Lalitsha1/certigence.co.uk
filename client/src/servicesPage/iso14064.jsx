@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../servicespage-css/iso14064.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO14064() {
   return (
@@ -222,6 +223,9 @@ export default function ISO14064() {
         <div className="back-row">
           <Link className="back-link alt" to="/contact">Start Your GHG Journey</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 14064"
+      />
       </main>
     </div>
   );

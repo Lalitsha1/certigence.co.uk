@@ -1,5 +1,5 @@
-﻿import React, { useContext, useState, useEffect } from "react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import React, { useContext, useState, useEffect } from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import {
   FaEnvelope,
@@ -22,70 +22,119 @@ import { API_BASE } from "../utils/api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Navbar.css";
 
+const ABOUT_OPTIONS = [
+  { label: "About Us", value: "/aboutus" },
+  { label: "Vision & Mission", value: "/vision-mission" },
+  { label: "Impartiality Policy", value: "/impartiality-policy" },
+  { label: "Quality Policy & Objectives", value: "/quality-policy" },
+  { label: "Management System Process", value: "/management-process" },
+];
+
+const SERVICES_OPTIONS = [
+  { label: "Quality / Operations", value: "heading-quality", disabled: true },
+  { label: "ISO 9001", value: "/iso-9001" },
+  { label: "ISO 10002", value: "/iso-10002" },
+  { label: "ISO 13485", value: "/iso-13485" },
+  { label: "ISO 22000", value: "/iso-22000" },
+  { label: "ISO 22301", value: "/iso-22301" },
+  { label: "ISO 28000", value: "/iso-28000" },
+  { label: "Environment / Sustainability", value: "heading-environment", disabled: true },
+  { label: "ISO 14001", value: "/iso-14001" },
+  { label: "ISO 50001", value: "/iso-50001" },
+  { label: "ISO 14064", value: "/iso-14064" },
+  { label: "ISO 45001", value: "/iso-45001" },
+  { label: "ISO 20121", value: "/iso-20121" },
+  { label: "ISO 26000", value: "/iso-26000" },
+  { label: "Information / Cybersecurity", value: "heading-info", disabled: true },
+  { label: "ISO/IEC 27001", value: "/iso-27001" },
+  { label: "ISO/IEC 27017", value: "/iso-27017" },
+  { label: "ISO/IEC 27018", value: "/iso-27018" },
+  { label: "ISO/IEC 27701", value: "/iso-27701" },
+  { label: "ISO/IEC 20000", value: "/iso-20000" },
+  { label: "Health & Safety", value: "heading-health", disabled: true },
+  { label: "ISO 45001", value: "/iso-45001" },
+  { label: "ISO 45003", value: "/iso-45003" },
+  { label: "ISO 39001", value: "/iso-39001" },
+  { label: "Anti-Fraud / Risk", value: "heading-risk", disabled: true },
+  { label: "ISO 37001", value: "/iso-37001" },
+  { label: "ISO 31000", value: "/iso-31000" },
+  { label: "ISO 22316", value: "/iso-22316" },
+  { label: "Food / Agriculture", value: "heading-food", disabled: true },
+  { label: "ISO 22000", value: "/iso-22000" },
+  { label: "FSSC 22000", value: "/fssc-22000" },
+  { label: "HACCP", value: "/haccp" },
+  { label: "ISO 17025", value: "/iso-17025" },
+  { label: "Energy / Emissions", value: "heading-energy", disabled: true },
+  { label: "ISO 50001", value: "/iso-50001" },
+  { label: "ISO 14064", value: "/iso-14064" },
+  { label: "ISO 14046", value: "/iso-14046" },
+  { label: "Sector-Specific / Niche", value: "heading-sector", disabled: true },
+  { label: "ISO 13485", value: "/iso-13485" },
+  { label: "ISO 21001", value: "/iso-21001" },
+  { label: "ISO 20121", value: "/iso-20121" },
+  { label: "ISO 28000", value: "/iso-28000" },
+  { label: "ISO 39001", value: "/iso-39001" },
+  { label: "ISO 21930", value: "/iso-21930" },
+];
+
+const STATIC_SEARCH_ITEMS = [
+  { label: "Home", value: "/", keywords: ["home", "landing", "main"] },
+  { label: "Authorisations", value: "/authorisations", keywords: ["authorisations", "authorizations", "accreditation"] },
+  { label: "Blog", value: "/Blog", keywords: ["blog", "news", "articles"] },
+  { label: "FAQ", value: "/faq", keywords: ["faq", "questions", "help"] },
+  { label: "Contact", value: "/contact", keywords: ["contact", "support", "help"] },
+];
+
+const ABOUT_SEARCH_ITEMS = ABOUT_OPTIONS.map((item) => ({
+  ...item,
+  keywords: ["about", item.label.toLowerCase()],
+}));
+
+const SERVICE_SEARCH_ITEMS = SERVICES_OPTIONS
+  .filter((option) => !option.disabled)
+  .map((option) => ({
+    label: option.label,
+    value: option.value,
+    keywords: ["service", "iso", option.label.toLowerCase()],
+  }));
+
+const SEARCH_ITEMS = [
+  ...STATIC_SEARCH_ITEMS,
+  ...ABOUT_SEARCH_ITEMS,
+  ...SERVICE_SEARCH_ITEMS,
+];
+
+const normalizeText = (value = "") => value.trim().toLowerCase();
+const buildSearchTokens = (item) => [
+  item.label,
+  item.value,
+  ...(item.keywords || []),
+]
+  .filter(Boolean)
+  .join(" ")
+  .toLowerCase();
+
 const NavbarComponent = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+  const [searchFeedback, setSearchFeedback] = useState("");
+  const [aboutSelection, setAboutSelection] = useState("");
+  const [servicesSelection, setServicesSelection] = useState("");
   const navigate = useNavigate();
 
-  // âœ… Complete ISO standards list for search
-  const isoStandards = [
-    // Quality / Operations
-    { id: "iso-9001", title: "ISO 9001", description: "Quality Management System" },
-    { id: "iso-10002", title: "ISO 10002", description: "Customer Satisfaction & Complaints" },
-    { id: "iso-13485", title: "ISO 13485", description: "Medical Devices" },
-    { id: "iso-22000", title: "ISO 22000", description: "Food Safety" },
-    { id: "iso-22301", title: "ISO 22301", description: "Business Continuity" },
-    { id: "iso-28000", title: "ISO 28000", description: "Supply Chain Security" },
+  const handleNavSelectChange = (event, setSelection) => {
+    const { value } = event.target;
 
-    // Environment / Sustainability
-    { id: "iso-14001", title: "ISO 14001", description: "Environmental Management System" },
-    { id: "iso-50001", title: "ISO 50001", description: "Energy Management System" },
-    { id: "iso-14064", title: "ISO 14064", description: "Greenhouse Gases" },
-    { id: "iso-45001", title: "ISO 45001", description: "Occupational Health & Safety" },
-    { id: "iso-20121", title: "ISO 20121", description: "Event Sustainability" },
-    { id: "iso-26000", title: "ISO 26000", description: "Social Responsibility Guidance" },
+    if (!value || value.startsWith("heading")) {
+      setSelection("");
+      return;
+    }
 
-    // Information / Cybersecurity / Privacy
-    { id: "iso-27001", title: "ISO/IEC 27001", description: "Information Security Management" },
-    { id: "iso-27017", title: "ISO/IEC 27017", description: "Cloud Security" },
-    { id: "iso-27018", title: "ISO/IEC 27018", description: "Protection of PII in Cloud" },
-    { id: "iso-27701", title: "ISO/IEC 27701", description: "Privacy Information Management" },
-    { id: "iso-20000", title: "ISO/IEC 20000", description: "IT Service Management" },
-
-    // Health & Safety
-    { id: "iso-45001", title: "ISO 45001", description: "Occupational Health & Safety" },
-    { id: "iso-45003", title: "ISO 45003", description: "Psychological Health & Safety" },
-    { id: "iso-39001", title: "ISO 39001", description: "Road Traffic Safety" },
-
-    // Anti-Fraud / Risk / Integrity
-    { id: "iso-37001", title: "ISO 37001", description: "Anti-Bribery" },
-    { id: "iso-31000", title: "ISO 31000", description: "Risk Management" },
-    { id: "iso-22316", title: "ISO 22316", description: "Organizational Resilience" },
-
-    // Food / Agriculture / Animal Welfare
-    { id: "iso-22000", title: "ISO 22000", description: "Food Safety" },
-    { id: "fssc-22000", title: "FSSC 22000", description: "Food Safety System Certification" },
-    { id: "haccp", title: "HACCP", description: "Hazard Analysis & Critical Control Points" },
-    { id: "iso-17025", title: "ISO 17025", description: "Testing & Calibration Labs" },
-
-    // Energy / Emissions / Carbon / Climate
-    { id: "iso-50001", title: "ISO 50001", description: "Energy Management" },
-    { id: "iso-14064", title: "ISO 14064", description: "Carbon Footprint" },
-    { id: "iso-14046", title: "ISO 14046", description: "Water Footprint" },
-    { id: "carbon-neutral", title: "Carbon Neutral", description: "Net Zero Certifications" },
-
-    // Sector-Specific / Niche
-    { id: "iso-17025", title: "ISO 17025", description: "Testing Labs" },
-    { id: "iso-15189", title: "ISO 15189", description: "Medical Laboratories" },
-    { id: "iso-13485", title: "ISO 13485", description: "Medical Devices QMS" },
-    { id: "iso-21001", title: "ISO 21001", description: "Educational Organisations" },
-    { id: "iso-20121", title: "ISO 20121", description: "Event Sustainability" },
-    { id: "iso-28000", title: "ISO 28000", description: "Supply Chain Security" },
-    { id: "iso-39001", title: "ISO 39001", description: "Road Traffic Safety" },
-    { id: "iso-21930", title: "ISO 21930", description: "Sustainability in Construction" },
-  ];
+    navigate(value);
+    setSelection("");
+  };
 
   const handleLogout = async () => {
     try {
@@ -99,64 +148,83 @@ const NavbarComponent = () => {
     }
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      const matchedStandard = isoStandards.find(standard =>
-        standard.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        standard.description.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      if (matchedStandard) {
-        navigate(`/${matchedStandard.id}`);
-      } else {
-        showToast("No results found. Try searching for ISO standards like 'ISO 9001'.", "info");
-      }
-      setShowSuggestions(false);
+  const [toasts, setToasts] = useState([]);
+  const showToast = (message, type = "info") => {
+    const id = Date.now();
+    setToasts((prev) => [...prev, { id, message, type }]);
+    setTimeout(() => removeToast(id), 5000);
+  };
+  const removeToast = (id) => setToasts((prev) => prev.filter((toast) => toast.id !== id));
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      showToast("Welcome back! You are now logged in.", "success");
     }
-  };
+  }, []);
 
-  const handleSuggestionClick = (standardId) => {
-    navigate(`/${standardId}`);
-    setSearchQuery("");
-    setShowSuggestions(false);
-  };
-
-  const handleInputChange = (e) => {
-    const value = e.target.value;
+  const handleInputChange = (event) => {
+    const value = event.target.value;
     setSearchQuery(value);
 
-    if (value.length > 0) {
-      const filtered = isoStandards.filter(standard =>
-        standard.title.toLowerCase().includes(value.toLowerCase()) ||
-        standard.description.toLowerCase().includes(value.toLowerCase())
-      );
-      setFilteredSuggestions(filtered);
-      setShowSuggestions(true);
-    } else {
+    if (!value.trim()) {
+      setFilteredSuggestions([]);
       setShowSuggestions(false);
+      setSearchFeedback("");
+      return;
+    }
+
+    const normalized = normalizeText(value);
+    const matches = SEARCH_ITEMS.filter((item) => buildSearchTokens(item).includes(normalized)).slice(0, 8);
+
+    setFilteredSuggestions(matches);
+    setShowSuggestions(matches.length > 0);
+    setSearchFeedback("");
+  };
+
+  const handleInputFocus = () => {
+    if (filteredSuggestions.length > 0) {
+      setShowSuggestions(true);
     }
   };
 
   const handleInputBlur = () => {
-    setTimeout(() => setShowSuggestions(false), 200);
+    setTimeout(() => setShowSuggestions(false), 150);
   };
 
-  // Toast system
-  const [toasts, setToasts] = useState([]);
-  const showToast = (message, type = "info") => {
-    const id = Date.now();
-    setToasts(prev => [...prev, { id, message, type }]);
-    setTimeout(() => removeToast(id), 5000);
+  const clearSearchState = () => {
+    setSearchQuery("");
+    setFilteredSuggestions([]);
+    setShowSuggestions(false);
+    setSearchFeedback("");
   };
-  const removeToast = (id) => setToasts(prev => prev.filter(toast => toast.id !== id));
 
-  useEffect(() => {
-    if (isAuthenticated) showToast("Welcome back! You are now logged in.", "success");
-  }, []);
+  const handleSuggestionClick = (path) => {
+    navigate(path);
+    clearSearchState();
+  };
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const normalized = normalizeText(searchQuery);
+
+    if (!normalized) {
+      setSearchFeedback("Please enter a search term.");
+      setShowSuggestions(false);
+      return;
+    }
+
+    const match = SEARCH_ITEMS.find((item) => buildSearchTokens(item).includes(normalized));
+
+    if (match) {
+      handleSuggestionClick(match.value);
+    } else {
+      setSearchFeedback("No matching page found. Please try different keywords.");
+      setShowSuggestions(false);
+    }
+  };
 
   return (
     <div>
-      {/* Toast notifications */}
       <div className="toast-container">
         {toasts.map((toast) => (
           <div key={toast.id} className={`custom-toast ${toast.type}`}>
@@ -164,12 +232,13 @@ const NavbarComponent = () => {
             {toast.type === "error" && <FaExclamationCircle className="toast-icon" />}
             {toast.type === "info" && <FaInfoCircle className="toast-icon" />}
             <span>{toast.message}</span>
-            <button onClick={() => removeToast(toast.id)} className="toast-close">&times;</button>
+            <button onClick={() => removeToast(toast.id)} className="toast-close">
+              &times;
+            </button>
           </div>
         ))}
       </div>
 
-      {/* Topbar */}
       <div className="certi-navbar__topbar">
         <Container className="d-flex justify-content-between align-items-center">
           <div className="certi-navbar__topbar-left">
@@ -180,19 +249,22 @@ const NavbarComponent = () => {
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaPinterest /></a>
             <a href="#"><FaTwitter /></a>
-            <a href="#"><FaInstagram /></a>
+            <a href="https://www.instagram.com/certi_gence/"><FaInstagram /></a>
             <div className="certi-navbar__auth ms-3">
               {isAuthenticated ? (
-                <span onClick={handleLogout}><FaSignOutAlt className="me-2" /> Logout</span>
+                <span onClick={handleLogout}>
+                  <FaSignOutAlt className="me-2" /> Logout
+                </span>
               ) : (
-                <span onClick={() => navigate("/auth")}><FaUser className="me-2" /> Login</span>
+                <span onClick={() => navigate("/auth")}>
+                  <FaUser className="me-2" /> Login
+                </span>
               )}
             </div>
           </div>
         </Container>
       </div>
 
-      {/* Main Navbar */}
       <Navbar expand="lg" className="certi-navbar__main">
         <Container>
           <Navbar.Brand as={Link} to="/">
@@ -201,120 +273,102 @@ const NavbarComponent = () => {
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
+            {/* FIX: Use only ms-auto (margin-left auto) to push navigation to the right */}
+            <Nav className="ms-auto align-items-center"> 
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
 
-              <NavDropdown title="About Us" id="about-us-dropdown" className="nav-dropdown" drop="down">
-                <NavDropdown.Item as={Link} to="/aboutus">About Us</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/vision-mission">Vision & Mission</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/impartiality-policy">Impartiality Policy</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/quality-policy">Quality Policy & Objectives</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/management-process">Management System Process</NavDropdown.Item>
-              </NavDropdown>
+              {/* ABOUT US SELECT */}
+              <Nav.Item className="certi-navbar__select-wrapper">
+                <select
+                  className="certi-navbar__select nav-link"
+                  value={aboutSelection}
+                  onChange={(event) => handleNavSelectChange(event, setAboutSelection)}
+                >
+                  <option value="">About Us</option>
+                  {ABOUT_OPTIONS.map(({ label, value }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </Nav.Item>
 
-              {/* âœ… Full Services Dropdown */}
-              <NavDropdown title="Services" id="services-dropdown" className="nav-dropdown" drop="down">
-                <NavDropdown.Header>Quality / Operations</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-9001">ISO 9001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-10002">ISO 10002</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-13485">ISO 13485</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-22000">ISO 22000</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-22301">ISO 22301</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-28000">ISO 28000</NavDropdown.Item>
-                <NavDropdown.Divider />
+              {/* SERVICES SELECT */}
+              <Nav.Item className="certi-navbar__select-wrapper">
+                <select
+                  className="certi-navbar__select nav-link"
+                  value={servicesSelection}
+                  onChange={(event) => handleNavSelectChange(event, setServicesSelection)}
+                >
+                  <option value="">Services</option>
+                  {SERVICES_OPTIONS.map(({ label, value, disabled }, index) => (
+                    <option key={`${value}-${index}`} value={value} disabled={disabled}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </Nav.Item>
 
-                <NavDropdown.Header>Environment / Sustainability</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-14001">ISO 14001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-50001">ISO 50001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-14064">ISO 14064</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-45001">ISO 45001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-20121">ISO 20121</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-26000">ISO 26000</NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Header>Information / Cybersecurity</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-27001">ISO/IEC 27001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-27017">ISO/IEC 27017</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-27018">ISO/IEC 27018</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-27701">ISO/IEC 27701</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-20000">ISO/IEC 20000</NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Header>Health & Safety</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-45001">ISO 45001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-45003">ISO 45003</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-39001">ISO 39001</NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Header>Anti-Fraud / Risk</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-37001">ISO 37001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-31000">ISO 31000</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-22316">ISO 22316</NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Header>Food / Agriculture</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-22000">ISO 22000</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/fssc-22000">FSSC 22000</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/haccp">HACCP</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-17025">ISO 17025</NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Header>Energy / Emissions</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-50001">ISO 50001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-14064">ISO 14064</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-14046">ISO 14046</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/carbon-neutral">Carbon Neutral</NavDropdown.Item>
-                <NavDropdown.Divider />
-
-                <NavDropdown.Header>Sector-Specific / Niche</NavDropdown.Header>
-                <NavDropdown.Item as={Link} to="/iso-17025">ISO 17025</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-15189">ISO 15189</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-13485">ISO 13485</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-21001">ISO 21001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-20121">ISO 20121</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-28000">ISO 28000</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-39001">ISO 39001</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/iso-21930">ISO 21930</NavDropdown.Item>
-              </NavDropdown>
-
-              <Nav.Link as={Link} to="/authorisations">Authorisations</Nav.Link>
-              <Nav.Link as={Link} to="/Blog">Blog</Nav.Link>
-              <Nav.Link as={Link} to="/faq">FAQ</Nav.Link>
-              <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+              <Nav.Link as={Link} to="/authorisations">
+                Authorisations
+              </Nav.Link>
+              <Nav.Link as={Link} to="/Blog">
+                Blog
+              </Nav.Link>
+              <Nav.Link as={Link} to="/faq">
+                FAQ
+              </Nav.Link>
+              <Nav.Link as={Link} to="/contact">
+                Contact
+              </Nav.Link>
             </Nav>
 
-            {/* Search */}
-            <div className="certi-navbar__search-container">
-              <form className="certi-navbar__search d-flex" onSubmit={handleSearch}>
-                <input
-                  type="text"
-                  placeholder="Search ISO standards..."
-                  value={searchQuery}
-                  onChange={handleInputChange}
-                  onBlur={handleInputBlur}
-                  onFocus={() => searchQuery.length > 0 && setShowSuggestions(true)}
-                />
-                <button type="submit"><FaSearch /></button>
-              </form>
-              {showSuggestions && filteredSuggestions.length > 0 && (
-                <div className="search-suggestions">
-                  {filteredSuggestions.map(standard => (
-                    <div
-                      key={standard.id}
-                      className="suggestion-item"
-                      onClick={() => handleSuggestionClick(standard.id)}
-                    >
-                      <div className="suggestion-title">{standard.title}</div>
-                      <div className="suggestion-desc">{standard.description}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
+            {/* Search container and Quote button */}
+            <div className="d-flex align-items-center ms-3">
+              <div className="certi-navbar__search-container me-3"> 
+                <form className="certi-navbar__search" onSubmit={handleSearch}>
+                  <input
+                    type="text"
+                    placeholder="Search ISO standards..."
+                    value={searchQuery}
+                    onChange={handleInputChange}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
+                  />
+                  <button type="submit">
+                    <FaSearch />
+                  </button>
+                </form>
+                {showSuggestions && filteredSuggestions.length > 0 && (
+                  <div className="search-suggestions">
+                    {filteredSuggestions.map((item) => (
+                      <div
+                        key={`${item.value}-${item.label}`}
+                        className="suggestion-item"
+                        onMouseDown={() => handleSuggestionClick(item.value)}
+                      >
+                        <div className="suggestion-title">{item.label}</div>
+                        <div className="suggestion-desc">
+                          {item.value === "/"
+                            ? "home"
+                            : item.value.replace(/^\//, "").replace(/-/g, " ")}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {!showSuggestions && searchFeedback && (
+                  <div className="search-feedback">{searchFeedback}</div>
+                )}
+              </div>
 
-            <button className="certi-navbar__quote" onClick={() => navigate("/contact")}>
-              Get a Quote â†’
-            </button>
+              <button className="certi-navbar__quote" onClick={() => navigate("/contact")}>
+                Get a Quote
+              </button>
+            </div>
+            
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -323,4 +377,3 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
-

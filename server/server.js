@@ -1,27 +1,26 @@
-// server.js
-import { app } from "./app.js";
+﻿import { app } from "./app.js";
 import { config } from "dotenv";
 import { connection } from "./database/dbConnection.js";
 import mongoose from "mongoose";
 
-// 🌍 Load environment variables
+// Load environment variables
 config({ path: "./config.env" });
 
-// Connect DB
+// Connect database
 connection();
 
-// 🚪 Set PORT
+// Start server
 const PORT = process.env.PORT || 8822;
 const server = app.listen(PORT, () => {
-  console.log(`🚀 Server is running at: http://localhost:${PORT}`);
+  console.log(`Server is running at: http://localhost:${PORT}`);
 });
 
-// 🛑 Graceful shutdown
+// Graceful shutdown
 process.on("SIGINT", async () => {
-  console.log("\n⚠️ Shutting down server...");
+  console.log("\nShutting down server...");
   await mongoose.connection.close();
   server.close(() => {
-    console.log("✅ MongoDB disconnected, server closed.");
+    console.log("MongoDB disconnected, server closed.");
     process.exit(0);
   });
 });

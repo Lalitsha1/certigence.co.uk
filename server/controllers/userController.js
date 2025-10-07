@@ -258,7 +258,7 @@ export const forgetPassword = catchAsyncError(async (req, res, next) => {
     `;
 
     try {
-        sendEmail({
+        await sendEmail({
             email: user.email,
             subject: "Password Reset Request",
             message
@@ -297,3 +297,4 @@ export const resetPassword = catchAsyncError(async (req, res, next) => {
 
     sendToken(user, 200, "Password reset successful", res);
 })
+

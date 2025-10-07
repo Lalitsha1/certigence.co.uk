@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/servicespage-css/iso13485.css";
+import CountrySelector from "../components/CountrySelector";
 
 import {
   FaCheckCircle,
@@ -168,7 +169,12 @@ const Iso13485 = () => {
         </p>
         <button className="cta-button"><a href="/contact">Start Certification </a> </button>
       </section>
+      <CountrySelector
+        serviceName="ISO 13485"
+      />
     </div>
+    
+
   );
 };
 

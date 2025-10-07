@@ -1,112 +1,213 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/AuthorisationDetail.css";
+import {
+  ShieldCheck,
+  Users,
+  Landmark,
+  Compass,
+  ClipboardCheck,
+  Gauge,
+  ArrowRight,
+} from "lucide-react";
 import "../styles/uaf.css";
 
-export default function UAF() {
+const heroStats = [
+  { label: "Standard", value: "ISO/IEC 17021-1" },
+  { label: "Scope", value: "Management system CBs" },
+  { label: "Approach", value: "Impartial governance" },
+  { label: "Global reach", value: "Multi-sector" },
+];
+
+const valueHighlights = [
+  {
+    icon: ShieldCheck,
+    title: "Accredited confidence",
+    text: "UAF accreditation assures clients that certification bodies are competent, impartial, and audit-ready.",
+  },
+  {
+    icon: Users,
+    title: "Customer acceptance",
+    text: "Accredited certificates satisfy procurement, regulators, and international supply-chain partners.",
+  },
+  {
+    icon: Compass,
+    title: "Governance oversight",
+    text: "UAF reviews impartiality risks, witnessed audits, and decision controls to keep programmes disciplined.",
+  },
+  {
+    icon: Gauge,
+    title: "Performance improvement",
+    text: "KPIs, findings, and corrective actions feed continual improvement across the certification life cycle.",
+  },
+];
+
+const focusAreas = [
+  {
+    icon: Landmark,
+    title: "Management system CBs",
+    copy: "Certification bodies issuing ISO 9001, ISO 14001, ISO 45001, ISO 22000, ISO 27001 and related schemes.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Product & personnel",
+    copy: "Programmes certifying products, services, and personnel against regulatory or industry requirements.",
+  },
+];
+
+const accreditationJourney = [
+  {
+    step: "01",
+    title: "Application & impartiality",
+    detail: "Submit scope, impartiality analysis, and management system documentation for review.",
+  },
+  {
+    step: "02",
+    title: "Assessment & witnessing",
+    detail: "UAF evaluates offices, audits, and competence to verify the certification programme.",
+  },
+  {
+    step: "03",
+    title: "Decision & surveillance",
+    detail: "Accreditation decisions followed by surveillance visits and periodic reassessment.",
+  },
+];
+
+const evidenceChecklist = [
+  "Impartiality committee minutes and mitigation actions",
+  "Competence criteria and authorisation records for auditors and decision-makers",
+  "Audit programmes, sampling plans, and witnessed audit reports",
+  "Corrective action records addressing findings and effectiveness checks",
+  "Complaints, appeals, and client feedback logs with outcomes",
+  "Documented management system aligned with ISO/IEC 17021-1",
+  "Management review outputs driving continual improvement",
+];
+
+const UAF = () => {
   return (
-    <div className="auth-detail uaf-page">
-      <section className="detail-hero">
-        <div className="detail-hero-inner">
-          <h1>United Accreditation Foundation (UAF)</h1>
-          <p>How UAF recognition supports impartial, credible certifications.</p>
+    <div className="uaf-page">
+      <header className="uaf-hero">
+        <div className="uaf-hero-inner">
+          <span className="uaf-hero-tag">Accreditation spotlight</span>
+          <h1 className="uaf-hero-title">United Accreditation Foundation (UAF)</h1>
+          <p className="uaf-hero-subtitle">
+            UAF accredits certification bodies against ISO/IEC 17021-1, verifying impartial governance, competent
+            personnel, and consistent audit delivery so your certificates carry global credibility.
+          </p>
+          <div className="uaf-hero-stats">
+            {heroStats.map((stat) => (
+              <article key={stat.label} className="uaf-stat-card">
+                <span className="uaf-stat-label">{stat.label}</span>
+                <span className="uaf-stat-value">{stat.value}</span>
+              </article>
+            ))}
+          </div>
         </div>
-      </section>
+      </header>
 
-      <main className="detail-main">
-        <div className="detail-grid">
-          <article className="card">
-            <div className="logo-wrap">
-              <div className="logo-tile">
-                <img className="logo-img" src="https://dashboard.uafaccreditation.org/media/logos/uaf_logo.png" alt="UAF Logo" />
-              </div>
-              <div>
-                <h2 className="section-title">About UAF</h2>
-                <p className="lead">UAF accredits management system certification bodies. Accreditation provides confidence that certifications are issued by competent, impartial, and consistently managed organisations.</p>
-              </div>
-            </div>
+      <main className="uaf-main">
+        <section className="uaf-section">
+          <div className="uaf-section-head">
+            <h2 className="uaf-section-title">Why UAF accreditation matters</h2>
+            <p className="uaf-section-lead">
+              UAF oversight provides confidence to regulators, customers, and international partners that your
+              certification body operates with impartiality and technical excellence.
+            </p>
+          </div>
+          <div className="uaf-grid uaf-value-grid">
+            {valueHighlights.map((item) => (
+              <article key={item.title} className="uaf-card">
+                <div className="uaf-card-icon">
+                  <item.icon size={30} strokeWidth={1.5} />
+                </div>
+                <h3 className="uaf-card-title">{item.title}</h3>
+                <p className="uaf-card-text">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-            <h3 className="section-title">What this means for you</h3>
-            <ul className="list">
-              <li>Certificates backed by third-party oversight of audit quality and impartiality.</li>
-              <li>Ongoing surveillance of certification processes and decision-making.</li>
-              <li>Recognition across diverse sectors and organisation sizes.</li>
-            </ul>
+        <section className="uaf-section">
+          <div className="uaf-section-head">
+            <h2 className="uaf-section-title">Accreditation journey</h2>
+            <p className="uaf-section-lead">
+              Prepare for each stage of UAF accreditation with a clear roadmap of documentation, witnessing, and
+              surveillance requirements.
+            </p>
+          </div>
+          <div className="uaf-steps-grid">
+            {accreditationJourney.map((step) => (
+              <article key={step.step} className="uaf-step-card">
+                <div className="uaf-step-number">{step.step}</div>
+                <div className="uaf-step-body">
+                  <h3 className="uaf-step-title">{step.title}</h3>
+                  <p className="uaf-step-text">{step.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
-            <div className="meta">
-              <div className="pill">International recognition</div>
-              <div className="pill">Impartial governance</div>
-              <div className="pill">Surveillance & reviews</div>
-            </div>
+        <section className="uaf-section">
+          <div className="uaf-section-head">
+            <h2 className="uaf-section-title">Focus areas</h2>
+            <p className="uaf-section-lead">
+              UAF accredits diverse conformity assessment bodies. We tailor governance models and competence programmes to
+              each scope.
+            </p>
+          </div>
+          <div className="uaf-grid uaf-focus-grid">
+            {focusAreas.map((item) => (
+              <article key={item.title} className="uaf-card">
+                <div className="uaf-card-icon uaf-focus-icon">
+                  <item.icon size={30} strokeWidth={1.5} />
+                </div>
+                <h3 className="uaf-card-title">{item.title}</h3>
+                <p className="uaf-card-text">{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-            <h3 className="section-title">Typical ISO standards under UAF</h3>
-            <ul className="list">
-              <li>ISO 9001, ISO 14001, ISO 45001</li>
-              <li>ISO 27001, ISO 22000 and related schemes</li>
-            </ul>
-          </article>
-
-          <aside className="card">
-            <div className="hero-image">
-              {/* Royalty‑free hero (Unsplash) */}
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1400&auto=format&fit=crop" alt="Team collaboration" />
-            </div>
-          </aside>
-        </div>
-
-        <article className="card">
-          <h2 className="section-title">Accreditation lifecycle</h2>
-          <ul className="list">
-            <li>Initial assessment including office review, witnessing of audits and competence evaluation.</li>
-            <li>Certificate of accreditation with a defined scope, locations and any limitations.</li>
-            <li>Ongoing surveillance to verify impartiality, decision controls and the audit programme.</li>
-            <li>Reassessment at planned intervals with scope updates where applicable.</li>
+        <section className="uaf-section">
+          <div className="uaf-section-head">
+            <h2 className="uaf-section-title">Evidence UAF assessors expect</h2>
+            <p className="uaf-section-lead">
+              Compile these records to demonstrate control of impartiality, competence, and audit quality during UAF
+              assessments.
+            </p>
+          </div>
+          <ul className="uaf-checklist">
+            {evidenceChecklist.map((item) => (
+              <li key={item} className="uaf-checklist-item">
+                <ClipboardCheck size={20} strokeWidth={1.8} />
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
-        </article>
+        </section>
 
-        <article className="card">
-          <h2 className="section-title">Impartiality & governance</h2>
-          <ul className="list">
-            <li>Independent committee oversight of impartiality risks and mitigation actions.</li>
-            <li>Clear separation of audit, review and certification decision functions.</li>
-            <li>Defined competence criteria and authorisation for auditors and decision makers.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title">How to verify a certificate</h2>
-          <ul className="list">
-            <li>Check the certification body’s accreditation status and scope.</li>
-            <li>Confirm the certificate number, client name, applicable standard and locations.</li>
-            <li>Ensure the certificate is within validity and not suspended or withdrawn.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title">FAQs</h2>
-          <ul className="list">
-            <li>What is accreditation? Independent recognition that a body is competent and impartial.</li>
-            <li>What is certification? Confirmation that an organisation meets a specific standard.</li>
-            <li>Why UAF? Wider confidence and acceptance of accredited outcomes.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title">Recognition & scope</h2>
-          <p className="lead">UAF accredits management system certification bodies operating against ISO/IEC 17021‑1. Accredited bodies demonstrate robust processes for competence management, impartiality, and decision‑making.</p>
-          <h3 className="section-title">Certification process overview</h3>
-          <ol className="list">
-            <li>Application and contract review.</li>
-            <li>Stage 1 and Stage 2 audits.</li>
-            <li>Decision review and certificate issue.</li>
-            <li>Annual surveillance and 3‑year recertification.</li>
-          </ol>
-        </article>
-
-        <div className="back-row">
-          <Link className="back-link" to="/authorisations">Back to Authorisations</Link>
-        </div>
+        
       </main>
+
+      <footer className="uaf-footer">
+        <div className="uaf-footer-content">
+          <h2 className="uaf-footer-title">Partner with a UAF-recognised certification team</h2>
+          <p className="uaf-footer-text">
+            Certigence supports certification bodies with impartiality frameworks, competence management, and audit
+            evidence to satisfy UAF requirements.
+          </p>
+          <div className="uaf-footer-actions">
+            <a className="uaf-cta-primary" href="mailto:info@certigence.co.uk">
+              Talk to our accreditation team <ArrowRight size={18} />
+            </a>
+            <Link className="uaf-cta-secondary" to="/authorisations">
+              Back to authorisations
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-}
+};
+
+export default UAF;

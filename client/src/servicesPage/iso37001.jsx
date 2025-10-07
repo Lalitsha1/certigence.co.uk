@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/servicespage-css/iso37001.css";
+import CountrySelector from "../components/CountrySelector";
 
 import {
   FaShieldAlt,
@@ -168,7 +169,12 @@ const Iso37001 = () => {
         </p>
         <button className="cta-button"><a href="/contact "> Start Certification</a></button>
       </section>
+      <CountrySelector
+        serviceName="ISO 37001"
+      />
     </div>
+    
+
   );
 };
 

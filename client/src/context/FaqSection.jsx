@@ -64,8 +64,10 @@ const FaqSection = () => {
         </div>
 
         <div className="faq-bottom-link">
-          <FaArrowRightLong /> 58+ Common Questions and How To{" "}
-          <span>Answer?</span>
+          <a href="/faq">
+            <FaArrowRightLong /> 58+ Common Questions and How To{" "}
+            <span>Answer?</span>
+          </a>
         </div>
       </div>
 

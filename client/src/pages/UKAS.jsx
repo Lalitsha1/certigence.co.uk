@@ -1,211 +1,220 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/AuthorisationDetail.css";
+import {
+  Globe2,
+  ShieldCheck,
+  Compass,
+  Users,
+  ClipboardCheck,
+  Landmark,
+  Scale,
+  FileSearch,
+  ArrowRight,
+} from "lucide-react";
 import "../styles/ukas.css";
 
-export default function UKAS() {
+const heroStats = [
+  { label: "National body", value: "United Kingdom" },
+  { label: "Standard", value: "ISO/IEC 17011" },
+  { label: "Services", value: "Certification, testing, inspection" },
+  { label: "Peer recognition", value: "IAF / ILAC" },
+];
+
+const valueHighlights = [
+  {
+    icon: ShieldCheck,
+    title: "Trusted assurance",
+    text: "UKAS accreditation proves certification bodies and laboratories deliver impartial, competent assessments.",
+  },
+  {
+    icon: Globe2,
+    title: "Global acceptance",
+    text: "International recognition supports regulators, procurement teams, and cross-border supply chains.",
+  },
+  {
+    icon: Compass,
+    title: "Governance oversight",
+    text: "Witnessed audits, impartiality committees, and decision monitoring protect the integrity of certificates.",
+  },
+  {
+    icon: Users,
+    title: "Stakeholder confidence",
+    text: "Clients, regulators, and the public trust accreditation-backed outcomes for risk mitigation.",
+  },
+];
+
+const focusAreas = [
+  {
+    icon: Landmark,
+    title: "Certification bodies",
+    copy: "Management system, product, and personnel certification programmes meeting ISO/IEC 17021-1.",
+  },
+  {
+    icon: FileSearch,
+    title: "Testing & calibration labs",
+    copy: "Laboratories demonstrating traceability, competence, and impartial reporting under ISO/IEC 17025.",
+  },
+  {
+    icon: Scale,
+    title: "Inspection & medical",
+    copy: "Inspection bodies and medical labs fulfilling sector-specific accreditation requirements.",
+  },
+];
+
+const accreditationJourney = [
+  {
+    step: "01",
+    title: "Application & impartiality",
+    detail: "Provide scope, impartiality analysis, and management system documentation for UKAS review.",
+  },
+  {
+    step: "02",
+    title: "Assessment & witnessing",
+    detail: "UKAS conducts office visits, competence evaluation, and observes audits or tests in practice.",
+  },
+  {
+    step: "03",
+    title: "Decision & surveillance",
+    detail: "Accreditation decisions, surveillance visits, and periodic reassessment maintain confidence.",
+  },
+];
+
+const evidenceChecklist = [
+  "Impartiality risk assessments and committee minutes",
+  "Competence criteria, authorisations, and training records",
+  "Audit/testing programmes, sampling plans, and witnessed activity reports",
+  "Corrective action management with effectiveness reviews",
+  "Complaints, appeals, and client feedback logs with resolutions",
+  "Documented management system aligned with ISO/IEC 17021-1 or applicable standard",
+  "Internal audit and management review outputs driving continual improvement",
+];
+
+const UKAS = () => {
   return (
-    <div className="auth-detail ukas-page">
-      <section className="detail-hero">
-        <div className="detail-hero-inner">
-          {/* <div className="ukas-hero-logo">
-            <img
-              src="/ukas-logo.jpg"
-              alt="UKAS logo"
-              width={220}
-              height={88}
-              loading="lazy"
-              decoding="async"
-            />
-          </div> */}
-          <h1>United Kingdom Accreditation Service (UKAS)</h1>
-          <p>UKAS is the UK’s National Accreditation Body for certification, testing, inspection and calibration activities.</p>
-        </div>
-      </section>
-
-      <main className="detail-main">
-        <div className="detail-grid">
-          <article className="card">
-            <div className="logo-wrap">
-              {/* <div className="logo-tile">
-                <img
-                  className="logo-img"
-                  src="https://www.ukas.com/wp-content/uploads/2020/06/UKAS-Logo.png"
-                  alt="UKAS logo"
-                  width={200}
-                  height={80}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div> */}
-              <div>
-                <h2 className="section-title h2" id="about-ukas">About UKAS</h2>
-                <p className="lead">
-                  UKAS assesses and accredits organisations that provide certification, testing, inspection and calibration
-                  services. Accreditation confirms competence, impartiality and consistent performance.
-                </p>
-              </div>
-            </div>
-
-            <h3 className="section-title h2" id="about1">Why accreditation matters</h3>
-            <ul className="list">
-              <li>Confidence that certifications are issued by competent, impartial bodies.</li>
-              <li>International recognition that supports regulator and customer acceptance.</li>
-              <li>Ongoing surveillance and witnessed assessments to protect integrity.</li>
-            </ul>
-
-            <div className="meta">
-              <div className="pill">National authority</div>
-              <div className="pill">International recognition</div>
-              <div className="pill">Impartial oversight</div>
-            </div>
-
-            <h3 className="section-title h2"  id="about2">Typical standards supported</h3>
-            <ul className="list">
-              <li>ISO 9001 (Quality), ISO 14001 (Environment), ISO 45001 (OH&S)</li>
-              <li>ISO 27001 (Information Security), ISO 22000 (Food Safety)</li>
-            </ul>
-
-            <h3 className="section-title h2 "  id="about3">Benefits for organisations</h3>
-            <ul className="list">
-              <li>Greater acceptance of certificates in tenders and global supply chains.</li>
-              <li>More trusted claims when engaging regulators, customers and partners.</li>
-              <li>Improved internal discipline through periodic surveillance and review.</li>
-              <li>Clearer scope definitions that help avoid misrepresentation.</li>
-            </ul>
-
-            <h3 className="section-title h2"  id="about4">Example scope statements</h3>
-            <ul className="list">
-              <li>“Provision of design and manufacture of precision components at Site A and Site B.”</li>
-              <li>“Information security management for hosted SaaS services at the London data centre.”</li>
-            </ul>
-
-            <div className="inline-illustration img-card" style={{ marginTop: 12 }}>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Certificate_icon.svg/1024px-Certificate_icon.svg.png"
-                alt="Accreditation certificate concept"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </article>
-
-          <aside className="card">
-            <div className="hero-image img-card">
-              <img
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1400&auto=format&fit=crop"
-                alt="London skyline and government district"
-                loading="lazy"
-              />
-            </div>
-
-            <div className="hero-image img-card" style={{ marginTop: 12 }}>
-              <img
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=1400&auto=format&fit=crop"
-                alt="Laboratory equipment and calibration"
-                loading="lazy"
-              />
-            </div>
-
-            <div className="hero-image img-card" style={{ marginTop: 12 }}>
-              <img
-                src="https://th.bing.com/th/id/OIG4.y6lhmQQVTQq4l26xZ5gH?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
-                alt="Calibration bench overview"
-                loading="lazy"
-              />
-            </div>
-          </aside>
-        </div>
-
-        <article className="card">
-          <h2 className="section-title h2"  id="about5">Quick facts</h2>
-          <ul className="list">
-            <li>Accreditation underpins confidence in certification, inspection and testing.</li>
-            <li>Accredited bodies are assessed for competence, impartiality and performance.</li>
-            <li>Accreditation scopes describe the exact activities and locations covered.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title h2"  id="about16">How accreditation works (high level)</h2>
-          <ol className="list">
-            <li>Assessment planning and impartiality review.</li>
-            <li>Witnessed audits and evaluation of certification decisions.</li>
-            <li>Corrective actions and close‑out, followed by surveillance.</li>
-          </ol>
-          <h3 className="section-title h2"  id="about7">Using certification and accreditation marks</h3>
-          <ul className="list">
-            <li>Use marks in a way that does not mislead or imply product certification.</li>
-            <li>Reference the relevant ISO standard and certificate number where needed.</li>
-            <li>Remove or suspend use if certification is withdrawn or suspended.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title h2"  id="about8">Areas UKAS accredits</h2>
-          <ul className="list">
-            <li>
-              Certification bodies for management systems (e.g., ISO 9001, ISO 14001, ISO 45001, ISO 27001, ISO 22000).
-            </li>
-            <li>Testing and calibration laboratories across multiple disciplines.</li>
-            <li>Inspection bodies conducting conformity assessment activities.</li>
-            <li>Medical laboratories and proficiency testing providers in specific scopes.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title h2 "  id="about9">Who relies on UKAS accreditation</h2>
-          <ul className="list">
-            <li>Businesses seeking credible certificates for tenders and supply chains.</li>
-            <li>Regulators and authorities referencing accredited results.</li>
-            <li>Customers and the public looking for trustworthy, impartial assurance.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title h2 "  id="about10">How to check accreditation status</h2>
-          <ul className="list">
-            <li>Use the UKAS public directory to confirm an organisation’s current accreditation and scope.</li>
-            <li>Verify scope documents, locations, and any restrictions noted in the listing.</li>
-            <li>Ensure the certificate references an accredited certification body and relevant standard.</li>
-          </ul>
-        </article>
-
-        <article className="card">
-          <h2 className="section-title h2  "  id="about11"> Accreditation vs Certification</h2>
-          <ul className="list">
-            <li>
-              <strong>Accreditation</strong>: recognition that a conformity assessment body (CB/inspection/lab) is competent and
-              impartial.
-            </li>
-            <li>
-              <strong>Certification</strong>: evaluation of an organisation against a standard (e.g., ISO 9001) leading to a
-              certificate.
-            </li>
-            <li>Accreditation underpins certification by assuring the certifier’s competence and governance.</li>
-          </ul>
-        </article>
-
-
-        <article className="card">
-          <h2 className="section-title"  id="about12">More visuals</h2>
-          <div className="image-grid">
-            <div className="grid-item img-card">
-              <img src="https://www.gstatic.com/webp/gallery/1.jpg" alt="Google image 1" loading="lazy" />
-            </div>
-            <div className="grid-item img-card">
-              <img src="https://www.gstatic.com/webp/gallery/2.jpg" alt="Google image 2" loading="lazy" />
-            </div>
-            <div className="grid-item img-card">
-              <img src="https://www.gstatic.com/webp/gallery/3.jpg" alt="Google image 3" loading="lazy" />
-            </div>
+    <div className="ukas-page">
+      <header className="ukas-hero">
+        <div className="ukas-hero-inner">
+          <span className="ukas-hero-tag">Accreditation spotlight</span>
+          <h1 className="ukas-hero-title">United Kingdom Accreditation Service (UKAS)</h1>
+          <p className="ukas-hero-subtitle">
+            UKAS is the UKs national accreditation body. Its assessments confirm that certification bodies,
+            laboratories, and inspection organisations operate with impartial governance, technical competence, and
+            consistent decision-making.
+          </p>
+          <div className="ukas-hero-stats">
+            {heroStats.map((stat) => (
+              <article key={stat.label} className="ukas-stat-card">
+                <span className="ukas-stat-label">{stat.label}</span>
+                <span className="ukas-stat-value">{stat.value}</span>
+              </article>
+            ))}
           </div>
-        </article>
-
-        <div className="back-row">
-          <Link className="back-link" to="/authorisations">Back to Authorisations</Link>
         </div>
+      </header>
+
+      <main className="ukas-main">
+        <section className="ukas-section">
+          <div className="ukas-section-head">
+            <h2 className="ukas-section-title">Why UKAS accreditation matters</h2>
+            <p className="ukas-section-lead">
+              Accreditation reassures customers, regulators, and international partners that conformity assessment
+              services are run competently and impartially.
+            </p>
+          </div>
+          <div className="ukas-grid ukas-value-grid">
+            {valueHighlights.map((item) => (
+              <article key={item.title} className="ukas-card">
+                <div className="ukas-card-icon">
+                  <item.icon size={30} strokeWidth={1.5} />
+                </div>
+                <h3 className="ukas-card-title">{item.title}</h3>
+                <p className="ukas-card-text">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="ukas-section">
+          <div className="ukas-section-head">
+            <h2 className="ukas-section-title">Accreditation journey</h2>
+            <p className="ukas-section-lead">
+              Prepare your organisation for UKAS accreditation with a clear understanding of each stage.
+            </p>
+          </div>
+          <div className="ukas-steps-grid">
+            {accreditationJourney.map((step) => (
+              <article key={step.step} className="ukas-step-card">
+                <div className="ukas-step-number">{step.step}</div>
+                <div className="ukas-step-body">
+                  <h3 className="ukas-step-title">{step.title}</h3>
+                  <p className="ukas-step-text">{step.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="ukas-section">
+          <div className="ukas-section-head">
+            <h2 className="ukas-section-title">Focus areas</h2>
+            <p className="ukas-section-lead">
+              UKAS supports a broad range of conformity assessment bodies. We tailor governance models and competence
+              programmes to match your scope.
+            </p>
+          </div>
+          <div className="ukas-grid ukas-focus-grid">
+            {focusAreas.map((item) => (
+              <article key={item.title} className="ukas-card">
+                <div className="ukas-card-icon ukas-focus-icon">
+                  <item.icon size={30} strokeWidth={1.5} />
+                </div>
+                <h3 className="ukas-card-title">{item.title}</h3>
+                <p className="ukas-card-text">{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="ukas-section">
+          <div className="ukas-section-head">
+            <h2 className="ukas-section-title">Evidence UKAS assessors expect</h2>
+            <p className="ukas-section-lead">
+              Assemble these records ahead of assessments to demonstrate impartiality, competence, and continual
+              improvement.
+            </p>
+          </div>
+          <ul className="ukas-checklist">
+            {evidenceChecklist.map((item) => (
+              <li key={item} className="ukas-checklist-item">
+                <ClipboardCheck size={20} strokeWidth={1.8} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        
       </main>
+
+      <footer className="ukas-footer">
+        <div className="ukas-footer-content">
+          <h2 className="ukas-footer-title">Strengthen confidence with UKAS-recognised certification</h2>
+          <p className="ukas-footer-text">
+            Certigence partners with certification bodies, laboratories, and inspection organisations to design
+            impartiality safeguards, competence frameworks, and evidence packs that meet UKAS expectations.
+          </p>
+          <div className="ukas-footer-actions">
+            <a className="ukas-cta-primary" href="mailto:info@certigence.co.uk">
+              Talk to our accreditation team <ArrowRight size={18} />
+            </a>
+            <Link className="ukas-cta-secondary" to="/authorisations">
+              Back to authorisations
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-}
+};
+
+export default UKAS;

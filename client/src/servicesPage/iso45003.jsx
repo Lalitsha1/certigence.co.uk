@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../servicespage-css/serviceBase.css";
 import "../servicespage-css/iso45003.css";
+import CountrySelector from "../components/CountrySelector";
 
 export default function ISO45003() {
   const handleImgError = (e) => {
@@ -202,8 +203,11 @@ export default function ISO45003() {
 
         <div className="back-row">
           <Link className="back-link" to="/services">Back to Services</Link>
-          <Link className="back-link alt" to="/contact">Talk to an Expert</Link>
+          <Link className="back-link " to="/contact">Talk to an Expert</Link>
         </div>
+      <CountrySelector
+        serviceName="ISO 45003"
+      />
       </main>
     </div>
   );

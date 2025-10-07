@@ -1,128 +1,342 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  BarChart3,
+  ClipboardList,
+  Gauge,
+  Globe2,
+  Lightbulb,
+  MessageSquare,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Workflow,
+} from "lucide-react";
 import "../servicespage-css/iso10002.css";
+import CountrySelector from "../components/CountrySelector";
 
+const heroStats = [
+  { label: "Standard", value: "ISO 10002:2018" },
+  { label: "Orientation", value: "Customer voice & retention" },
+  { label: "Engagement length", value: "8-12 weeks" },
+  { label: "Stakeholders", value: "CX, Ops, Compliance" },
+];
 
-export default function ISO10002() {
+const transformationAreas = [
+  {
+    icon: MessageSquare,
+    title: "Omnichannel listening",
+    copy: "Connect call centre, social, and in-app feedback into one taxonomy so stories never fall through the cracks.",
+  },
+  {
+    icon: Globe2,
+    title: "Regulatory confidence",
+    copy: "Align with FCA, Ofgem, NHS or sector regulators by evidencing fair treatment, accessibility, and data privacy.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Insight activation",
+    copy: "Translate complaint data into product, policy, and training actions with clear owners and timeframes.",
+  },
+  {
+    icon: BarChart3,
+    title: "Experience metrics",
+    copy: "Track effort, sentiment, and resolution time to prove the link between complaint handling and loyalty.",
+  },
+];
+
+const serviceModules = [
+  {
+    icon: Workflow,
+    title: "Customer Recovery Blueprint",
+    detail: "Design intake, triage, escalation, and closure workflows that embed empathy and accountability at every touchpoint.",
+  },
+  {
+    icon: Users,
+    title: "Capability & culture",
+    detail: "Define roles, coaching cadences, and playbooks so specialists feel confident handling complex conversations.",
+  },
+  {
+    icon: Gauge,
+    title: "Performance cockpit",
+    detail: "Build dashboards for backlog, cycle time, and regulatory breaches with alerts that keep leaders proactive.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Assurance & audit",
+    detail: "Run readiness reviews, evidence walkthroughs, and corrective action loops that mirror assessor expectations.",
+  },
+];
+
+const engagementPath = [
+  {
+    step: "01",
+    title: "Baseline & ambition",
+    info: "Frame customer promises, regulatory obligations, and current service levels using rapid diagnostics and heatmaps.",
+  },
+  {
+    step: "02",
+    title: "Journey redesign",
+    info: "Co-create future-state workflows, RACI, and decision trees with stakeholders from operations, digital, and legal.",
+  },
+  {
+    step: "03",
+    title: "Enablement sprint",
+    info: "Launch training, templates, and knowledge articles while aligning CRM or ticketing changes with release cycles.",
+  },
+  {
+    step: "04",
+    title: "Run & refine",
+    info: "Shadow interactions, monitor KPIs, and embed feedback huddles to reinforce behaviours and surface quick wins.",
+  },
+  {
+    step: "05",
+    title: "Evidence & handover",
+    info: "Package artefacts, audit logs, and improvement roadmaps so teams sustain ISO 10002 long after go-live.",
+  },
+];
+
+const toolkitItems = [
+  "Complaint handling policy suite and governance calendar",
+  "Voice-of-customer taxonomy with response SLAs and scripts",
+  "Root cause analytics templates and improvement backlog format",
+  "Leadership dashboard starter kit for Power BI or Tableau",
+  "Assessor-ready evidence map linking clauses to artefacts",
+];
+
+const outcomeMetrics = [
+  { value: "-38%", descriptor: "Average reduction in complaint backlog within 90 days" },
+  { value: "+24%", descriptor: "Increase in customer advocacy scores post-resolution" },
+  { value: "3x", descriptor: "Improvement in closed-loop actions completed on time" },
+];
+
+const faqs = [
+  {
+    question: "Can ISO 10002 be integrated with ISO 9001 or 27001?",
+    answer:
+      "Yes. We map complaint handling responsibilities to your existing management system so audits and governance remain unified.",
+  },
+  {
+    question: "What technology do you work with?",
+    answer:
+      "We sit on top of your CRM, ticketing, or bespoke platforms. Quick wins come from configuration, integrations, and consistent data fields rather than buying new tools.",
+  },
+  {
+    question: "How quickly will we see benefits?",
+    answer:
+      "Most clients see backlog reduction and clearer insight cadence inside the first 6-8 weeks as new routines bed in.",
+  },
+];
+
+const caseStudy = {
+  quote:
+    "We didn\'t just close complaints faster; we uncovered product defects and training gaps we had ignored for years.",
+  client: "Head of Customer Care, UK energy retailer",
+  context:
+    "Scaled ISO 10002 across 3 contact centres handling 42k complaints annually, while meeting Ofgem reporting standards.",
+  results: [
+    "48-hour average response time achieved vs. 96-hour baseline",
+    "Customer churn reduced by 12% in key segments",
+    "Regulator feedback confirmed evidence trail was \"best in class\"",
+  ],
+};
+
+const Iso10002 = () => {
   return (
-    <div className="auth-detail iso10002-page">
-      <section className="detail-hero">
-        <div className="detail-hero-inner">
-          {/* <div className="iso-hero-graphic">
-            <img 
-              src="https://www.iso.org/files/live/sites/isoorg/files/standards/iso/10000/10002/01/logo.png" 
-              alt="ISO 10002 Logo" 
-              className="iso-logo"
-            />
-          </div> */}
-          <h1>ISO 10002: Customer Complaint Management</h1>
-          <p>Guidelines for Quality Management – Customer Satisfaction: Managing customer complaints effectively to enhance satisfaction and loyalty.</p>
-        </div>
-      </section>
-
-      <main className="detail-main">
-        <div className="detail-grid">
-          <article className="card">
-            <h2 className="section-title h2">What is ISO 10002?</h2>
-            <p className="lead">
-              ISO 10002 is an international standard that provides a framework for organizations to design and implement an efficient and effective customer **complaint management system (CMS)**. It is a guideline, not a certifiable standard like ISO 9001, but it is often used to support and strengthen the customer satisfaction requirements of other management systems. The standard helps businesses to handle complaints consistently, fairly, and transparently, turning negative feedback into an opportunity for improvement.
+    <div className="iso10002-page">
+      <header className="iso10002-hero">
+        <div className="iso10002-hero-inner">
+          <div className="iso10002-hero-copy">
+            <p className="iso10002-kicker">Customer advocacy programmes</p>
+            <h1>ISO 10002 Customer Complaint Excellence</h1>
+            <p className="iso10002-hero-lead">
+              Transform complaints into loyalty moments. Our consultants help you embed ISO 10002 so every interaction is
+              empathetic, compliant, and insight-rich across every channel you operate.
             </p>
-
-            <h3 className="section-title h3">The Complaint Handling Process (Flow)</h3>
-            <p>
-              The standard outlines a structured, eight-step process for handling complaints, ensuring a systematic and repeatable approach.
-            </p>
-            <div className="iso-image-container img-card">
-              <img
-                src="https://th.bing.com/th/id/OIG2.98BGC8g3oWe_BJnUQ_qX?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
-                alt="ISO 10002 Complaint Handling Process Flowchart"
-                loading="lazy"
-              />
+            <div className="iso10002-hero-actions">
+              <a className="iso10002-cta-primary" href="mailto:info@certigence.co.uk">
+                Plan an ISO 10002 programme <ArrowRight size={18} strokeWidth={1.7} />
+              </a>
+              <Link className="iso10002-cta-secondary" to="/contact">
+                Chat with the CX team
+              </Link>
             </div>
-            <ol className="list iso-process-list">
-              <li><strong>Initiation</strong>: Receiving the complaint and acknowledging it.</li>
-              <li><strong>Tracking</strong>: Assigning a unique ID and logging the complaint.</li>
-              <li><strong>Investigation</strong>: Gathering all relevant information to understand the issue.</li>
-              <li><strong>Response</strong>: Formulating a clear, well-communicated resolution.</li>
-              <li><strong>Decision & Action</strong>: Implementing the agreed-upon solution.</li>
-              <li><strong>Communication</strong>: Informing the customer of the outcome.</li>
-              <li><strong>Closure</strong>: Formally closing the complaint file.</li>
-              <li><strong>Review & Analysis</strong>: Using the complaint data to identify trends and improve processes.</li>
-            </ol>
-            
-            <div className="meta">
-              <div className="pill">Customer Focus</div>
-              <div className="pill">Continuous Improvement</div>
-              <div className="pill">Transparency</div>
-            </div>
-
-            <h3 className="section-title h3">Key Principles</h3>
-            <ul className="list iso-principles">
-              <li><strong>Visibility</strong>: The CMS must be easily accessible and known to customers.</li>
-              <li><strong>Accessibility</strong>: The complaint process should be simple for customers to use.</li>
-              <li><strong>Responsiveness</strong>: Complaints should be acknowledged and addressed promptly.</li>
-              <li><strong>Objectivity</strong>: All complaints must be handled impartially and without bias.</li>
-              <li><strong>Confidentiality</strong>: Customer privacy must be protected at all times.</li>
-              <li><strong>Accountability</strong>: Clear responsibilities for complaint handling should be defined.</li>
-              <li><strong>Continual Improvement</strong>: The system should be a tool for ongoing enhancement.</li>
-            </ul>
-          </article>
-
-          <aside className="card">
-            <div className="aside-section">
-              <h3 className="section-title h3">Who Benefits?</h3>
-              <p>Any organization that interacts with customers can benefit from implementing ISO 10002, regardless of size, type, or industry. It is especially valuable for:</p>
-              <ul className="list">
-                <li>Service-oriented businesses (e.g., hospitality, finance, healthcare)</li>
-                <li>Product-based companies (e.g., manufacturers, retailers)</li>
-                <li>Public and government bodies</li>
-              </ul>
-            </div>
-            
-            <div className="aside-section">
-              <h3 className="section-title h3">Why is it Important?</h3>
-              <p>An effective CMS is more than just a process; it's a strategic asset. It helps to:</p>
-              <ul className="list">
-                <li>**Enhance Customer Loyalty**: A well-handled complaint can turn a dissatisfied customer into a loyal advocate.</li>
-                <li>**Improve Reputation**: Demonstrates a commitment to customer care.</li>
-                <li>**Reduce Costs**: Resolving issues early prevents them from escalating and becoming more expensive.</li>
-                <li>**Gain Valuable Insights**: Complaint data is a rich source of information for improving products and services.</li>
-              </ul>
-              <div className="iso-image-container img-card" style={{ marginTop: '20px' }}>
-                <img
-                  src="https://th.bing.com/th/id/OIG2.9bMXX84DTRPAJb2QuSPV?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
-                  alt="Customer service representative on the phone"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </aside>
-        </div>
-
-        <article className="card">
-          <h2 className="section-title h2">ISO 10002 and the PDCA Cycle</h2>
-          <p>
-            The standard is built around the **Plan-Do-Check-Act (PDCA)** cycle for continuous improvement. This ensures that the complaint management system is not a static process but a dynamic one that constantly adapts and improves.
-          </p>
-          <div className="iso-image-container img-card">
-            <img
-              src="https://th.bing.com/th/id/OIG3.E5.W7vsBlHm6v39PDmc8?w=270&h=270&c=6&r=0&o=5&dpr=1.3&pid=ImgGn"
-              alt="ISO 10002 PDCA Cycle"
-              loading="lazy"
-            />
           </div>
-          <ul className="list">
-            <li><strong>Plan</strong>: Establish the complaint handling policy and process.</li>
-            <li><strong>Do</strong>: Implement the process and handle complaints.</li>
-            <li><strong>Check</strong>: Monitor and measure the performance of the CMS.</li>
-            <li><strong>Act</strong>: Take actions to continually improve the system.</li>
-          </ul>
-        </article>
-        
-        <div className="back-row">
-          <Link className="back-link" to="/authorisations">Back to Authorisations</Link>
+          <dl className="iso10002-hero-stats" aria-label="ISO 10002 engagement facts">
+            {heroStats.map((stat) => (
+              <div key={stat.label} className="iso10002-hero-stat">
+                <dt>{stat.label}</dt>
+                <dd>{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
+      </header>
+
+      <main className="iso10002-main">
+        <section className="iso10002-section">
+          <div className="iso10002-section-head">
+            <h2>Where ISO 10002 unlocks performance</h2>
+            <p className="iso10002-section-lead">
+              We combine customer journey design, operational excellence, and regulatory know-how, giving you a complaint
+              system customers trust and managers can steer with confidence.
+            </p>
+          </div>
+          <div className="iso10002-grid iso10002-grid--tiles">
+            {transformationAreas.map((area) => (
+              <article key={area.title} className="iso10002-card">
+                <div className="iso10002-card-icon">
+                  <area.icon size={28} strokeWidth={1.7} />
+                </div>
+                <h3>{area.title}</h3>
+                <p>{area.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso10002-section">
+          <div className="iso10002-section-head">
+            <h2>Service modules we deliver</h2>
+            <p className="iso10002-section-lead">
+              Pick the full transformation or target the modules that matter most. Each one is engineered to meet ISO 10002
+              clause expectations while fitting your organisation's culture.
+            </p>
+          </div>
+          <div className="iso10002-grid iso10002-grid--modules">
+            {serviceModules.map((module) => (
+              <article key={module.title} className="iso10002-module-card">
+                <div className="iso10002-card-icon iso10002-module-icon">
+                  <module.icon size={26} strokeWidth={1.6} />
+                </div>
+                <h3>{module.title}</h3>
+                <p>{module.detail}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso10002-section">
+          <div className="iso10002-section-head">
+            <h2>Engagement path</h2>
+            <p className="iso10002-section-lead">
+              A proven five-phase journey keeps stakeholders aligned and produces the artefacts, metrics, and behaviours
+              assessors expect to see.
+            </p>
+          </div>
+          <div className="iso10002-steps">
+            {engagementPath.map((stage) => (
+              <article key={stage.step} className="iso10002-step-card">
+                <div className="iso10002-step-number">{stage.step}</div>
+                <div className="iso10002-step-body">
+                  <h3>{stage.title}</h3>
+                  <p>{stage.info}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso10002-section">
+          <div className="iso10002-section-head">
+            <h2>The toolkit you retain</h2>
+            <p className="iso10002-section-lead">
+              Every deliverable is packaged so your teams can maintain, evidence, and enhance the complaint management
+              system without external support.
+            </p>
+          </div>
+          <ul className="iso10002-toolkit">
+            {toolkitItems.map((item) => (
+              <li key={item}>
+                <ShieldCheck size={20} strokeWidth={1.6} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="iso10002-section">
+          <div className="iso10002-section-head">
+            <h2>Measurable outcomes</h2>
+            <p className="iso10002-section-lead">
+              We agree the metrics that matter before kickoff and track progress together so wins are visible to leadership
+              and front-line teams alike.
+            </p>
+          </div>
+          <div className="iso10002-grid iso10002-grid--metrics">
+            {outcomeMetrics.map((metric) => (
+              <article key={metric.value} className="iso10002-metric-card">
+                <span className="iso10002-metric-value">{metric.value}</span>
+                <span className="iso10002-metric-descriptor">{metric.descriptor}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso10002-section">
+          <div className="iso10002-case-card">
+            <div className="iso10002-case-quote">
+              <Sparkles size={32} strokeWidth={1.6} />
+              <blockquote>{caseStudy.quote}</blockquote>
+            </div>
+            <div className="iso10002-case-meta">
+              <p className="iso10002-case-context">{caseStudy.context}</p>
+              <p className="iso10002-case-client">{caseStudy.client}</p>
+              <ul>
+                {caseStudy.results.map((result) => (
+                  <li key={result}>{result}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="iso10002-section">
+          <div className="iso10002-section-head">
+            <h2>Common questions</h2>
+            <p className="iso10002-section-lead">
+              Transparent expectations are vital to a successful programme. Here are the topics clients raise most during
+              planning.
+            </p>
+          </div>
+          <div className="iso10002-faq">
+            {faqs.map((item) => (
+              <article key={item.question} className="iso10002-faq-item">
+                <h3>{item.question}</h3>
+                <p>{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      <CountrySelector
+        serviceName="ISO 10002"
+      />
       </main>
+
+      <footer className="iso10002-footer">
+        <div className="iso10002-footer-content">
+          <h2>Let's elevate every customer recovery moment</h2>
+          <p>
+            Certigence blends CX design, quality management, and regulatory assurance so ISO 10002 becomes a springboard
+            for loyalty, not a compliance checkbox. We'll co-create a roadmap that fits your ambition.
+          </p>
+          <div className="iso10002-footer-actions">
+            <a className="iso10002-cta-primary" href="mailto:info@certigence.co.uk">
+              Book a working session <ArrowRight size={18} strokeWidth={1.7} />
+            </a>
+            <Link className="iso10002-cta-secondary" to="/authorisations">
+              Back to Authorisations
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-}
+};
+
+export default Iso10002;
+
+
+

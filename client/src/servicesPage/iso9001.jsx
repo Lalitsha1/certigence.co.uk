@@ -1,186 +1,312 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   ShieldCheck,
-  Award,
-  Building2,
   Users,
+  Gauge,
   Workflow,
-  BookOpen,
-  TrendingUp,
-  CheckCircle,
   Target,
-  Globe,
+  TrendingUp,
+  BarChart3,
+  ClipboardList,
   FileCheck,
+  Layers,
+  LineChart,
+  Factory,
+  Sparkles,
+  Globe2,
+  Settings,
+  ArrowRight,
 } from "lucide-react";
 import "../styles/servicespage-css/iso9001.css";
+import CountrySelector from "../components/CountrySelector";
 
-// Memoize static data to prevent re-renders
-const benefits = [
+const heroStats = [
+  { label: "Standard", value: "ISO 9001:2015" },
+  { label: "Framework", value: "Quality management system" },
+  { label: "Focus", value: "Process excellence" },
+  { label: "Ideal for", value: "All industries" },
+];
+
+const valueDrivers = [
   {
-    icon: <ShieldCheck size={40} />,
-    title: "Quality Assurance",
-    text: "Consistently delivers products and services that meet both customer and regulatory requirements.",
+    icon: ShieldCheck,
+    title: "Assured quality",
+    description:
+      "Embed governance, risk, and compliance controls that stand up to audits and customer scrutiny.",
   },
   {
-    icon: <Award size={40} />,
-    title: "Global Recognition",
-    text: "ISO 9001 certification is internationally recognized, boosting credibility across markets.",
+    icon: Users,
+    title: "Engaged teams",
+    description:
+      "Align leadership and frontline teams around consistent work instructions and feedback loops.",
   },
   {
-    icon: <Building2 size={40} />,
-    title: "Operational Efficiency",
-    text: "Streamlines internal processes, reduces waste, and optimizes resource usage.",
+    icon: Gauge,
+    title: "Operational flow",
+    description:
+      "Map and optimise end-to-end processes to eliminate rework, latency, and hidden waste.",
   },
   {
-    icon: <Users size={40} />,
-    title: "Customer Trust",
-    text: "Builds stronger customer relationships by consistently meeting expectations.",
-  },
-  {
-    icon: <TrendingUp size={40} />,
-    title: "Business Growth",
-    text: "Improves decision-making and creates new opportunities for growth.",
-  },
-  {
-    icon: <Globe size={40} />,
-    title: "Market Advantage",
-    text: "Gives a competitive edge in tenders, contracts, and partnerships.",
-  },
-  {
-    icon: <Target size={40} />,
-    title: "Strategic Focus",
-    text: "Aligns processes and objectives with business strategy for long-term results.",
-  },
-  {
-    icon: <FileCheck size={40} />,
-    title: "Compliance",
-    text: "Helps meet regulatory and statutory obligations smoothly.",
-  },
-  {
-    icon: <CheckCircle size={40} />,
-    title: "Continuous Improvement",
-    text: "Encourages innovation and ensures processes are always improving.",
+    icon: TrendingUp,
+    title: "Growth-ready",
+    description:
+      "Use data-driven insights to win bids, expand certifications, and build resilient partnerships.",
   },
 ];
 
-const principles = [
-  { icon: <Users size={30} />, title: "Customer Focus", text: "Meeting customer needs and striving to exceed expectations." },
-  { icon: <ShieldCheck size={30} />, title: "Leadership", text: "Unity of purpose and strong leadership at all levels." },
-  { icon: <Workflow size={30} />, title: "Engagement of People", text: "Involving employees and valuing their contributions." },
-  { icon: <BookOpen size={30} />, title: "Process Approach", text: "Managing activities as processes for efficiency." },
-  { icon: <TrendingUp size={30} />, title: "Improvement", text: "Continual improvement is a permanent objective." },
-  { icon: <CheckCircle size={30} />, title: "Evidence-Based Decisions", text: "Decisions made using accurate data and analysis." },
-  { icon: <Award size={30} />, title: "Relationship Management", text: "Managing supplier and stakeholder relationships effectively." },
+const systemPillars = [
+  {
+    icon: Workflow,
+    title: "Process architecture",
+    text: "Visualise core value streams, interfaces, and ownership so every requirement has a home.",
+  },
+  {
+    icon: Target,
+    title: "Policy & objectives",
+    text: "Cascade strategy into measurable quality objectives linked to customer and business outcomes.",
+  },
+  {
+    icon: Layers,
+    title: "Document control",
+    text: "Maintain digital traceability for procedures, records, and revisions across global teams.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Risk & opportunity",
+    text: "Proactively assess process risks and improvement opportunities using prioritised action logs.",
+  },
+  {
+    icon: LineChart,
+    title: "Performance insight",
+    text: "Dashboards, KPIs, and management review cadence keep attention on the right indicators.",
+  },
+  {
+    icon: Settings,
+    title: "Continuous improvement",
+    text: "Structured PDCA cycles, root cause analysis, and lessons learned sustain momentum.",
+  },
 ];
 
-const steps = [
-  { id: "01", title: "Application & Enquiry", text: "Submit company details, scope, and requirements for certification." },
-  { id: "02", title: "Documentation Review", text: "Review of your quality manual, policies, and procedures." },
-  { id: "03", title: "Stage 1 Audit", text: "Evaluate readiness, review documents, and check implementation." },
-  { id: "04", title: "Stage 2 Audit", text: "Detailed on-site audit to ensure compliance with ISO 9001 standards." },
-  { id: "05", title: "Certification Decision", text: "Certification body issues the ISO 9001 certificate upon compliance." },
-  { id: "06", "title": "Surveillance Audits", text: "Annual audits ensure continual compliance and improvement." },
+const implementationJourney = [
+  {
+    step: "01",
+    title: "Discover & diagnose",
+    detail: "Clarify certification scope, maturity, and stakeholder expectations via rapid assessment workshops.",
+  },
+  {
+    step: "02",
+    title: "Design & document",
+    detail: "Blueprint process architecture, quality policy, and document stack using tailored templates.",
+  },
+  {
+    step: "03",
+    title: "Deploy & train",
+    detail: "Roll out procedures, competence matrices, and change readiness training across teams.",
+  },
+  {
+    step: "04",
+    title: "Operate & monitor",
+    detail: "Run pilots, capture metrics, and close actions from internal audits and management reviews.",
+  },
+  {
+    step: "05",
+    title: "Certification support",
+    detail: "Coordinate stage 1 & 2 audits, evidence packs, and corrective actions through approval.",
+  },
 ];
 
-const BenefitCard = React.memo(({ item, index }) => (
-  <div className="iso-card" style={{ animationDelay: `${index * 0.1}s` }}>
-    <div className="iso-content">
-      <div className="iso-icon">{item.icon}</div>
-      <h3>{item.title}</h3>
-      <p className="item-text">{item.text}</p>
-    </div>
-    <div className="card-hover-effect"></div>
-  </div>
-));
+const improvementHighlights = [
+  {
+    icon: Factory,
+    title: "Lean workflows",
+    copy: "Synchronise production and service delivery with takt-driven planning and standard work.",
+  },
+  {
+    icon: BarChart3,
+    title: "Customer intelligence",
+    copy: "Capture voice-of-customer signals and route them into prioritised improvement projects.",
+  },
+  {
+    icon: FileCheck,
+    title: "Supplier assurance",
+    copy: "Qualify and monitor partners with scorecards, corrective actions, and shared KPIs.",
+  },
+  {
+    icon: Sparkles,
+    title: "Innovation culture",
+    copy: "Empower teams with idea funnels, Kaizen events, and recognition programs that stick.",
+  },
+];
 
-const PrincipleCard = React.memo(({ item, index }) => (
-  <div className="principle-card" style={{ animationDelay: `${index * 0.1}s` }}>
-    <div className="principle-icon">{item.icon}</div>
-    <h4>{item.title}</h4>
-    <p className="item-text">{item.text}</p>
-    <div className="card-hover-effect"></div>
-  </div>
-));
-
-const StepCard = React.memo(({ item, index }) => (
-  <div className="step-card" style={{ animationDelay: `${index * 0.1}s` }}>
-    <div className="step-circle">{item.id}</div>
-    <h4>{item.title}</h4>
-    <p>{item.text}</p>
-    <div className="step-connector"></div>
-    <div className="card-hover-effect"></div>
-  </div>
-));
+const evidenceChecklist = [
+  "Quality policy cascaded to objectives and KPI dashboards",
+  "Process maps with owners, inputs, outputs, and performance criteria",
+  "Controlled procedures and records with full revision history",
+  "Risk & opportunity register with evaluation and action follow-up",
+  "Internal audit programme, reports, and corrective action logs",
+  "Management review minutes addressing resources, trends, and decisions",
+  "Competence and training records aligned with role expectations",
+];
 
 const Iso9001 = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const benefitCards = useMemo(() =>
-    benefits.map((item, index) => <BenefitCard key={index} item={item} index={index} />),
-    []
-  );
-
-  const principleCards = useMemo(() =>
-    principles.map((p, i) => <PrincipleCard key={i} item={p} index={i} />),
-    []
-  );
-
-  const stepCards = useMemo(() =>
-    steps.map((s, i) => <StepCard key={i} item={s} index={i} />),
-    []
-  );
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const standardLabel = heroStats.find((item) => item.label === "Standard")?.value || "ISO 9001";
 
   return (
-    <div className={`iso-container ${isVisible ? 'visible' : ''}`}>
-      <div className="header-content">
-        <h1 className="iso-heading">ISO 9001 Certification</h1>
-        <div className="heading-underline"></div>
-        <p className="iso-subtext">
-          ISO 9001 is the most recognized Quality Management System (QMS) standard.
-          It helps organizations of all sizes improve processes, boost efficiency,
-          and deliver consistent customer satisfaction. Achieving certification demonstrates
-          commitment to quality, credibility, and business excellence.
-        </p>
-      </div>
-      <div className="section-wrapper">
-        <h2 className="section-title">Why Choose ISO 9001?</h2>
-        <div className="iso-grid">
-          {benefitCards}
-        </div>
-      </div>
-      <div className="section-wrapper principles-section">
-        <h2 className="section-title">Principles of ISO 9001</h2>
-        <div className="principles-grid">
-          {principleCards}
-        </div>
-      </div>
-      <div className="section-wrapper">
-        <h2 className="section-title">ISO 9001 Certification Process</h2>
-        <div className="steps-container">
-          {stepCards}
-        </div>
-      </div>
-      <div className="closing-box">
-        <div className="closing-content">
-          <h2>Get Certified Today</h2>
-          <p>
-            Achieving ISO 9001 certification enhances credibility, improves internal
-            processes, and creates new business opportunities. Take the next step
-            toward excellence with ISO 9001.
+    <div className="iso9001-page">
+      <header className="iso9001-hero">
+        <div className="iso9001-hero-inner">
+          <span className="iso9001-hero-eyebrow">Quality management excellence</span>
+          <h1 className="iso9001-hero-title">Make ISO 9001 your engine for scalable, repeatable success</h1>
+          <p className="iso9001-hero-subtitle">
+            We partner with leadership and delivery teams to transform ISO 9001 from a compliance exercise into a
+            performance system that protects margins, delights customers, and accelerates growth.
           </p>
-          <button className="cta-button"><a href="/contact"> Start Your Certification Journey </a></button>
+          <div className="iso9001-hero-actions">
+            <a className="iso9001-cta-primary" href="mailto:info@certigence.co.uk">
+              Talk to an ISO 9001 expert <ArrowRight size={18} />
+            </a>
+            <Link className="iso9001-cta-secondary" to="/contact">
+              Request a readiness review
+            </Link>
+          </div>
+          <div className="iso9001-hero-stats">
+            {heroStats.map((item) => (
+              <article key={item.label} className="iso9001-stat-card">
+                <span className="iso9001-stat-label">{item.label}</span>
+                <span className="iso9001-stat-value">{item.value}</span>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
+      </header>
+
+      <main className="iso9001-main">
+        <section className="iso9001-section">
+          <div className="iso9001-section-head">
+            <h2 className="iso9001-section-title">Why organisations modernise with us</h2>
+            <p className="iso9001-section-lead">
+              Bring clarity to processes, controls, and metrics with consultants who have embedded ISO 9001 in complex,
+              multi-site environments worldwide.
+            </p>
+          </div>
+          <div className="iso9001-grid iso9001-value-grid">
+            {valueDrivers.map((driver) => (
+              <article key={driver.title} className="iso9001-card">
+                <div className="iso9001-card-icon">
+                  <driver.icon size={32} strokeWidth={1.5} />
+                </div>
+                <h3 className="iso9001-card-title">{driver.title}</h3>
+                <p className="iso9001-card-text">{driver.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso9001-section">
+          <div className="iso9001-section-head">
+            <h2 className="iso9001-section-title">Strengthen every pillar of your QMS</h2>
+            <p className="iso9001-section-lead">
+              We co-create the playbooks, governance, and insights that keep your quality management system living and
+              relevant to strategic decisions.
+            </p>
+          </div>
+          <div className="iso9001-grid iso9001-pillar-grid">
+            {systemPillars.map((pillar) => (
+              <article key={pillar.title} className="iso9001-pillar-card">
+                <div className="iso9001-card-icon iso9001-pillar-icon">
+                  <pillar.icon size={30} strokeWidth={1.4} />
+                </div>
+                <h3 className="iso9001-card-title">{pillar.title}</h3>
+                <p className="iso9001-card-text">{pillar.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso9001-section">
+          <div className="iso9001-section-head">
+            <h2 className="iso9001-section-title">Implementation journey</h2>
+            <p className="iso9001-section-lead">
+              From discovery to certification, our phased programme keeps teams aligned, accountable, and audit-ready.
+            </p>
+          </div>
+          <div className="iso9001-steps-grid">
+            {implementationJourney.map((stage) => (
+              <article key={stage.step} className="iso9001-step-card">
+                <div className="iso9001-step-number">{stage.step}</div>
+                <div className="iso9001-step-body">
+                  <h3 className="iso9001-step-title">{stage.title}</h3>
+                  <p className="iso9001-step-text">{stage.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso9001-section">
+          <div className="iso9001-section-head">
+            <h2 className="iso9001-section-title">Where improvement accelerates</h2>
+            <p className="iso9001-section-lead">
+              Modern ISO 9001 systems fuel smarter operations, procurement rigour, and continuous innovation.
+            </p>
+          </div>
+          <div className="iso9001-grid iso9001-improvement-grid">
+            {improvementHighlights.map((item) => (
+              <article key={item.title} className="iso9001-improvement-card">
+                <div className="iso9001-card-icon iso9001-improvement-icon">
+                  <item.icon size={30} strokeWidth={1.5} />
+                </div>
+                <h3 className="iso9001-card-title">{item.title}</h3>
+                <p className="iso9001-card-text">{item.copy}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="iso9001-section">
+          <div className="iso9001-section-head">
+            <h2 className="iso9001-section-title">Evidence assessors expect to see</h2>
+            <p className="iso9001-section-lead">
+              Build confidence with a curated evidence pack that demonstrates control, improvement, and leadership
+              ownership.
+            </p>
+          </div>
+          <ul className="iso9001-checklist">
+            {evidenceChecklist.map((item) => (
+              <li key={item} className="iso9001-checklist-item">
+                <ShieldCheck size={20} strokeWidth={1.8} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <CountrySelector
+          serviceName={standardLabel}
+          descriptor="Quality Management System (QMS)"
+        />
+      </main>
+
+      <footer className="iso9001-footer">
+        <div className="iso9001-footer-content">
+          <h2 className="iso9001-footer-title">Turn ISO 9001 into your competitive advantage</h2>
+          <p className="iso9001-footer-text">
+            Certigence delivers experienced consultants, proven toolkits, and engaging facilitation so your QMS
+            becomes the heartbeat of continuous improvement across every function.
+          </p>
+          <div className="iso9001-footer-actions">
+            <a className="iso9001-cta-primary" href="mailto:info@certigence.co.uk">
+              Schedule a discovery call <ArrowRight size={18} />
+            </a>
+            <Link className="iso9001-cta-secondary" to="/">
+              Explore more services
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default React.memo(Iso9001);
+export default Iso9001;
